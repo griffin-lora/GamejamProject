@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://src/Actor.gd"
+}, {
 "base": "Resource",
 "class": "LevelList",
 "language": "GDScript",
 "path": "res://src/LevelList.gd"
 } ]
 _global_script_class_icons={
+"Actor": "",
 "LevelList": ""
 }
 
