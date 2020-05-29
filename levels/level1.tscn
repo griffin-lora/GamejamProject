@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Level.gd" type="Script" id=1]
 [ext_resource path="res://actors/character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Path.gd" type="Script" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array(  )
+}
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
+path = NodePath("Path2D")
 
 [node name="Character" parent="." instance=ExtResource( 2 )]
 position = Vector2( -696.963, 70.9565 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+script = ExtResource( 3 )
