@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Level.gd" type="Script" id=1]
 [ext_resource path="res://actors/character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Path.gd" type="Script" id=3]
+[ext_resource path="res://assets/bkg.png" type="Texture" id=4]
+[ext_resource path="res://src/Camera2D.gd" type="Script" id=5]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -18,7 +20,14 @@ position = Vector2( -696.963, 70.9565 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+script = ExtResource( 5 )
+character = NodePath("../Character")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 1 )
 script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 6.34885, 6.34885 )
+z_index = -1
+texture = ExtResource( 4 )
