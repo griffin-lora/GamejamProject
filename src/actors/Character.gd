@@ -8,8 +8,7 @@ export var reaction_speed = 17.5
 export var rotation_speed = 12.5
 
 func _ready():
-#	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta):
 	center_pos = Vector2(center_pos.x + 1, center_pos.y)
