@@ -9,3 +9,5 @@ var rotation_speed = 1
 func _physics_process(delta):
 	position = character_node.center_pos
 	rotation = lerp_angle(rotation, character_node.base_rotation, delta * rotation_speed)
+
+	get_node("../ParallaxBackground").rotation = -rotation

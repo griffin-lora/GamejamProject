@@ -41,5 +41,5 @@ func _physics_process(delta):
 		
 	var mouse_pos = get_global_mouse_position()
 	position = position.linear_interpolate(mouse_pos, delta * reaction_speed)
-	sprite.rotation = lerp(sprite.rotation, base_rotation, delta * rotation_speed)
+	sprite.rotation = lerp_angle(sprite.rotation, base_rotation, delta * rotation_speed)
 	#lerp(sprite.rotation_degrees, clamp(mouse_pos.y - position.y, -30, 30), delta * rotation_speed) + rad2deg(base_rotation)

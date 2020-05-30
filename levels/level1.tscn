@@ -22,11 +22,16 @@ current = true
 script = ExtResource( 5 )
 character = NodePath("../Character")
 
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 4993.33, 0 )
-scale = Vector2( 6.34885, 6.34885 )
-z_index = -1
-texture = ExtResource( 4 )
-
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 6144, 4140 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2( 6, 6 )
+z_index = -1
+texture = ExtResource( 4 )
