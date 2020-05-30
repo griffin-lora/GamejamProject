@@ -39,6 +39,14 @@ window/size/test_height=540
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[input]
+
+reset={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
 [rendering]
 
 environment/default_clear_color=Color( 0.0313726, 0, 0.376471, 1 )

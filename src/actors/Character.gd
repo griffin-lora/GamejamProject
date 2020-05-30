@@ -10,7 +10,7 @@ onready var particles = $Particles
 onready var path_node = get_node(path)
 
 export var reaction_speed = 12.5
-export var fly_speed = 15.0
+export var fly_speed = 17.5
 export var rotation_speed = 3.0
 export var mouse_rotation_speed = 12.5
 export var arm_speed = 7.5
@@ -70,3 +70,7 @@ func _physics_process(delta):
 	else:
 		arm.rotation = lerp_angle(arm.rotation, PI/2, delta * arm_speed)
 		arm.position = arm.position.linear_interpolate(Vector2(0, -2), delta * arm_speed)
+
+func _input(event):
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
