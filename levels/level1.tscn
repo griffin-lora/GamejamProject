@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Level.gd" type="Script" id=1]
 [ext_resource path="res://actors/character.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/bkg.png" type="Texture" id=4]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=5]
 [ext_resource path="res://actors/obstacle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/checkpoint.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -66,5 +67,8 @@ autoplay = true
 path = NodePath("../../Path2D")
 
 [node name="Obstacle" parent="Actors" instance=ExtResource( 6 )]
-position = Vector2( 1263.28, -283.979 )
+position = Vector2( 3129.61, -519.247 )
 scale = Vector2( 2.52, 2.52 )
+
+[node name="Checkpoint" parent="Actors" instance=ExtResource( 7 )]
+position = Vector2( 1905.75, 1.74716 )

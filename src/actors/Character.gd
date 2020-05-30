@@ -8,6 +8,7 @@ onready var arm = $Sprite/Arm
 onready var rotation_setter = $HackyRotationSetter
 onready var particles = $Particles
 onready var path_node = get_node(path)
+onready var actors = get_node("../")
 
 export var reaction_speed = 12.5
 export var fly_speed = 25.0
@@ -23,10 +24,16 @@ var move_normal = Vector2()
 
 var base_rotation = 0
 
+var type = "Character"
+
 func kill():
 	get_tree().reload_current_scene()
 
 func _ready():
+	if GlobalVars.checkpoint_id >= 1 or true:
+		for actor in actors.get_children():
+			if actor.type == "Checkpoint" and actor.checkpoint_id == GlobalVars.checkpoint_id:
+				position = actor.position
 	center_pos = position
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if path:
