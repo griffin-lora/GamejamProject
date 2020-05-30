@@ -3,6 +3,7 @@ extends Actor
 onready var area = $Area2D
 
 export var checkpoint_id := 1
+export var path_index := 1
 
 var type = "Checkpoint"
 

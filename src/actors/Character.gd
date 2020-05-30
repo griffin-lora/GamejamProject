@@ -30,16 +30,17 @@ func kill():
 	get_tree().reload_current_scene()
 
 func _ready():
-	if GlobalVars.checkpoint_id >= 1:
-		for actor in actors.get_children():
-			if actor.type == "Checkpoint" and actor.checkpoint_id == GlobalVars.checkpoint_id:
-				position = actor.position
-	center_pos = position
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if path:
 		path_node.curve.set_bake_interval(fly_speed)
 		path_points = path_node.curve.get_baked_points()
 		path_node.curve.tessellate(5, 4)
+	if GlobalVars.checkpoint_id >= 1:
+		for actor in actors.get_children():
+			if actor.type == "Checkpoint" and actor.checkpoint_id == GlobalVars.checkpoint_id:
+				path_index = actor.path_index
+				position = path_points[path_index - 1]
+	center_pos = position
 	target = path_points[path_index]
 	move_normal = (target - center_pos).normalized()
 		
@@ -83,4 +84,4 @@ func _physics_process(delta):
 
 func _input(event):
 	if event.is_action_pressed("reset"):
-		get_tree().reload_current_scene()
+		kill()

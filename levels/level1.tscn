@@ -71,4 +71,5 @@ position = Vector2( 3129.61, -519.247 )
 scale = Vector2( 2.52, 2.52 )
 
 [node name="Checkpoint" parent="Actors" instance=ExtResource( 7 )]
-position = Vector2( 1905.75, 1.74716 )
+position = Vector2( 2769.31, 0 )
+path_index = 110
