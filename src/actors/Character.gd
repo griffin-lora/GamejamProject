@@ -30,7 +30,7 @@ func kill():
 	get_tree().reload_current_scene()
 
 func _ready():
-	if GlobalVars.checkpoint_id >= 1 or true:
+	if GlobalVars.checkpoint_id >= 1:
 		for actor in actors.get_children():
 			if actor.type == "Checkpoint" and actor.checkpoint_id == GlobalVars.checkpoint_id:
 				position = actor.position
