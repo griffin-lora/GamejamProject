@@ -23,6 +23,9 @@ var move_normal = Vector2()
 
 var base_rotation = 0
 
+func kill():
+	get_tree().reload_current_scene()
+
 func _ready():
 	center_pos = position
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

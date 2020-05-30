@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/actors/Character.gd" type="Script" id=1]
 [ext_resource path="res://assets/torpedoted.png" type="Texture" id=2]
@@ -42,6 +42,9 @@ animations = [ {
 "speed": 24.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 62.2736, 31.1266 )
+
 [node name="Character" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -59,6 +62,7 @@ texture = ExtResource( 3 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 4, 4 )
 frames = SubResource( 6 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -70,5 +74,11 @@ flip_h = true
 visible = false
 scale = Vector2( 6, 6 )
 frames = SubResource( 6 )
+frame = 1
 playing = true
 flip_h = true
+
+[node name="CharArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharArea"]
+shape = SubResource( 7 )
