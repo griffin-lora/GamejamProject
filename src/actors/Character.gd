@@ -55,4 +55,4 @@ func _physics_process(delta):
 	rotation_setter.rotation_degrees = lerp(rotation_setter.rotation_degrees, clamp(mouse_screen_pos.y - rotation_setter.offset.y, -40, 40), delta * mouse_rotation_speed)
 	move_angle = rotation_setter.rotation
 	
-	sprite.rotation = lerp_angle(sprite.rotation, move_angle + base_rotation, delta * rotation_speed)
+	rotation = lerp_angle(rotation, move_angle + base_rotation, delta * rotation_speed)
