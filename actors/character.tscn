@@ -5,13 +5,13 @@
 [ext_resource path="res://assets/bubble.png" type="Texture" id=3]
 [ext_resource path="res://assets/arm.png" type="Texture" id=4]
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=3]
 lifetime_randomness = 0.12
 flag_disable_z = true
 direction = Vector3( -1, 0, 0 )
@@ -24,19 +24,19 @@ orbit_velocity_random = 0.0
 damping = 100.0
 damping_random = 0.68
 scale = 4.0
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 2 )
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 16 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 16, 32, 16 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 24.0
@@ -53,12 +53,12 @@ scale = Vector2( 4, 4 )
 z_index = -1
 amount = 64
 local_coords = false
-process_material = SubResource( 6 )
+process_material = SubResource( 3 )
 texture = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 4, 4 )
-frames = SubResource( 3 )
+frames = SubResource( 6 )
 playing = true
 flip_h = true
 
@@ -69,6 +69,6 @@ flip_h = true
 [node name="HackyRotationSetter" type="AnimatedSprite" parent="."]
 visible = false
 scale = Vector2( 6, 6 )
-frames = SubResource( 3 )
+frames = SubResource( 6 )
 playing = true
 flip_h = true

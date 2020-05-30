@@ -15,7 +15,7 @@ export var rotation_speed = 3.0
 export var mouse_rotation_speed = 12.5
 export var arm_speed = 7.5
 
-export var path_interpolation_speed = 15.0
+export var path_interpolation_speed = 35.0
 export var path : NodePath
 var path_points
 var target
@@ -34,6 +34,8 @@ func _ready():
 	move_normal = (target - center_pos).normalized()
 		
 func _physics_process(delta):
+	OS.set_window_title("Torpedo Ted (FPS: " + str(int(Engine.get_frames_per_second())) + ")")
+	
 	if center_pos.distance_to(target) < fly_speed and path_index + 1 < path_points.size():
 		path_index += 1
 		target = path_points[path_index]
