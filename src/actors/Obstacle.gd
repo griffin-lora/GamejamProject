@@ -1,4 +1,4 @@
-extends Node
+extends Actor
 
 onready var area = $Area2D
 
