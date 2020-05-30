@@ -25,13 +25,32 @@ character = NodePath("../Character")
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 3584, 0 )
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.5, 0.5 )
-motion_mirroring = Vector2( 6144, 4140 )
-
-[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Background" type="Sprite" parent="Node2D"]
 scale = Vector2( 6, 6 )
 z_index = -1
 texture = ExtResource( 4 )
+centered = false
+offset = Vector2( -1024, -690 )
+
+[node name="Background2" type="Sprite" parent="Node2D"]
+scale = Vector2( 6, 6 )
+z_index = -1
+texture = ExtResource( 4 )
+centered = false
+offset = Vector2( 0, -690 )
+
+[node name="Background4" type="Sprite" parent="Node2D"]
+scale = Vector2( 6, 6 )
+z_index = -1
+texture = ExtResource( 4 )
+centered = false
+offset = Vector2( -1024, 0 )
+
+[node name="Background3" type="Sprite" parent="Node2D"]
+scale = Vector2( 6, 6 )
+z_index = -1
+texture = ExtResource( 4 )
+centered = false

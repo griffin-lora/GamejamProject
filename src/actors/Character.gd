@@ -7,8 +7,8 @@ onready var sprite = $Sprite
 onready var path_node = get_node(path)
 
 export var reaction_speed = 17.5
-export var fly_speed = 5
-export var rotation_speed = 1
+export var fly_speed = 15
+export var rotation_speed = 3
 
 export var path_interpolation_speed = 15
 export var path : NodePath
@@ -21,6 +21,7 @@ func _ready():
 	center_pos = position
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if path:
+		path_node.curve.set_bake_interval(fly_speed)
 		path_points = path_node.curve.get_baked_points()
 	target = path_points[path_index]
 		
