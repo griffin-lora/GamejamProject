@@ -7,7 +7,7 @@ onready var sprite = $Sprite
 onready var rotation_setter = $HackyRotationSetter
 onready var path_node = get_node(path)
 
-export var reaction_speed = 17.5
+export var reaction_speed = 12.5
 export var fly_speed = 15
 export var rotation_speed = 3
 export var mouse_rotation_speed = 12.5
