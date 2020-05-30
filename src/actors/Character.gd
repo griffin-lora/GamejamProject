@@ -10,8 +10,8 @@ onready var particles = $Particles
 onready var path_node = get_node(path)
 
 export var reaction_speed = 12.5
-export var fly_speed = 17.5
-export var rotation_speed = 3.0
+export var fly_speed = 25.0
+export var rotation_speed = 12.5
 export var mouse_rotation_speed = 12.5
 export var arm_speed = 7.5
 
