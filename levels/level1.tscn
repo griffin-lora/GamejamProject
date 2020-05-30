@@ -29,6 +29,7 @@ curve = SubResource( 1 )
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2( 3072, 0 )
+z_index = -10
 
 [node name="Background" type="Sprite" parent="Node2D"]
 scale = Vector2( 6, 6 )

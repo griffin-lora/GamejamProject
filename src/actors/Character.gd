@@ -4,15 +4,18 @@ var center_pos := Vector2()
 var path_index = 0
 
 onready var sprite = $Sprite
+onready var arm = $Sprite/Arm
 onready var rotation_setter = $HackyRotationSetter
+onready var particles = $Particles
 onready var path_node = get_node(path)
 
 export var reaction_speed = 12.5
-export var fly_speed = 15
-export var rotation_speed = 3
+export var fly_speed = 15.0
+export var rotation_speed = 3.0
 export var mouse_rotation_speed = 12.5
+export var arm_speed = 7.5
 
-export var path_interpolation_speed = 15
+export var path_interpolation_speed = 15.0
 export var path : NodePath
 var path_points
 var target
@@ -52,7 +55,16 @@ func _physics_process(delta):
 	rotation_setter.offset = rotation_setter.offset.linear_interpolate(mouse_screen_pos, delta * reaction_speed)
 	
 	var move_angle = 0
-	rotation_setter.rotation_degrees = lerp(rotation_setter.rotation_degrees, clamp(mouse_screen_pos.y - rotation_setter.offset.y, -40, 40), delta * mouse_rotation_speed)
+	rotation_setter.rotation_degrees = lerp(rotation_setter.rotation_degrees, clamp(mouse_screen_pos.y - rotation_setter.offset.y, -35, 35), delta * mouse_rotation_speed)
 	move_angle = rotation_setter.rotation
 	
-	rotation = lerp_angle(rotation, move_angle + base_rotation, delta * rotation_speed)
+	sprite.rotation = lerp_angle(sprite.rotation, move_angle, delta * mouse_rotation_speed)
+	particles.rotation = sprite.rotation
+	rotation = lerp_angle(rotation, base_rotation, delta * rotation_speed)
+
+	if mouse_screen_pos.y - rotation_setter.offset.y < 5:
+		arm.rotation = lerp_angle(arm.rotation, 0, delta * arm_speed)
+		arm.position = arm.position.linear_interpolate(Vector2(), delta * arm_speed)
+	else:
+		arm.rotation = lerp_angle(arm.rotation, PI/2, delta * arm_speed)
+		arm.position = arm.position.linear_interpolate(Vector2(0, -2), delta * arm_speed)
