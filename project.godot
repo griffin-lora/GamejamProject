@@ -30,6 +30,10 @@ config/name="Torpedo Ted"
 run/main_scene="res://levels/level1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalVars="*res://src/GlobalVars.gd"
+
 [display]
 
 window/size/width=1920

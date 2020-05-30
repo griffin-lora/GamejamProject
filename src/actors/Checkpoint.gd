@@ -2,10 +2,11 @@ extends Actor
 
 onready var area = $Area2D
 
+export var checkpoint_id := 1
+
 func collide(col_area):
 	if col_area.name == "CharArea":
-		var character = col_area.get_node("../")
-		character.kill()
+		GlobalVars.checkpoint_id = checkpoint_id
 
 func _ready():
 	area.connect("area_entered", self, "collide")
