@@ -9,11 +9,7 @@ func _ready():
 
 func _draw():
 	var points = curve.get_baked_points()
-	var index = 0
-	for point in points:
-		if index < points.size() - 1:
-			draw_polyline(points, Color(1, 0, 0), 3, true)
-		index += 1
+	draw_polyline(points, Color(1, 0, 0), 3, true)
 
 func _input(event):
 	if event.is_action_pressed("add_point"):

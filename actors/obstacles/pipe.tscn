@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://actors/obstacles/pipe.gd" type="Script" id=1]
+[ext_resource path="res://src/actors/Pipe.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_body.png" type="Texture" id=2]
 [ext_resource path="res://assets/pipe_top.png" type="Texture" id=3]
 
