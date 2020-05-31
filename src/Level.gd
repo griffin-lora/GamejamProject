@@ -31,3 +31,7 @@ func _ready():
 			object_scene[property] = object.properties[index]
 			index += 1
 		objects_node.add_child(object_scene)
+
+func _input(event):
+	if event.is_action_pressed("test"):
+		get_tree().change_scene("res://editor.tscn")
