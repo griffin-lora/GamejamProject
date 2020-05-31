@@ -1,11 +1,21 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Visibility.gd" type="Script" id=1]
 
 [node name="UI" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
 margin_right = 318.0
 margin_bottom = 55.0
 text = "Why"

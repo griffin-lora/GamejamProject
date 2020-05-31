@@ -27,5 +27,6 @@ func switch_level():
 	get_tree().change_scene("res://levels/" + level_name + ".tscn")
 
 func activate_ability():
-	ability_recharge_ct = 0
-	print("ABILITY ACTIVATED")
+	if get_tree().get_current_scene().mode == 0:
+		ability_recharge_ct = 0
+		print("ABILITY ACTIVATED")

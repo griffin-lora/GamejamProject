@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_preview.png" type="Texture" id=2]
+[ext_resource path="res://assets/editor_music.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/stripes.png" type="Texture" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends TextureRect
+
+func _physics_process(delta):
+	rect_position += Vector2(0.5, 0.5)
+	
+	if rect_position.x > -1856 or rect_position.y > -1016:
+		rect_position.x = -1920
+		rect_position.y = -1080
+"
 
 [node name="Editor" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,3 +23,24 @@ script = ExtResource( 1 )
 modulate = Color( 0.796078, 0.831373, 1, 0.752941 )
 texture = ExtResource( 2 )
 centered = false
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_left = -1920.0
+margin_top = -1080.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 4 )
+stretch_mode = 2
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
