@@ -2,7 +2,10 @@
 
 [node name="UI" type="Node2D"]
 
-[node name="Button" type="Button" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Button" type="Button" parent="CanvasLayer"]
 margin_right = 318.0
 margin_bottom = 55.0
 text = "Why"
