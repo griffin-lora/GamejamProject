@@ -16,6 +16,7 @@ _data = {
 [node name="Camera2D" type="Camera2D" parent="."]
 rotating = true
 current = true
+zoom = Vector2( 0.25, 0.25 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
