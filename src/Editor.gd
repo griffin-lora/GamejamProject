@@ -58,6 +58,7 @@ func get_objects_at_position(test_position):
 	
 func _input(event):
 	if event.is_action_pressed("test"):
+		GlobalVars.level_data.objects.clear()
 		for object in objects.get_children():
 			var level_object = {
 				"id": object.id,
