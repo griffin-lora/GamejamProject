@@ -30,6 +30,7 @@ func kill():
 	get_tree().reload_current_scene()
 
 func _ready():
+	yield(get_tree(), "physics_frame")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if path:
 		path_node.curve.set_bake_interval(fly_speed)

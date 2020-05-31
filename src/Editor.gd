@@ -9,6 +9,7 @@ var selected_object := 0
 var id_mapper
 
 func _ready():
+	GlobalVars.level_data = LevelData.new()
 	id_mapper = load("res://actors/obstacles/ids.tres")
 
 func _process(delta):
@@ -44,3 +45,7 @@ func get_objects_at_position(test_position):
 		if object.intersects_pos(test_position):
 			objects_found.append(object)
 	return objects_found
+	
+func _input(event):
+	if event.is_action_pressed("test"):
+		get_tree().change_scene("res://levels/level_loader.tscn")

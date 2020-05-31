@@ -2,6 +2,7 @@ extends Node
 
 var checkpoint_id := 0
 var level_id := 0
+var level_data : LevelData
 
 # RECHARGE TIME
 var ability_recharge_time : float = 5

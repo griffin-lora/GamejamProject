@@ -1,6 +1,9 @@
 extends Path2D
 
 func _ready():
+	curve.clear_points()
+	curve.add_point(Vector2(32, 960))
+	curve.add_point(Vector2(640, 960))
 	curve.set_bake_interval(15)
 	curve.tessellate(5, 4)
 
@@ -24,4 +27,5 @@ func _input(event):
 		var x_normal = Vector2(-dy, dx)
 		var y_normal = Vector2(dy, -dx)
 		curve.add_point(mouse_pos, -y_normal / 5)
+		GlobalVars.level_data.path_points.append(mouse_pos)
 		update()
