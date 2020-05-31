@@ -2,4 +2,11 @@ extends Node2D
 
 class_name Actor
 
-# DONT PUT ANY SPECIFIC CODE HERE
+var editable_properties := []
+var id := 0
+var mode := 0
+
+func set_properties():
+	pass
+	
+# DONT PUT ANY OBJECT-SPECIFIC CODE HERE

@@ -18,6 +18,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("place"): # holding it down made it lag and im too lazy to find a better solution so don't ree me
 		var object_scene = load("res://actors/obstacles/" + id_mapper.ids[selected_object] + ".tscn").instance()
+		object_scene.set_properties()
 
 		var invalid = false
 		var combinations = []
@@ -48,4 +49,12 @@ func get_objects_at_position(test_position):
 	
 func _input(event):
 	if event.is_action_pressed("test"):
+		for object in objects.get_children():
+			var level_object = {
+				"id": object.id,
+				"properties": []
+			}
+			for property in object.editable_properties:
+				level_object.properties.append(object[property])
+			GlobalVars.level_data.objects.append(level_object)
 		get_tree().change_scene("res://levels/level_loader.tscn")
