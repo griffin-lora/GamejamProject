@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GlobalVars="*res://src/GlobalVars.gd"
+UI="*res://ui.tscn"
 
 [display]
 
