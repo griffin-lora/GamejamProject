@@ -8,6 +8,8 @@ onready var objects = $Objects
 export var selected_obstacle := 0
 var id_mapper
 
+export var placing_obstacles = true
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	id_mapper = load("res://actors/obstacles/ids.tres")
@@ -30,8 +32,9 @@ func _process(delta):
 	var mouse_pos = get_global_mouse_position()
 	var mouse_screen_pos = get_viewport().get_mouse_position()
 	preview.position = Vector2(stepify(mouse_pos.x, 16), stepify(mouse_pos.y, 16))
+	preview.visible = placing_obstacles
 	
-	if Input.is_action_just_pressed("place") and mouse_screen_pos.y < 932: # holding it down made it lag and im too lazy to find a better solution so don't ree me
+	if Input.is_action_just_pressed("place") and placing_obstacles and mouse_screen_pos.y < 932: # holding it down made it lag and im too lazy to find a better solution so don't ree me
 		var object_resource = load("res://actors/obstacles/" + id_mapper.ids[selected_obstacle] + ".tres")
 		var object_scene = load(object_resource.scene_path).instance()
 		object_scene.set_properties()
@@ -60,7 +63,7 @@ func _process(delta):
 					level_object.properties.append(object[property])
 				GlobalVars.level_data.objects.append(level_object)
 
-	elif Input.is_action_pressed("erase") and mouse_screen_pos.y < 932:
+	elif Input.is_action_pressed("erase") and placing_obstacles and mouse_screen_pos.y < 932:
 		var objects_found = get_objects_at_position(preview.position)
 		for object in objects_found:
 			object.queue_free()

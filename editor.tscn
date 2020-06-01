@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_preview.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://src/ObstacleButton.gd" type="Script" id=13]
 [ext_resource path="res://assets/pipe_icon_hover.png" type="Texture" id=14]
 [ext_resource path="res://assets/coral_icon_hover.png" type="Texture" id=15]
+[ext_resource path="res://src/PathButton.gd" type="Script" id=16]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends TextureRect
@@ -164,3 +165,23 @@ texture_normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureButton5" type="TextureButton" parent="UI/Toolbar"]
+margin_left = 312.0
+margin_top = 40.0
+margin_right = 360.0
+margin_bottom = 88.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="UI/Toolbar"]
+margin_left = 1730.28
+margin_top = 40.0
+margin_right = 1866.28
+margin_bottom = 111.0
+text = "Path"
+script = ExtResource( 16 )
+editor_path = NodePath("../../..")
