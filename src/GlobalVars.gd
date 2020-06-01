@@ -19,6 +19,9 @@ func _process(delta):
 		activate_ability()
 	if Input.is_action_just_pressed("copy_level_data"):
 		OS.clipboard = level_data.encode()
+		
+	if Input.is_action_just_pressed("paste_level_data"):
+		level_data.decode(OS.clipboard)
 
 func reset():
 	checkpoint_id = 0

@@ -14,5 +14,7 @@ func encode():
 	return Marshalls.utf8_to_base64(JSON.print(data))
 	
 # this is not a contained function
-func decode():
-	pass
+func decode(d_base64):
+	var data = JSON.parse(Marshalls.base64_to_utf8(d_base64)).result
+	objects = data.objects
+	path_points = data.path_points
