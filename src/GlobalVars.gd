@@ -22,6 +22,7 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("paste_level_data"):
 		level_data.decode(OS.clipboard)
+		get_tree().reload_current_scene()
 
 func reset():
 	checkpoint_id = 0
