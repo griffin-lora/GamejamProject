@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_preview.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/pipe_icon_hover.png" type="Texture" id=14]
 [ext_resource path="res://assets/coral_icon_hover.png" type="Texture" id=15]
 [ext_resource path="res://src/PathButton.gd" type="Script" id=16]
+[ext_resource path="res://assets/terrain_icon_hover.png" type="Texture" id=17]
+[ext_resource path="res://assets/terrain_big_icon_hover.png" type="Texture" id=18]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends TextureRect
@@ -151,9 +153,14 @@ margin_right = 232.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 17 )
+script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+obstacle_id = 2
+editor_path = NodePath("../../..")
 
 [node name="TextureButton4" type="TextureButton" parent="UI/Toolbar"]
 margin_left = 312.0
@@ -162,20 +169,14 @@ margin_right = 360.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 18 )
+script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="TextureButton5" type="TextureButton" parent="UI/Toolbar"]
-margin_left = 312.0
-margin_top = 40.0
-margin_right = 360.0
-margin_bottom = 88.0
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+obstacle_id = 3
+editor_path = NodePath("../../..")
 
 [node name="Button2" type="Button" parent="UI/Toolbar"]
 margin_left = 1730.28
@@ -184,4 +185,7 @@ margin_right = 1866.28
 margin_bottom = 111.0
 text = "Path"
 script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 editor_path = NodePath("../../..")
