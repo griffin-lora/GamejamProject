@@ -53,4 +53,5 @@ func activate_ability():
 			time_slow()
 
 func time_slow():
+	slow_ticker = 0
 	is_slow = true
