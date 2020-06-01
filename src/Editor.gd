@@ -5,7 +5,7 @@ export var mode := 1
 onready var preview = $Preview
 onready var objects = $Objects
 
-var selected_object := 0
+export var selected_obstacle := 0
 var id_mapper
 
 func _ready():
@@ -13,20 +13,27 @@ func _ready():
 	
 	var id_mapper = load("res://actors/obstacles/ids.tres")
 	for object in GlobalVars.level_data.objects:
-		var object_scene = load("res://actors/obstacles/" + id_mapper.ids[object.id] + ".tscn").instance()
+		var object_resource = load("res://actors/obstacles/" + id_mapper.ids[object.id] + ".tres")
+		var object_scene = load(object_resource.scene_path).instance()
 		object_scene.set_properties()
 		var index = 0
 		for property in object_scene.editable_properties:
 			object_scene[property] = object.properties[index]
 			index += 1
 		objects.add_child(object_scene)
+		
+func update_selected_obstacle():
+	var object_resource = load("res://actors/obstacles/" + id_mapper.ids[selected_obstacle] + ".tres")
+	preview.texture = object_resource.preview
 
 func _process(delta):
 	var mouse_pos = get_global_mouse_position()
+	var mouse_screen_pos = get_viewport().get_mouse_position()
 	preview.position = Vector2(stepify(mouse_pos.x, 16), stepify(mouse_pos.y, 16))
 	
-	if Input.is_action_just_pressed("place"): # holding it down made it lag and im too lazy to find a better solution so don't ree me
-		var object_scene = load("res://actors/obstacles/" + id_mapper.ids[selected_object] + ".tscn").instance()
+	if Input.is_action_just_pressed("place") and mouse_screen_pos.y < 932: # holding it down made it lag and im too lazy to find a better solution so don't ree me
+		var object_resource = load("res://actors/obstacles/" + id_mapper.ids[selected_obstacle] + ".tres")
+		var object_scene = load(object_resource.scene_path).instance()
 		object_scene.set_properties()
 
 		var invalid = false
@@ -53,7 +60,7 @@ func _process(delta):
 					level_object.properties.append(object[property])
 				GlobalVars.level_data.objects.append(level_object)
 
-	elif Input.is_action_pressed("erase"):
+	elif Input.is_action_pressed("erase") and mouse_screen_pos.y < 932:
 		var objects_found = get_objects_at_position(preview.position)
 		for object in objects_found:
 			object.queue_free()
@@ -65,10 +72,11 @@ func get_objects_at_position(test_position):
 			objects_found.append(object)
 	return objects_found
 	
-func _input(event):
+func _unhandled_input(event):
 	if event.is_action_pressed("test"):
 		GlobalVars.level_data.objects.clear()
 		for object in objects.get_children():
+			print(object.id)
 			var level_object = {
 				"id": object.id,
 				"properties": []

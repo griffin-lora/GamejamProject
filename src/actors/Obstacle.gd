@@ -11,7 +11,6 @@ onready var middle_part = $Middle
 onready var bottom_part = $Bottom
 
 var type = "Obstacle"
-var tiles_using := Vector2(2, 4)
 
 func collide(col_area):
 	if col_area.name == "CharArea" and mode == 0:

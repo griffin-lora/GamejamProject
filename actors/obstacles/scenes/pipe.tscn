@@ -1,39 +1,44 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/actors/Pipe.gd" type="Script" id=1]
+[ext_resource path="res://assets/pipe_top.png" type="Texture" id=1]
 [ext_resource path="res://assets/pipe_body.png" type="Texture" id=2]
-[ext_resource path="res://assets/pipe_top.png" type="Texture" id=3]
+[ext_resource path="res://src/actors/Pipe.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 32 )
 
 [node name="Obstacle" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 position = Vector2( 16, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
 [node name="Top" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 centered = false
 
 [node name="Bottom" type="Sprite" parent="."]
 position = Vector2( 0, 48 )
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 centered = false
 flip_v = true
 
-[node name="Middle" type="Sprite" parent="."]
-position = Vector2( 0, 16 )
-scale = Vector2( 1, 2 )
+[node name="Middle" type="TextureRect" parent="."]
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 48.0
 texture = ExtResource( 2 )
-centered = false
-flip_v = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="EditorArea" type="Area2D" parent="."]
+visible = false
 position = Vector2( 16, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EditorArea"]

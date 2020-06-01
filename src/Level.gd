@@ -24,7 +24,8 @@ func _ready():
 	var objects_node = get_node(objects)
 	var id_mapper = load("res://actors/obstacles/ids.tres")
 	for object in GlobalVars.level_data.objects:
-		var object_scene = load("res://actors/obstacles/" + id_mapper.ids[object.id] + ".tscn").instance()
+		var object_resource = load("res://actors/obstacles/" + id_mapper.ids[object.id] + ".tres")
+		var object_scene = load(object_resource.scene_path).instance()
 		object_scene.set_properties()
 		var index = 0
 		for property in object_scene.editable_properties:
