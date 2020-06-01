@@ -62,10 +62,9 @@ layer = -10
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
 material = SubResource( 3 )
-position = Vector2( 1066.46, 1245.85 )
+position = Vector2( 960, 500 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
-flip_v = true
 __meta__ = {
 "_edit_lock_": true
 }
