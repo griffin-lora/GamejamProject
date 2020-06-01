@@ -9,9 +9,9 @@ export var selected_obstacle := 0
 var id_mapper
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	id_mapper = load("res://actors/obstacles/ids.tres")
 	
-	var id_mapper = load("res://actors/obstacles/ids.tres")
 	for object in GlobalVars.level_data.objects:
 		var object_resource = load("res://actors/obstacles/" + id_mapper.ids[object.id] + ".tres")
 		var object_scene = load(object_resource.scene_path).instance()
@@ -76,7 +76,6 @@ func _unhandled_input(event):
 	if event.is_action_pressed("test"):
 		GlobalVars.level_data.objects.clear()
 		for object in objects.get_children():
-			print(object.id)
 			var level_object = {
 				"id": object.id,
 				"properties": []
@@ -84,4 +83,5 @@ func _unhandled_input(event):
 			for property in object.editable_properties:
 				level_object.properties.append(object[property])
 			GlobalVars.level_data.objects.append(level_object)
+		print(GlobalVars.level_data.objects.size())
 		get_tree().change_scene("res://levels/level_loader.tscn")

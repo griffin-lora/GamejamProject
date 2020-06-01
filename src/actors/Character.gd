@@ -31,7 +31,6 @@ func kill():
 
 func _ready():
 	yield(get_tree(), "physics_frame")
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if path:
 		path_node.curve.set_bake_interval(fly_speed)
 		path_points = path_node.curve.get_baked_points()

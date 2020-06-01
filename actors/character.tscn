@@ -59,7 +59,6 @@ texture = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
-frame = 1
 playing = true
 flip_h = true
 
@@ -70,7 +69,6 @@ flip_h = true
 [node name="HackyRotationSetter" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 6 )
-frame = 1
 playing = true
 flip_h = true
 

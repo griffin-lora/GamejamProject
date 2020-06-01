@@ -23,17 +23,6 @@ func update_parts():
 	
 	area_collision.shape = shape
 	editor_collision.shape = shape
-	
-	var objects = get_parent()
-	GlobalVars.level_data.objects.clear()
-	for object in objects.get_children():
-		var level_object = {
-			"id": object.id,
-			"properties": []
-		}
-		for property in object.editable_properties:
-			level_object.properties.append(object[property])
-		GlobalVars.level_data.objects.append(level_object)
 		
 	tiles_using.y = parts + 2
 

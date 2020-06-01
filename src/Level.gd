@@ -5,6 +5,8 @@ export var path : NodePath # haha funny coindicnddencdedcwd
 export var objects : NodePath
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	var path_node = get_node(path)
 	path_node.curve.clear_points()
 	path_node.curve.add_point(Vector2(32, 960))
@@ -23,6 +25,7 @@ func _ready():
 
 	var objects_node = get_node(objects)
 	var id_mapper = load("res://actors/obstacles/ids.tres")
+	print(GlobalVars.level_data.objects.size())
 	for object in GlobalVars.level_data.objects:
 		var object_resource = load("res://actors/obstacles/" + id_mapper.ids[object.id] + ".tres")
 		var object_scene = load(object_resource.scene_path).instance()
@@ -32,6 +35,7 @@ func _ready():
 			object_scene[property] = object.properties[index]
 			index += 1
 		objects_node.add_child(object_scene)
+	print(GlobalVars.level_data.objects.size())
 
 func _input(event):
 	if event.is_action_pressed("test"):
