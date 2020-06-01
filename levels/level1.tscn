@@ -8,12 +8,12 @@
 [ext_resource path="res://actors/goal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/checkpoint.tscn" type="PackedScene" id=7]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 31.1337, 964.268, 0, 0, 0, 0, 602.738, 963.849 )
 }
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 
 void fragment() {
@@ -23,8 +23,8 @@ void fragment() {
 	COLOR = texture(TEXTURE, uv);
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -40,7 +40,7 @@ __meta__ = {
 character = NodePath("../Actors/Character")
 
 [node name="Path2D" type="Path2D" parent="."]
-curve = SubResource( 2 )
+curve = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -73,7 +73,7 @@ level_id = 1
 layer = -10
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-material = SubResource( 4 )
+material = SubResource( 3 )
 position = Vector2( 1066.46, 1245.85 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
