@@ -10,11 +10,18 @@ var ability_recharge_time : float = 5
 # Internal
 var ability_recharge_ct : float = 0
 
+var ability_id := 0
+
+var is_slow := false
+var slow_time : float = 5
+var slow_ticker : float = 0
+
 func _ready():
 	ability_recharge_ct = ability_recharge_time
 	
 func _process(delta):
-	ability_recharge_ct = ability_recharge_ct + delta
+	if get_tree().get_current_scene().mode == 0:
+		ability_recharge_ct = ability_recharge_ct + delta
 	if ability_recharge_ct >= ability_recharge_time and Input.is_action_just_pressed("use_ability"):
 		activate_ability()
 	if Input.is_action_just_pressed("copy_level_data"):
@@ -23,6 +30,11 @@ func _process(delta):
 	if Input.is_action_just_pressed("paste_level_data"):
 		level_data.decode(OS.clipboard)
 		get_tree().reload_current_scene()
+		
+	if is_slow:
+		slow_ticker += delta
+		if slow_ticker >= slow_time:
+			is_slow = false
 
 func reset():
 	checkpoint_id = 0
@@ -36,4 +48,9 @@ func switch_level():
 func activate_ability():
 	if get_tree().get_current_scene().mode == 0:
 		ability_recharge_ct = 0
-		print("ABILITY ACTIVATED")
+		print("ability activate")
+		if ability_id == 0: #goodcode
+			time_slow()
+
+func time_slow():
+	is_slow = true

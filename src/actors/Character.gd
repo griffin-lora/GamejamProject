@@ -12,6 +12,7 @@ onready var actors = get_node("../")
 
 export var reaction_speed = 12.5
 export var fly_speed = 6.25
+export var slow_fly_speed = 3.125
 export var rotation_speed = 12.5
 export var mouse_rotation_speed = 12.5
 export var arm_speed = 7.5
@@ -60,7 +61,10 @@ func _physics_process(delta):
 		var y_normal = Vector2(dy, -dx)
 		base_rotation = y_normal.angle() + PI/2
 		
-	center_pos += move_normal * fly_speed
+	if !GlobalVars.is_slow:
+		center_pos += move_normal * fly_speed
+	else:
+		center_pos += move_normal * slow_fly_speed
 		
 	var mouse_pos = get_global_mouse_position()
 	var mouse_screen_pos = get_viewport().get_mouse_position()
