@@ -7,6 +7,7 @@ onready var sprite = $Sprite
 onready var arm = $Sprite/Arm
 onready var rotation_setter = $HackyRotationSetter
 onready var particles = $Particles
+onready var afterimage = $Particles/Afterimage
 onready var path_node = get_node(path)
 onready var actors = get_node("../")
 
@@ -74,12 +75,17 @@ func _physics_process(delta):
 	var move_angle = 0
 	rotation_setter.rotation_degrees = lerp(rotation_setter.rotation_degrees, clamp(mouse_screen_pos.y - rotation_setter.offset.y, -35, 35), delta * mouse_rotation_speed)
 	move_angle = rotation_setter.rotation
+	if GlobalVars.is_slow:
+		move_angle = 0
+		afterimage.emitting = true
+	else:
+		afterimage.emitting = false
 	
 	sprite.rotation = lerp_angle(sprite.rotation, move_angle, delta * mouse_rotation_speed)
 	particles.rotation = sprite.rotation
 	rotation = lerp_angle(rotation, base_rotation, delta * rotation_speed)
 
-	if mouse_screen_pos.y - rotation_setter.offset.y < 5:
+	if mouse_screen_pos.y - rotation_setter.offset.y < 5 or GlobalVars.is_slow:
 		arm.rotation = lerp_angle(arm.rotation, 0, delta * arm_speed)
 		arm.position = arm.position.linear_interpolate(Vector2(), delta * arm_speed)
 	else:
