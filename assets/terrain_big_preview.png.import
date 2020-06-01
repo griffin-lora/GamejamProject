@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/terrain_big_body.png-a9ed8450a5d8333eb0550038ce97c615.stex"
+path="res://.import/terrain_big_preview.png-fb9b19eb8715e29748c4bc9e53f99d16.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/terrain_big_body.png"
-dest_files=[ "res://.import/terrain_big_body.png-a9ed8450a5d8333eb0550038ce97c615.stex" ]
+source_file="res://assets/terrain_big_preview.png"
+dest_files=[ "res://.import/terrain_big_preview.png-fb9b19eb8715e29748c4bc9e53f99d16.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
