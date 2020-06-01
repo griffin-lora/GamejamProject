@@ -43,6 +43,15 @@ func _process(delta):
 			object_scene.position = preview.position
 			object_scene.mode = mode
 			objects.add_child(object_scene)
+			GlobalVars.level_data.objects.clear()
+			for object in objects.get_children():
+				var level_object = {
+					"id": object.id,
+					"properties": []
+				}
+				for property in object.editable_properties:
+					level_object.properties.append(object[property])
+				GlobalVars.level_data.objects.append(level_object)
 
 	elif Input.is_action_pressed("erase"):
 		var objects_found = get_objects_at_position(preview.position)

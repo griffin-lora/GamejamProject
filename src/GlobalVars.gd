@@ -17,6 +17,8 @@ func _process(delta):
 	ability_recharge_ct = ability_recharge_ct + delta
 	if ability_recharge_ct >= ability_recharge_time and Input.is_action_just_pressed("use_ability"):
 		activate_ability()
+	if Input.is_action_just_pressed("copy_level_data"):
+		OS.clipboard = level_data.encode()
 
 func reset():
 	checkpoint_id = 0
