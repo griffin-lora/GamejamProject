@@ -11,7 +11,7 @@ func encode():
 		data.objects.append(object)
 	for pp in path_points:
 		data.path_points.append(pp) # hahaha funny im comedic
-	return JSON.print(data)
+	return Marshalls.utf8_to_base64(JSON.print(data))
 	
 # this is not a contained function
 func decode():
