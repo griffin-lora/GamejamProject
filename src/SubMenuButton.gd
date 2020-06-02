@@ -1,8 +1,6 @@
 extends Button
 
-export var editor_path : NodePath
-
-onready var editor = get_node(editor_path)
+export var menu_name := "ObstaclesPage"
 
 func _process(delta):
 	if is_hovered() and !pressed:
@@ -11,4 +9,5 @@ func _process(delta):
 		modulate = Color(1, 1, 1)
 
 func _pressed():
-	editor.placing_obstacles = false
+	get_parent().visible = false
+	get_parent().get_parent().get_node(menu_name).visible = true

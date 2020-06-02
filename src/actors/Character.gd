@@ -8,6 +8,7 @@ onready var arm = $Sprite/Arm
 onready var rotation_setter = $HackyRotationSetter
 onready var particles = $Particles
 onready var afterimage = $Particles/Afterimage
+onready var break_sound = $BreakSound
 onready var path_node = get_node(path)
 onready var actors = get_node("../")
 
@@ -27,6 +28,11 @@ var move_normal = Vector2()
 var base_rotation = 0
 
 var type = "Character"
+var shake_time = 0.0
+
+func play_break_anim():
+	break_sound.play()
+	shake_time = 0.25
 
 func kill():
 	get_tree().reload_current_scene()
@@ -47,6 +53,11 @@ func _ready():
 	move_normal = (target - center_pos).normalized()
 		
 func _physics_process(delta):
+	if shake_time > 0:
+		shake_time -= delta
+		if shake_time <= 0:
+			shake_time = 0
+	
 	OS.set_window_title("Torpedo Ted (FPS: " + str(int(Engine.get_frames_per_second())) + ")")
 	
 	if center_pos.distance_to(target) < fly_speed and path_index + 1 < path_points.size():

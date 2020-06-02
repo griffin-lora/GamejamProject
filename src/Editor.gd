@@ -34,7 +34,7 @@ func _process(delta):
 	preview.position = Vector2(stepify(mouse_pos.x, 16), stepify(mouse_pos.y, 16))
 	preview.visible = placing_obstacles
 	
-	if Input.is_action_just_pressed("place") and placing_obstacles and mouse_screen_pos.y < 932: # holding it down made it lag and im too lazy to find a better solution so don't ree me
+	if Input.is_action_pressed("place") and placing_obstacles and mouse_screen_pos.y < 932:
 		var object_resource = load("res://actors/obstacles/" + id_mapper.ids[selected_obstacle] + ".tres")
 		var object_scene = load(object_resource.scene_path).instance()
 		object_scene.set_properties()
@@ -86,5 +86,4 @@ func _unhandled_input(event):
 			for property in object.editable_properties:
 				level_object.properties.append(object[property])
 			GlobalVars.level_data.objects.append(level_object)
-		print(GlobalVars.level_data.objects.size())
 		get_tree().change_scene("res://levels/level_loader.tscn")

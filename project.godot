@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actor.gd"
 }, {
+"base": "Actor",
+"class": "Breakable",
+"language": "GDScript",
+"path": "res://src/actors/Breakable.gd"
+}, {
 "base": "Reference",
 "class": "LevelData",
 "language": "GDScript",
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Actor": "",
+"Breakable": "",
 "LevelData": "",
 "LevelList": "",
 "Obstacle": ""

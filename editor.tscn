@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_preview.png" type="Texture" id=2]
@@ -18,6 +18,9 @@
 [ext_resource path="res://src/PathButton.gd" type="Script" id=16]
 [ext_resource path="res://assets/terrain_icon_hover.png" type="Texture" id=17]
 [ext_resource path="res://assets/terrain_big_icon_hover.png" type="Texture" id=18]
+[ext_resource path="res://src/BackButton.gd" type="Script" id=19]
+[ext_resource path="res://assets/Font.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://src/SubMenuButton.gd" type="Script" id=21]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends TextureRect
@@ -34,6 +37,22 @@ func _physics_process(delta):
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 31.1337, 964.268, 0, 0, 0, 0, 602.738, 963.849 )
 }
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 20 )
 
 [node name="Editor" type="Node2D"]
 script = ExtResource( 1 )
@@ -101,12 +120,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="NinePatchRect" parent="UI/Toolbar"]
-visible = false
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 334.0
-margin_bottom = 132.0
+[node name="BasePage" type="Control" parent="UI/Toolbar"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Obstacles" type="Button" parent="UI/Toolbar/BasePage"]
+margin_left = 38.0
+margin_top = 30.0
+margin_right = 356.0
+margin_bottom = 130.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Obstacles"
+flat = true
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="NinePatchRect" parent="UI/Toolbar/BasePage/Obstacles"]
+margin_right = 318.0
+margin_bottom = 100.0
 texture = ExtResource( 9 )
 patch_margin_left = 32
 patch_margin_top = 32
@@ -114,8 +151,107 @@ patch_margin_right = 32
 patch_margin_bottom = 32
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TextureButton" type="TextureButton" parent="UI/Toolbar"]
+[node name="Label" type="Label" parent="UI/Toolbar/BasePage/Obstacles"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Obstacles"
+align = 1
+valign = 1
+
+[node name="Breakables" type="Button" parent="UI/Toolbar/BasePage"]
+margin_left = 394.0
+margin_top = 30.0
+margin_right = 712.0
+margin_bottom = 130.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Obstacles"
+flat = true
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+menu_name = "BreakablesPage"
+
+[node name="Button" type="NinePatchRect" parent="UI/Toolbar/BasePage/Breakables"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Toolbar/BasePage/Breakables"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Breakables"
+align = 1
+valign = 1
+
+[node name="Path" type="Button" parent="UI/Toolbar/BasePage"]
+margin_left = 1730.0
+margin_top = 30.0
+margin_right = 1874.0
+margin_bottom = 130.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Obstacles"
+flat = true
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+editor_path = NodePath("../../../..")
+
+[node name="Button" type="NinePatchRect" parent="UI/Toolbar/BasePage/Path"]
+margin_right = 144.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Toolbar/BasePage/Path"]
+margin_right = 144.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Path"
+align = 1
+valign = 1
+
+[node name="ObstaclesPage" type="Control" parent="UI/Toolbar"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="UI/Toolbar/ObstaclesPage"]
 margin_left = 40.0
 margin_top = 40.0
 margin_right = 77.0
@@ -128,9 +264,9 @@ script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-editor_path = NodePath("../../..")
+editor_path = NodePath("../../../..")
 
-[node name="TextureButton2" type="TextureButton" parent="UI/Toolbar"]
+[node name="TextureButton2" type="TextureButton" parent="UI/Toolbar/ObstaclesPage"]
 margin_left = 128.0
 margin_top = 40.0
 margin_right = 152.0
@@ -144,12 +280,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 obstacle_id = 1
-editor_path = NodePath("../../..")
+editor_path = NodePath("../../../..")
 
-[node name="TextureButton3" type="TextureButton" parent="UI/Toolbar"]
+[node name="TextureButton3" type="TextureButton" parent="UI/Toolbar/ObstaclesPage"]
 margin_left = 184.0
 margin_top = 40.0
-margin_right = 232.0
+margin_right = 248.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 11 )
@@ -160,12 +296,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 obstacle_id = 2
-editor_path = NodePath("../../..")
+editor_path = NodePath("../../../..")
 
-[node name="TextureButton4" type="TextureButton" parent="UI/Toolbar"]
+[node name="TextureButton4" type="TextureButton" parent="UI/Toolbar/ObstaclesPage"]
 margin_left = 312.0
 margin_top = 40.0
-margin_right = 360.0
+margin_right = 384.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 8 )
@@ -176,16 +312,153 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 obstacle_id = 3
-editor_path = NodePath("../../..")
+editor_path = NodePath("../../../..")
 
-[node name="Button2" type="Button" parent="UI/Toolbar"]
-margin_left = 1730.28
-margin_top = 40.0
-margin_right = 1866.28
-margin_bottom = 111.0
-text = "Path"
-script = ExtResource( 16 )
+[node name="Back" type="Button" parent="UI/Toolbar/ObstaclesPage"]
+margin_left = 1730.0
+margin_top = 30.0
+margin_right = 1874.0
+margin_bottom = 130.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Obstacles"
+flat = true
+script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-editor_path = NodePath("../../..")
+
+[node name="Button" type="NinePatchRect" parent="UI/Toolbar/ObstaclesPage/Back"]
+margin_right = 144.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Toolbar/ObstaclesPage/Back"]
+margin_right = 144.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Back"
+align = 1
+valign = 1
+
+[node name="BreakablesPage" type="Control" parent="UI/Toolbar"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="UI/Toolbar/BreakablesPage"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 77.0
+margin_bottom = 88.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 14 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+obstacle_id = 4
+editor_path = NodePath("../../../..")
+
+[node name="TextureButton2" type="TextureButton" parent="UI/Toolbar/BreakablesPage"]
+margin_left = 128.0
+margin_top = 40.0
+margin_right = 152.0
+margin_bottom = 88.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 15 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+obstacle_id = 1
+editor_path = NodePath("../../../..")
+
+[node name="TextureButton3" type="TextureButton" parent="UI/Toolbar/BreakablesPage"]
+margin_left = 184.0
+margin_top = 40.0
+margin_right = 248.0
+margin_bottom = 88.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 17 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+obstacle_id = 2
+editor_path = NodePath("../../../..")
+
+[node name="TextureButton4" type="TextureButton" parent="UI/Toolbar/BreakablesPage"]
+margin_left = 312.0
+margin_top = 40.0
+margin_right = 384.0
+margin_bottom = 88.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 18 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+obstacle_id = 3
+editor_path = NodePath("../../../..")
+
+[node name="Back" type="Button" parent="UI/Toolbar/BreakablesPage"]
+margin_left = 1730.0
+margin_top = 30.0
+margin_right = 1874.0
+margin_bottom = 130.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Obstacles"
+flat = true
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="NinePatchRect" parent="UI/Toolbar/BreakablesPage/Back"]
+margin_right = 144.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Toolbar/BreakablesPage/Back"]
+margin_right = 144.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Back"
+align = 1
+valign = 1

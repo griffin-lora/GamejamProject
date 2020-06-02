@@ -31,10 +31,10 @@ func _input(event):
 		var rounded_pos = Vector2(stepify(get_global_mouse_position().x, 16), stepify(get_global_mouse_position().y, 16))
 		if event.is_pressed() and intersects_pos(rounded_pos):
 			if event.button_index == BUTTON_WHEEL_UP:
-				parts = clamp(parts + 1, 0, 24)
+				parts = clamp(parts + 1, 0, 64)
 				update_parts()
 			if event.button_index == BUTTON_WHEEL_DOWN:
-				parts = clamp(parts - 1, 0, 24)	
+				parts = clamp(parts - 1, 0, 64)	
 				update_parts()
 	elif event.is_action_pressed("extend_terrain"):
 		parts = clamp(parts + 1, 0, 24)
