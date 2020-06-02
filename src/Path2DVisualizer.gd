@@ -4,7 +4,7 @@ extends Path2D
 
 var sprites = []
 
-var spline_length := 100
+var spline_length := 30
 
 func _get_spline(i):
 	var last_point = _get_point(i - 1)
@@ -41,7 +41,7 @@ func add_point(p, add_to_data = false, v = Vector2(), v2 = Vector2()):
 	sprite.offset = (Vector2(sprite.margin_right, sprite.margin_bottom) / 2)
 	sprite.rect_position = p - sprite.offset
 	add_child(sprite)
-#	smooth(100) haha if this worked
+	#smooth(1)
 	update()
 
 func _ready():
