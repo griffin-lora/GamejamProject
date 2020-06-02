@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource( 2 )
-scene_path = "res://actors/checkpoint.tscn"
+scene_path = "res://actors/obstacles/scenes/terrain_small.tscn"
 preview = ExtResource( 1 )

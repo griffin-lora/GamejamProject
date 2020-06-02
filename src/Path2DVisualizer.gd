@@ -45,4 +45,4 @@ func _input(event):
 		var dy = target.y - last_target.y
 		var x_normal = Vector2(-dy, dx)
 		var y_normal = Vector2(dy, -dx)
-		add_point(mouse_pos, true, -y_normal / 5)
+		add_point(mouse_pos, true)
