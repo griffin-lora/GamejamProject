@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_preview.png" type="Texture" id=2]
@@ -13,11 +13,9 @@
 [ext_resource path="res://assets/terrain_icon.png" type="Texture" id=11]
 [ext_resource path="res://assets/pipe_icon.png" type="Texture" id=12]
 [ext_resource path="res://src/ObstacleButton.gd" type="Script" id=13]
-[ext_resource path="res://assets/pipe_icon_hover.png" type="Texture" id=14]
-[ext_resource path="res://assets/coral_icon_hover.png" type="Texture" id=15]
+[ext_resource path="res://assets/question_block_icon.png" type="Texture" id=14]
+[ext_resource path="res://assets/brick_block_icon.png" type="Texture" id=15]
 [ext_resource path="res://src/PathButton.gd" type="Script" id=16]
-[ext_resource path="res://assets/terrain_icon_hover.png" type="Texture" id=17]
-[ext_resource path="res://assets/terrain_big_icon_hover.png" type="Texture" id=18]
 [ext_resource path="res://src/BackButton.gd" type="Script" id=19]
 [ext_resource path="res://assets/Font.ttf" type="DynamicFontData" id=20]
 [ext_resource path="res://src/SubMenuButton.gd" type="Script" id=21]
@@ -258,8 +256,6 @@ margin_right = 77.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 12 )
-texture_hover = ExtResource( 14 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -273,8 +269,6 @@ margin_right = 152.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 15 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -289,8 +283,6 @@ margin_right = 248.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 17 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -305,8 +297,6 @@ margin_right = 384.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 8 )
-texture_hover = ExtResource( 18 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -365,9 +355,7 @@ margin_top = 40.0
 margin_right = 77.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 12 )
-texture_hover = ExtResource( 14 )
+texture_normal = ExtResource( 15 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -381,25 +369,22 @@ margin_top = 40.0
 margin_right = 152.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 15 )
+texture_normal = ExtResource( 14 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-obstacle_id = 1
+obstacle_id = 5
 editor_path = NodePath("../../../..")
 
 [node name="TextureButton3" type="TextureButton" parent="UI/Toolbar/BreakablesPage"]
+visible = false
 margin_left = 184.0
 margin_top = 40.0
 margin_right = 248.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 17 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -408,14 +393,13 @@ obstacle_id = 2
 editor_path = NodePath("../../../..")
 
 [node name="TextureButton4" type="TextureButton" parent="UI/Toolbar/BreakablesPage"]
+visible = false
 margin_left = 312.0
 margin_top = 40.0
 margin_right = 384.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 8 )
-texture_hover = ExtResource( 18 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
