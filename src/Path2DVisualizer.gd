@@ -9,13 +9,15 @@ func add_point(p, add_to_data = false, v = Vector2(), v2 = Vector2()):
 	if add_to_data:
 		GlobalVars.level_data.path_points.append([p, v, v2])
 	var sprite : TextureButton = load("res://src/point_sprite.tscn").instance()
+	sprites.append(sprite)
 	var id = 0
-	if GlobalVars.level_data.path_points.size() > 0:
-		id = GlobalVars.level_data.path_points.size() - 1
+	if sprites.size() > 0:
+		id = sprites.size() - 1
 	sprite.visualizer = self
 	sprite.data_id = id
 	sprite.data_point = GlobalVars.level_data.path_points[GlobalVars.level_data.path_points.size() - 1]
-	sprite.rect_position = p - (sprite.rect_size / 2)
+	sprite.offset = (Vector2(sprite.margin_right, sprite.margin_bottom) / 2)
+	sprite.rect_position = p - sprite.offset
 	add_child(sprite)
 	update()
 

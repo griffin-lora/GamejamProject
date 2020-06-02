@@ -4,11 +4,14 @@ var is_down = false
 var data_point
 var visualizer
 var data_id
+var offset
 
 func down():
+	release_focus() # fuck you godot
 	is_down = true
 	
 func up():
+	release_focus() # fuck you godot
 	is_down = false
 
 func _ready():
@@ -17,7 +20,7 @@ func _ready():
 	
 func _physics_process(d):
 	if is_down:
-		rect_position = get_global_mouse_position()
+		rect_position = get_global_mouse_position() - offset
 		data_point[0] = rect_position
 		visualizer.curve.set_point_position(data_id, get_global_mouse_position())
 		visualizer.update()
