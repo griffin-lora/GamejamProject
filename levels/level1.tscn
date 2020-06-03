@@ -5,8 +5,10 @@
 [ext_resource path="res://assets/music.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/bkg.png" type="Texture" id=4]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=5]
-[ext_resource path="res://actors/goal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/obstacles/scenes/goal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/obstacles/scenes/checkpoint.tscn" type="PackedScene" id=7]
+
+
 
 
 
