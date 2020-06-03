@@ -18,9 +18,10 @@ var slow_ticker : float = 0
 
 func _ready():
 	ability_recharge_ct = ability_recharge_time
+	switch_level()
 	
 func _process(delta):
-	if get_tree().get_current_scene().mode == 0:
+	if get_tree().get_current_scene() and get_tree().get_current_scene().mode == 0:
 		ability_recharge_ct = ability_recharge_ct + delta
 	if ability_recharge_ct >= ability_recharge_time and Input.is_action_just_pressed("use_ability"):
 		activate_ability()
@@ -43,7 +44,9 @@ func switch_level():
 	reset()
 	var level_list = load("res://level_list.tres")
 	var level_name = level_list.levels[level_id]
-	get_tree().change_scene("res://levels/" + level_name + ".tscn")
+	var level_contents = load("res://assets/levels/" + level_name + ".tres")
+	level_data.decode(level_contents.data)
+	get_tree().reload_current_scene()
 
 func activate_ability():
 	if get_tree().get_current_scene().mode == 0 and false:

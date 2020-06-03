@@ -74,7 +74,7 @@ func _ready():
 	
 	if GlobalVars.checkpoint_id >= 1:
 		for actor in actors.get_children():
-			if actor.type == "Checkpoint" and actor.checkpoint_id == GlobalVars.checkpoint_id:
+			if not actor.get("type") == null and actor.type == "Checkpoint" and actor.checkpoint_id == GlobalVars.checkpoint_id:
 				path_index = actor.path_index
 				position = path_points[path_index - 1]
 	center_pos = position

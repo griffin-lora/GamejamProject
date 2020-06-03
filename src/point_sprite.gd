@@ -4,11 +4,14 @@ var is_down = false
 var data_point
 var visualizer
 var data_id
+var offset
 
 func down():
-	is_down = false#true
+	release_focus() # fuck you godot
+	is_down = true
 	
 func up():
+	release_focus() # fuck you godot
 	is_down = false
 
 func _ready():

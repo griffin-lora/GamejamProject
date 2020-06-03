@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_preview.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/question_block_icon.png" type="Texture" id=14]
 [ext_resource path="res://assets/brick_block_icon.png" type="Texture" id=15]
 [ext_resource path="res://src/PathButton.gd" type="Script" id=16]
+[ext_resource path="res://icon.png" type="Texture" id=17]
 [ext_resource path="res://src/BackButton.gd" type="Script" id=19]
 [ext_resource path="res://assets/Font.ttf" type="DynamicFontData" id=20]
 [ext_resource path="res://src/SubMenuButton.gd" type="Script" id=21]
@@ -117,6 +118,9 @@ __meta__ = {
 [node name="BasePage" type="Control" parent="UI/Toolbar"]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Obstacles" type="Button" parent="UI/Toolbar/BasePage"]
 margin_left = 38.0
@@ -196,6 +200,47 @@ margin_bottom = 100.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Breakables"
+align = 1
+valign = 1
+
+[node name="Misc" type="Button" parent="UI/Toolbar/BasePage"]
+margin_left = 745.0
+margin_top = 30.0
+margin_right = 1063.0
+margin_bottom = 130.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Misc"
+flat = true
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+menu_name = "MiscPage"
+
+[node name="Button" type="NinePatchRect" parent="UI/Toolbar/BasePage/Misc"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Toolbar/BasePage/Misc"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Miscellaneous"
 align = 1
 valign = 1
 
@@ -435,6 +480,109 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="UI/Toolbar/BreakablesPage/Back"]
+margin_right = 144.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Back"
+align = 1
+valign = 1
+
+[node name="MiscPage" type="Control" parent="UI/Toolbar"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="UI/Toolbar/MiscPage"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 77.0
+margin_bottom = 88.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 15 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+obstacle_id = 6
+editor_path = NodePath("../../../..")
+
+[node name="TextureButton2" type="TextureButton" parent="UI/Toolbar/MiscPage"]
+margin_left = 128.0
+margin_top = 40.0
+margin_right = 152.0
+margin_bottom = 88.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 17 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+obstacle_id = 7
+editor_path = NodePath("../../../..")
+
+[node name="TextureButton3" type="TextureButton" parent="UI/Toolbar/MiscPage"]
+visible = false
+margin_left = 184.0
+margin_top = 40.0
+margin_right = 248.0
+margin_bottom = 88.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 11 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+obstacle_id = 2
+editor_path = NodePath("../../../..")
+
+[node name="TextureButton4" type="TextureButton" parent="UI/Toolbar/MiscPage"]
+visible = false
+margin_left = 312.0
+margin_top = 40.0
+margin_right = 384.0
+margin_bottom = 88.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+obstacle_id = 3
+editor_path = NodePath("../../../..")
+
+[node name="Back" type="Button" parent="UI/Toolbar/MiscPage"]
+margin_left = 1730.0
+margin_top = 30.0
+margin_right = 1874.0
+margin_bottom = 130.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Obstacles"
+flat = true
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="NinePatchRect" parent="UI/Toolbar/MiscPage/Back"]
+margin_right = 144.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Toolbar/MiscPage/Back"]
 margin_right = 144.0
 margin_bottom = 100.0
 custom_fonts/font = SubResource( 8 )
