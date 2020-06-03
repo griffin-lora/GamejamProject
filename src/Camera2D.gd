@@ -18,13 +18,16 @@ func _ready():
 	noise.seed = randi()
 	noise.period = 4
 	noise.octaves = 2
+	yield(get_tree(), "physics_frame")
+	yield(get_tree(), "physics_frame")
+	force_update_scroll()
 
 func _physics_process(delta):
 	position = character_node.center_pos
 	rotation = lerp_angle(rotation, character_node.base_rotation, delta * rotation_speed)
 	
 	if character_node.shake_time > 0:
-		var amount = character_node.shake_time / 2
+		var amount = character_node.shake_time / 4
 		noise_y += 1
 		#rotation += max_roll * amount * noise.get_noise_2d(noise.seed, noise_y)
 		offset.x = max_offset.x * amount * noise.get_noise_2d(noise.seed*2, noise_y)

@@ -21,12 +21,12 @@ __meta__ = {
 }
 
 [node name="Ability" type="TextureProgress" parent="CanvasLayer/Control"]
+visible = false
 margin_left = 904.0
 margin_top = 24.0
 margin_right = 932.0
 margin_bottom = 53.0
 rect_scale = Vector2( 4, 4 )
-max_value = 100.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 fill_mode = 8

@@ -2,8 +2,8 @@ class_name LevelData
 
 var objects = []
 var path_points = [
-	[Vector2(32, 960), Vector2(), Vector2()],
-	[Vector2(640, 960), Vector2(), Vector2()]
+	Vector2(32, 960),
+	Vector2(640, 960)
 ]
 
 func deep_copy(v):
@@ -47,7 +47,7 @@ func encode():
 			i += 1
 		data.objects.append(object_data)
 	for pp in path_points:
-		data.path_points.append([[pp[0].x, pp[0].y], [pp[1].x, pp[1].y], [pp[2].x, pp[2].y]]) # hahaha funny im comedic
+		data.path_points.append([pp.x, pp.y]) # hahaha funny im comedic
 	print(data)
 	return Marshalls.utf8_to_base64(JSON.print(data))
 	
@@ -67,4 +67,4 @@ func decode(d_base64):
 				object.properties.append(property)
 		objects.append(object)
 	for pp_data in data.path_points:
-		path_points.append([Vector2(pp_data[0][0], pp_data[0][1]), Vector2(pp_data[1][0], pp_data[1][1]), Vector2(pp_data[2][0], pp_data[2][1])])
+		path_points.append(Vector2(pp_data))

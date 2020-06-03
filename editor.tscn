@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_preview.png" type="Texture" id=2]
-[ext_resource path="res://assets/editor_music.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/stripes.png" type="Texture" id=4]
 [ext_resource path="res://src/Path2DVisualizer.gd" type="Script" id=5]
 [ext_resource path="res://src/EditorCamera.gd" type="Script" id=6]
@@ -62,10 +61,6 @@ centered = false
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-autoplay = true
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
 
@@ -85,6 +80,7 @@ __meta__ = {
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 2 )
 script = ExtResource( 5 )
+editor = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 960, 690 )

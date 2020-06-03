@@ -52,6 +52,7 @@ config/icon="res://icon.png"
 
 GlobalVars="*res://src/GlobalVars.gd"
 UI="*res://ui.tscn"
+Music="*res://src/Music.tscn"
 
 [display]
 

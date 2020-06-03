@@ -1,6 +1,7 @@
 extends Node2D
 
 export var mode := 0
+export var won := false
 export var path : NodePath # haha funny coindicnddencdedcwd
 export var objects : NodePath
 
@@ -13,7 +14,7 @@ func _ready():
 	
 	var path_points = path_node.curve.get_baked_points()
 	for point in GlobalVars.level_data.path_points:
-		path_node.curve.add_point(point[0], point[1], point[2])
+		path_node.curve.add_point(point)
 
 	var objects_node = get_node(objects)
 	var id_mapper = load("res://actors/obstacles/ids.tres")
@@ -28,5 +29,7 @@ func _ready():
 		objects_node.add_child(object_scene)
 
 func _input(event):
-	if event.is_action_pressed("test"):
+	if event.is_action_pressed("test") or (event.is_action_pressed("place") and won):
+		for index in range(8):
+			yield(get_tree(), "physics_frame")
 		get_tree().change_scene("res://editor.tscn")
