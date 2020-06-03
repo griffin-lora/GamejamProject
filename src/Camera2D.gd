@@ -27,7 +27,7 @@ func _physics_process(delta):
 	rotation = lerp_angle(rotation, character_node.base_rotation, delta * rotation_speed)
 	
 	if character_node.shake_time > 0:
-		var amount = character_node.shake_time / 4
+		var amount = character_node.shake_time / 3
 		noise_y += 1
 		#rotation += max_roll * amount * noise.get_noise_2d(noise.seed, noise_y)
 		offset.x = max_offset.x * amount * noise.get_noise_2d(noise.seed*2, noise_y)

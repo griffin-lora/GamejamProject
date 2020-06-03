@@ -108,6 +108,7 @@ texture = ExtResource( 5 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -118,6 +119,7 @@ flip_h = true
 [node name="HackyRotationSetter" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 9 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -129,7 +131,7 @@ shape = SubResource( 10 )
 
 [node name="BreakSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = 8.0
+volume_db = 3.0
 
 [node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
@@ -138,5 +140,4 @@ volume_db = 3.0
 [node name="Explosion" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 15 )
-frame = 1
 playing = true

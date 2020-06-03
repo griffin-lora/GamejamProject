@@ -67,4 +67,4 @@ func decode(d_base64):
 				object.properties.append(property)
 		objects.append(object)
 	for pp_data in data.path_points:
-		path_points.append(Vector2(pp_data))
+		path_points.append(Vector2(pp_data[0], pp_data[1]))
