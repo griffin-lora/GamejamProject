@@ -1,7 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=2]
-
-[ext_resource path="res://src/LevelContents.gd" type="Script" id=1]
-
-[resource]
-script = ExtResource( 1 )
-data = "eyJvYmplY3RzIjpbeyJpZCI6NywicHJvcGVydGllcyI6W1siVjIiLDY4OCw5MjhdXX1dLCJwYXRoX3BvaW50cyI6W1tbMzIsOTYwXSxbMCwwXSxbMCwwXV0sW1s2NDAsOTYwXSxbMCwwXSxbMCwwXV1dfQ=="

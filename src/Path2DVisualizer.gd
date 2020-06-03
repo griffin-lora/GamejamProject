@@ -5,27 +5,7 @@ extends Path2D
 export var editor : NodePath
 var sprites = []
 
-var spline_length := 30
-
-func _get_spline(i):
-	var last_point = _get_point(i - 1)
-	var next_point = _get_point(i + 1)
-	var spline = last_point.direction_to(next_point) * spline_length
-	return spline
-
-func _get_point(i):
-	var point_count = curve.get_point_count()
-	i = wrapi(i, 0, point_count - 1)
-	return curve.get_point_position(i)
-
-func smooth(value):
-	if not value: return
-
-	var point_count = curve.get_point_count()
-	for i in point_count:
-		var spline = _get_spline(i)
-		curve.set_point_in(i, -spline)
-		curve.set_point_out(i, spline)
+onready var editor_node = get_node(editor)
 
 func add_point(p, add_to_data = false, v = Vector2(), v2 = Vector2()):
 	curve.add_point(p, v, v2)
@@ -35,17 +15,7 @@ func add_point(p, add_to_data = false, v = Vector2(), v2 = Vector2()):
 	sprite.visualizer = self
 	#sprite.data_point = GlobalVars.level_data.path_points[GlobalVars.level_data.path_points.size() - 1]
 	sprite.rect_position = p - (sprite.rect_size / 2)
-	sprites.append(sprite)
-	var id = 0
-	if sprites.size() > 0:
-		id = sprites.size() - 1
-	sprite.visualizer = self
-	sprite.data_id = id
-	sprite.data_point = GlobalVars.level_data.path_points[GlobalVars.level_data.path_points.size() - 1]
-	sprite.offset = (Vector2(sprite.margin_right, sprite.margin_bottom) / 2)
-	sprite.rect_position = p - sprite.offset
 	add_child(sprite)
-	#smooth(1)
 	update()
 
 func _ready():

@@ -1,7 +1,6 @@
 extends Actor
 
 onready var area = $Area2D
-export var tiles_using := Vector2(1, 1)
 
 export var checkpoint_id := 1
 export var path_index := 1
@@ -14,11 +13,7 @@ func collide(col_area):
 	if col_area.name == "CharArea":
 		GlobalVars.checkpoint_id = checkpoint_id
 
-func set_properties():
-	editable_properties = ["position", "checkpoint_id"]
-
 func _ready():
-	id = 6
 	area.connect("area_entered", self, "collide")
 
 func intersects_pos(test_position):
