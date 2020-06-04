@@ -46,7 +46,6 @@ func enter_play_mode():
 	get_tree().change_scene("res://levels/level_loader.tscn")
 	
 func return_to_title():
-	
 	is_title_screen = true
 	get_tree().change_scene("res://levels/title_screen.tscn")
 	

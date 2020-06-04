@@ -32,6 +32,8 @@ func click():
 		GlobalVars.enter_play_mode()
 	elif button_type == 1:
 		GlobalVars.enter_editor_mode()
+	elif button_type == 2:
+		get_tree().change_scene("res://levels/credits.tscn")
 
 func _process(delta):
 	if hovering:
