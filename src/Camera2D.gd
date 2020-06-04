@@ -4,7 +4,7 @@ export var character : NodePath
 
 onready var character_node = get_node(character)
 
-var rotation_speed = 3
+var rotation_speed = 2.5
 var intensity = 3
 
 export var max_offset = Vector2(100, 75)

@@ -19,6 +19,9 @@ var delete_time = 0.0
 export var underground_texture : StreamTexture
 export var underground_particle_texture : StreamTexture
 
+export var snow_texture : StreamTexture
+export var snow_particle_texture : StreamTexture
+
 func set_properties():
 	editable_properties = ["position"]
 
@@ -35,6 +38,9 @@ func _ready():
 	if GlobalVars.level_data.theme == 1:
 		sprite.texture = underground_texture
 		particles.texture = underground_particle_texture
+	elif GlobalVars.level_data.theme == 2:
+		sprite.texture = snow_texture
+		particles.texture = snow_particle_texture
 
 func intersects_pos(test_position):
 	var min_pos = position

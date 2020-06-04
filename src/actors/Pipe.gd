@@ -6,7 +6,6 @@ func set_properties():
 	editable_properties = ["position", "parts"]
 
 func _ready():
-	
 	update_parts()
 
 func update_parts():

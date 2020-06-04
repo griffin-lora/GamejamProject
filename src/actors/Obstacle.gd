@@ -13,6 +13,9 @@ onready var bottom_part = $Bottom
 export var underground_top : StreamTexture
 export var underground_body : StreamTexture
 
+export var snow_top : StreamTexture
+export var snow_body : StreamTexture
+
 var type = "Obstacle"
 
 func collide(col_area):
@@ -26,6 +29,12 @@ func _ready():
 		top_part.texture = underground_top
 		middle_part.texture = underground_body
 		bottom_part.texture = underground_top
+		bottom_part.flip_v = true
+	elif GlobalVars.level_data.theme == 2:
+		top_part.texture = snow_top
+		middle_part.texture = snow_body
+		bottom_part.texture = snow_top
+		bottom_part.flip_v = true
 
 func intersects_pos(test_position):
 	var min_pos = position

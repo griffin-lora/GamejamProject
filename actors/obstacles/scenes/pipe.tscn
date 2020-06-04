@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/pipe_top.png" type="Texture" id=1]
 [ext_resource path="res://assets/pipe_body.png" type="Texture" id=2]
 [ext_resource path="res://src/actors/Pipe.gd" type="Script" id=3]
+[ext_resource path="res://assets/alt_themes/snow_pipe_top.png" type="Texture" id=4]
+[ext_resource path="res://assets/alt_themes/snow_pipe_body.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 32 )
@@ -11,6 +13,8 @@ extents = Vector2( 16, 32 )
 script = ExtResource( 3 )
 underground_top = ExtResource( 1 )
 underground_body = ExtResource( 2 )
+snow_top = ExtResource( 4 )
+snow_body = ExtResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

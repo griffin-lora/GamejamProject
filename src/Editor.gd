@@ -12,11 +12,9 @@ export var placing_obstacles = true
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	id_mapper = load("res://actors/obstacles/ids.tres")
 	
 	for object in GlobalVars.level_data.objects:
-		var object_resource = load("res://actors/obstacles/" + id_mapper.ids[object.id] + ".tres")
-		var object_scene = load(object_resource.scene_path).instance()
+		var object_scene = GlobalVars.scene_cache[object.id].instance()
 		object_scene.mode = mode
 		object_scene.set_properties()
 		var index = 0

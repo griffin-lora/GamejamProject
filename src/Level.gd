@@ -19,10 +19,8 @@ func _ready():
 		path_node.curve.add_point(point)
 
 	var objects_node = get_node(objects)
-	var id_mapper = load("res://actors/obstacles/ids.tres")
 	for object in GlobalVars.level_data.objects:
-		var object_resource = load("res://actors/obstacles/" + id_mapper.ids[object.id] + ".tres")
-		var object_scene = load(object_resource.scene_path).instance()
+		var object_scene = GlobalVars.scene_cache[object.id].instance()
 		object_scene.set_properties()
 		var index = 0
 		for property in object_scene.editable_properties:
@@ -33,6 +31,8 @@ func _ready():
 	if GlobalVars.level_data.theme == 1:
 		background.texture = load("res://assets/alt_themes/bkg_underground.png")
 		background.material.set_shader_param("warp_amount", 0.002)
+	elif GlobalVars.level_data.theme == 2:
+		background.texture = load("res://assets/alt_themes/bkg_snow.png")
 
 func _input(event):
 	if event.is_action_pressed("test") or (event.is_action_pressed("place") and won):

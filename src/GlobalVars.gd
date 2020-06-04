@@ -16,7 +16,16 @@ var is_slow := false
 var slow_time : float = 5
 var slow_ticker : float = 0
 
+var scene_cache = []
+
 func _ready():
+	var id_mapper = load("res://actors/obstacles/ids.tres")
+	for id in id_mapper.ids:
+		var object_resource = load("res://actors/obstacles/" + id + ".tres")
+		var object_scene = load(object_resource.scene_path)
+		scene_cache.append(object_scene)
+		
+	pause_mode = PAUSE_MODE_PROCESS
 	ability_recharge_ct = ability_recharge_time
 	
 func _process(delta):
@@ -30,6 +39,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("paste_level_data") and get_tree().get_current_scene().mode == 1:
 		level_data.decode(OS.clipboard)
 		get_tree().reload_current_scene()
+		
+	if Input.is_action_just_pressed("pause") and get_tree().get_current_scene().mode == 0:
+		get_tree().paused = !get_tree().paused
 		
 	if is_slow:
 		slow_ticker += delta

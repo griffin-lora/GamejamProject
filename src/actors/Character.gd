@@ -25,7 +25,7 @@ onready var actors = get_node("../")
 export var reaction_speed = 12.5
 export var fly_speed = 6.25
 export var slow_fly_speed = 3.125
-export var rotation_speed = 12.5
+export var rotation_speed = 7.5
 export var mouse_rotation_speed = 12.5
 export var arm_speed = 7.5
 
@@ -65,7 +65,7 @@ func kill():
 		sprite.visible = false
 		bubbles.emitting = false
 		afterimage.emitting = false
-		reload_time = 0.6
+		reload_time = 0.75
 		explosion_sound.play()
 
 func _ready():
@@ -106,10 +106,10 @@ func _physics_process(delta):
 				object.modulate = color
 		
 		if !dead:
-			if center_pos.distance_to(target) < fly_speed and path_index + 1 < path_points.size():
+			if center_pos.distance_to(target) < (fly_speed * 1.5) and path_index + 1 < path_points.size():
 				path_index += 1
 				target = path_points[path_index]
-				move_normal = (target - center_pos).normalized()
+				move_normal = move_normal.linear_interpolate((target - center_pos).normalized(), delta * 27)
 			elif path_index + 1 >= path_points.size():
 				win()
 				

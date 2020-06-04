@@ -4,13 +4,14 @@
 [ext_resource path="res://assets/alt_themes/cheep_cheep_frames_underground.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://assets/alt_themes/cheep_cheep_frames_overworld.tres" type="SpriteFrames" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource( 1 )
 id = 6
 underground_frames = ExtResource( 2 )
+snow_frames = ExtResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
@@ -19,14 +20,14 @@ visible = false
 position = Vector2( 8, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/EditorArea"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Area" type="Area2D" parent="KinematicBody2D"]
 visible = false
 position = Vector2( 8, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Area"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
 frames = ExtResource( 3 )

@@ -27,6 +27,8 @@ script = ExtResource( 3 )
 id = 5
 underground_texture = ExtResource( 1 )
 underground_particle_texture = ExtResource( 2 )
+snow_texture = ExtResource( 1 )
+snow_particle_texture = ExtResource( 2 )
 
 [node name="BreakParticles" type="Particles2D" parent="."]
 position = Vector2( 8, 8 )
