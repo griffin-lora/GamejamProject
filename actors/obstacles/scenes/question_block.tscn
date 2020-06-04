@@ -25,6 +25,7 @@ extents = Vector2( 8, 8 )
 [node name="Breakable" type="Node2D"]
 script = ExtResource( 3 )
 id = 5
+score = 300
 underground_texture = ExtResource( 1 )
 underground_particle_texture = ExtResource( 2 )
 snow_texture = ExtResource( 1 )

@@ -2,6 +2,7 @@ extends Actor
 class_name Breakable
 
 export var tiles_using := Vector2(1, 1)
+export var score := 100
 
 onready var area = $Area2D
 onready var area_collision = $Area2D/CollisionShape2D
@@ -27,6 +28,7 @@ func set_properties():
 
 func collide(col_area):
 	if col_area.name == "CharArea" and mode == 0 and delete_time == 0:
+		GlobalVars.score += score
 		sprite.visible = false
 		col_area.get_parent().play_break_anim()
 		delete_time = 3.0

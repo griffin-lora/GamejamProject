@@ -67,6 +67,7 @@ func kill():
 		afterimage.emitting = false
 		reload_time = 0.75
 		explosion_sound.play()
+		GlobalVars.score = clamp(GlobalVars.score - 5000, 0, INF)
 
 func _ready():
 	yield(get_tree(), "physics_frame")
