@@ -17,6 +17,7 @@ func _ready():
 	for object in GlobalVars.level_data.objects:
 		var object_resource = load("res://actors/obstacles/" + id_mapper.ids[object.id] + ".tres")
 		var object_scene = load(object_resource.scene_path).instance()
+		object_scene.mode = mode
 		object_scene.set_properties()
 		var index = 0
 		for property in object_scene.editable_properties:

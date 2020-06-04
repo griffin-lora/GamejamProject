@@ -16,11 +16,14 @@ var type = "Breakable"
 var particle_time_left = 0.0
 var delete_time = 0.0
 
+export var underground_texture : StreamTexture
+export var underground_particle_texture : StreamTexture
+
 func set_properties():
 	editable_properties = ["position"]
 
 func collide(col_area):
-	if col_area.name == "CharArea" and mode == 0:
+	if col_area.name == "CharArea" and mode == 0 and delete_time == 0:
 		sprite.visible = false
 		col_area.get_parent().play_break_anim()
 		delete_time = 3.0
@@ -29,6 +32,9 @@ func collide(col_area):
 
 func _ready():
 	area.connect("area_entered", self, "collide")
+	if GlobalVars.level_data.theme == 1:
+		sprite.texture = underground_texture
+		particles.texture = underground_particle_texture
 
 func intersects_pos(test_position):
 	var min_pos = position

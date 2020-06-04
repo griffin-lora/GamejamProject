@@ -6,4 +6,4 @@ script/source = "export var ids : PoolStringArray
 
 [resource]
 script = SubResource( 1 )
-ids = PoolStringArray( "pipe", "coral", "terrain_small", "terrain_large", "brick", "question_block" )
+ids = PoolStringArray( "pipe", "coral", "terrain_small", "terrain_large", "brick", "question_block", "cheep_cheep" )

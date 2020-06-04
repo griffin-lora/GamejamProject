@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/actors/Character.gd" type="Script" id=1]
 [ext_resource path="res://assets/torpedoted.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/break.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/explosion.png" type="Texture" id=7]
 [ext_resource path="res://assets/explosion.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/kill_enemy.wav" type="AudioStream" id=9]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
@@ -108,7 +109,6 @@ texture = ExtResource( 5 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
-frame = 1
 playing = true
 flip_h = true
 
@@ -119,7 +119,6 @@ flip_h = true
 [node name="HackyRotationSetter" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 9 )
-frame = 1
 playing = true
 flip_h = true
 
@@ -137,7 +136,12 @@ volume_db = 3.0
 stream = ExtResource( 8 )
 volume_db = 3.0
 
+[node name="KillSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = 3.0
+
 [node name="Explosion" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 15 )
+frame = 3
 playing = true

@@ -5,6 +5,7 @@ var path_points = [
 	Vector2(32, 960),
 	Vector2(640, 960)
 ]
+var theme := 0
 
 func deep_copy(v):
 	var t = typeof(v)
@@ -38,6 +39,7 @@ func encode():
 	var data = {}
 	data.objects = []
 	data.path_points = []
+	data.theme = theme
 	for object in objects:
 		var object_data = deep_copy(object)
 		var i = 0
@@ -68,3 +70,4 @@ func decode(d_base64):
 		objects.append(object)
 	for pp_data in data.path_points:
 		path_points.append(Vector2(pp_data[0], pp_data[1]))
+	theme = data.theme

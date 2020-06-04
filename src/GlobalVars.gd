@@ -24,10 +24,10 @@ func _process(delta):
 		ability_recharge_ct = ability_recharge_ct + delta
 	if ability_recharge_ct >= ability_recharge_time and Input.is_action_just_pressed("use_ability"):
 		activate_ability()
-	if Input.is_action_just_pressed("copy_level_data"):
+	if Input.is_action_just_pressed("copy_level_data") and get_tree().get_current_scene().mode == 1:
 		OS.clipboard = level_data.encode()
 		
-	if Input.is_action_just_pressed("paste_level_data"):
+	if Input.is_action_just_pressed("paste_level_data") and get_tree().get_current_scene().mode == 1:
 		level_data.decode(OS.clipboard)
 		get_tree().reload_current_scene()
 		

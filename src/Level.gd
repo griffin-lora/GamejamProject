@@ -5,6 +5,8 @@ export var won := false
 export var path : NodePath # haha funny coindicnddencdedcwd
 export var objects : NodePath
 
+onready var background = $CanvasLayer/Sprite
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
@@ -27,6 +29,10 @@ func _ready():
 			object_scene[property] = object.properties[index]
 			index += 1
 		objects_node.add_child(object_scene)
+		
+	if GlobalVars.level_data.theme == 1:
+		background.texture = load("res://assets/alt_themes/bkg_underground.png")
+		background.material.set_shader_param("warp_amount", 0.002)
 
 func _input(event):
 	if event.is_action_pressed("test") or (event.is_action_pressed("place") and won):

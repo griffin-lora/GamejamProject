@@ -18,6 +18,7 @@ onready var afterimage = $Particles/Afterimage
 onready var explosion = $Explosion
 onready var break_sound = $BreakSound
 onready var explosion_sound = $ExplosionSound
+onready var kill_sound = $KillSound
 onready var path_node = get_node(path)
 onready var actors = get_node("../")
 
@@ -42,6 +43,10 @@ var reload_time = 0.0
 var dead = false
 var ready = false
 var won = false
+
+func play_kill_sound():
+	if !won:
+		kill_sound.play()
 
 func play_break_anim():
 	if !won:

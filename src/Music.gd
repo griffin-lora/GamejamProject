@@ -1,6 +1,7 @@
 extends AudioStreamPlayer
 
 export var play_music : AudioStream
+export var underground_music : AudioStream
 export var edit_music : AudioStream
 export var win_music : AudioStream
 
@@ -13,7 +14,10 @@ func _process(delta):
 	var mode = scene.mode
 	if mode != last_mode:
 		if mode == 0:
-			stream = play_music
+			if GlobalVars.level_data.theme == 1:
+				stream = underground_music
+			else:
+				stream = play_music
 			play()
 		else:
 			stream = edit_music

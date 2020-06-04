@@ -13,15 +13,18 @@ _data = {
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 
+uniform float warp_amount = 0.005;
+
 void fragment() {
 	vec2 uv = UV.xy;
-	uv.y += cos(uv.x*15.+TIME)*0.005;
-	uv.x += cos(uv.y*15.+TIME)*0.005;
+	uv.y += cos(uv.x*15.+TIME)*warp_amount;
+	uv.x += cos(uv.y*15.+TIME)*warp_amount;
 	COLOR = texture(TEXTURE, uv);
 }"
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
+shader_param/warp_amount = 0.005
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
