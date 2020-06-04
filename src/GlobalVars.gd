@@ -78,11 +78,15 @@ func reset():
 
 func switch_level(reload):
 	var level_list = load("res://level_list.tres")
-	var level_name = level_list.levels[level_id]
-	var level_contents = load("res://assets/levels/" + level_name + ".tres")
-	level_data.decode(level_contents.data)
-	if reload:
-		get_tree().reload_current_scene()
+	if level_id < level_list.levels.size():
+		var level_name = level_list.levels[level_id]
+		var level_contents = load("res://assets/levels/" + level_name + ".tres")
+		level_data.decode(level_contents.data)
+		if reload:
+			get_tree().reload_current_scene()
+	else:
+		return_to_title()
+		get_tree().change_scene("res://levels/credits.tscn")
 
 func activate_ability():
 	if get_tree().get_current_scene().mode == 0 and false:
