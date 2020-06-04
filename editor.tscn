@@ -117,6 +117,9 @@ __meta__ = {
 [node name="BasePage" type="Control" parent="UI/Toolbar"]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Obstacles" type="Button" parent="UI/Toolbar/BasePage"]
 margin_left = 38.0

@@ -34,9 +34,10 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 440.0
 margin_top = 809.0
-margin_right = 459.0
+margin_right = 460.0
 margin_bottom = 829.0
 rect_scale = Vector2( 21.2, 4.9 )
+rect_pivot_offset = Vector2( 10, 10 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -57,9 +58,10 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 1104.0
 margin_top = 809.0
-margin_right = 1123.0
+margin_right = 1124.0
 margin_bottom = 829.0
 rect_scale = Vector2( 21.2, 4.9 )
+rect_pivot_offset = Vector2( 10, 10 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
