@@ -106,8 +106,14 @@ func _physics_process(delta):
 				color.a -= 0.05
 				object.modulate = color
 			if Input.is_action_just_pressed("continue"):
-				GlobalVars.level_id += 1
-				GlobalVars.switch_level()
+				if GlobalVars.is_editor_mode:
+					for index in range(8):
+						yield(get_tree(), "physics_frame")
+					get_tree().change_scene("res://editor.tscn")
+				else:
+					GlobalVars.level_id += 1
+					GlobalVars.switch_level(true)
+					Music.update_music()
 		
 		if !dead:
 			if center_pos.distance_to(target) < (fly_speed * 1.5) and path_index + 1 < path_points.size():

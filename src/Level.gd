@@ -8,7 +8,6 @@ export var objects : NodePath
 onready var background = $CanvasLayer/Sprite
 
 func _ready():
-	Music.update_music()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	var path_node = get_node(path)
@@ -36,7 +35,7 @@ func _ready():
 		background.texture = load("res://assets/alt_themes/bkg_snow.png")
 
 func _input(event):
-	if event.is_action_pressed("test") or (event.is_action_pressed("place") and won):
+	if event.is_action_pressed("test") and GlobalVars.is_editor_mode:
 		for index in range(8):
 			yield(get_tree(), "physics_frame")
 		get_tree().change_scene("res://editor.tscn")
