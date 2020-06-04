@@ -4,6 +4,7 @@ var checkpoint_id := 0
 var level_id := 0
 var level_data := LevelData.new()
 var score := 0
+var is_editor_mode = false
 
 # RECHARGE TIME
 var ability_recharge_time : float = 5
@@ -28,6 +29,7 @@ func _ready():
 		
 	pause_mode = PAUSE_MODE_PROCESS
 	ability_recharge_ct = ability_recharge_time
+	switch_level()
 	
 func _process(delta):
 	if get_tree().get_current_scene().mode == 0:
@@ -53,10 +55,11 @@ func reset():
 	checkpoint_id = 0
 
 func switch_level():
-	reset()
 	var level_list = load("res://level_list.tres")
 	var level_name = level_list.levels[level_id]
-	get_tree().change_scene("res://levels/" + level_name + ".tscn")
+	var level_contents = load("res://assets/levels/" + level_name + ".tres")
+	level_data.decode(level_contents.data)
+	get_tree().reload_current_scene()
 
 func activate_ability():
 	if get_tree().get_current_scene().mode == 0 and false:

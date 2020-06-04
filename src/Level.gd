@@ -8,6 +8,7 @@ export var objects : NodePath
 onready var background = $CanvasLayer/Sprite
 
 func _ready():
+	Music.update_music()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	var path_node = get_node(path)

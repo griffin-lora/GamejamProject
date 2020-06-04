@@ -16,17 +16,7 @@ func _process(delta):
 	var scene = get_tree().get_current_scene()
 	var mode = scene.mode
 	if mode != last_mode:
-		if mode == 0:
-			if GlobalVars.level_data.theme == 2:
-				stream = snow_music
-			elif GlobalVars.level_data.theme == 1:
-				stream = underground_music
-			else:
-				stream = play_music
-			play()
-		else:
-			stream = edit_music
-			play()
+		update_music()
 			
 	if mode == 0:
 		var won = scene.won
@@ -40,3 +30,17 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("mute"):
 		muted = !muted
+
+func update_music():
+	var scene = get_tree().get_current_scene()
+	if scene.mode == 0:
+		if GlobalVars.level_data.theme == 2:
+			stream = snow_music
+		elif GlobalVars.level_data.theme == 1:
+			stream = underground_music
+		else:
+			stream = play_music
+		play()
+	else:
+		stream = edit_music
+		play()

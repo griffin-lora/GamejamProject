@@ -105,6 +105,9 @@ func _physics_process(delta):
 				var color = object.modulate
 				color.a -= 0.05
 				object.modulate = color
+			if Input.is_action_just_pressed("continue"):
+				GlobalVars.level_id += 1
+				GlobalVars.switch_level()
 		
 		if !dead:
 			if center_pos.distance_to(target) < (fly_speed * 1.5) and path_index + 1 < path_points.size():
