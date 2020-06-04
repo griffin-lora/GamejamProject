@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/actors/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/alt_themes/cheep_cheep_frames_underground.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://assets/alt_themes/cheep_cheep_frames_overworld.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://assets/alt_themes/cheep_cheep_frames_snow.tres" type="SpriteFrames" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -11,7 +12,7 @@ extents = Vector2( 8, 8 )
 script = ExtResource( 1 )
 id = 6
 underground_frames = ExtResource( 2 )
-snow_frames = ExtResource( 2 )
+snow_frames = ExtResource( 4 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
@@ -31,6 +32,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
 frames = ExtResource( 3 )
+frame = 1
 playing = true
 centered = false
 flip_h = true
