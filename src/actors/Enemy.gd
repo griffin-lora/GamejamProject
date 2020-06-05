@@ -20,6 +20,7 @@ var velocity := Vector2()
 
 export var underground_frames : SpriteFrames
 export var snow_frames : SpriteFrames
+export var ghost_frames : SpriteFrames
 
 func set_properties():
 	editable_properties = ["position"]
@@ -40,6 +41,8 @@ func _ready():
 		sprite.frames = underground_frames
 	elif GlobalVars.level_data.theme == 2:
 		sprite.frames = snow_frames
+	elif GlobalVars.level_data.theme == 3:
+		sprite.frames = ghost_frames
 
 func intersects_pos(test_position):
 	var min_pos = position

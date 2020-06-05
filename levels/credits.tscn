@@ -64,7 +64,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Credits
 SuperMakerPlayer - Programming, Level Design
 TrafficConeGod - Programming
-YoshiDev - Existing
+YoshiDev - Other
 
 Based on Bullet Bill 3 by Psycosis91
 Soundtrack created by Wolfgun"
@@ -82,7 +82,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Credits
 SuperMakerPlayer - Programming, Level Design
 TrafficConeGod - Programming
-YoshiDev - Existing
+YoshiDev - Other
 
 Based on Bullet Bill 3 by Psycosis91
 Soundtrack created by Wolfgun"

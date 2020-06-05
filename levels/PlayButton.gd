@@ -47,6 +47,7 @@ func up():
 func click():
 	if button_type == 0:
 		GlobalVars.enter_play_mode()
+		GlobalVars.score = 0
 	elif button_type == 1:
 		GlobalVars.enter_editor_mode()
 	elif button_type == 2:
