@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/Credits.gd" type="Script" id=1]
 [ext_resource path="res://assets/Font.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/bkg.png" type="Texture" id=3]
+[ext_resource path="res://assets/button.png" type="Texture" id=4]
+[ext_resource path="res://src/MiscButton.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -25,6 +27,22 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
 shader_param/warp_amount = 0.005
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
 
 [node name="Credits" type="Node2D"]
 script = ExtResource( 1 )
@@ -55,10 +73,10 @@ __meta__ = {
 }
 
 [node name="CreditsBacking" type="Label" parent="."]
-margin_left = 246.0
-margin_top = 368.0
-margin_right = 1675.0
-margin_bottom = 974.0
+margin_left = 242.104
+margin_top = 225.795
+margin_right = 1671.1
+margin_bottom = 831.795
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Credits
@@ -74,10 +92,10 @@ __meta__ = {
 }
 
 [node name="Credits" type="Label" parent="."]
-margin_left = 246.0
-margin_top = 360.0
-margin_right = 1675.0
-margin_bottom = 966.0
+margin_left = 242.104
+margin_top = 217.795
+margin_right = 1671.1
+margin_bottom = 823.795
 custom_fonts/font = SubResource( 1 )
 text = "Credits
 SuperMakerPlayer - Programming, Level Design
@@ -102,3 +120,43 @@ texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 799.768
+margin_top = 885.145
+margin_right = 1117.78
+margin_bottom = 985.145
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Quit"
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="NinePatchRect" parent="Quit"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 4 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Quit"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Back"
+align = 1
+valign = 1

@@ -38,7 +38,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 31.1337, 964.268, 0, 0, 0, 0, 602.738, 963.849 )
 }
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=9]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -54,7 +54,7 @@ outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 20 )
 
-[sub_resource type="StreamTexture" id=9]
+[sub_resource type="StreamTexture" id=13]
 load_path = "res://.import/bkg_underground.png-446e679f9aca657e99c4ac8c80b0e4fc.stex"
 
 [sub_resource type="StreamTexture" id=10]
@@ -141,7 +141,7 @@ margin_left = 38.0
 margin_top = 30.0
 margin_right = 356.0
 margin_bottom = 130.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -181,7 +181,7 @@ margin_left = 394.0
 margin_top = 30.0
 margin_right = 712.0
 margin_bottom = 130.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -225,7 +225,7 @@ margin_left = 750.0
 margin_top = 30.0
 margin_right = 1068.0
 margin_bottom = 130.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -269,7 +269,7 @@ margin_left = 1112.0
 margin_top = 30.0
 margin_right = 1430.0
 margin_bottom = 128.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -313,7 +313,7 @@ margin_left = 1730.0
 margin_top = 30.0
 margin_right = 1874.0
 margin_bottom = 130.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -414,7 +414,7 @@ margin_left = 1730.0
 margin_top = 30.0
 margin_right = 1874.0
 margin_bottom = 130.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -517,7 +517,7 @@ margin_left = 1730.0
 margin_top = 30.0
 margin_right = 1874.0
 margin_bottom = 130.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -577,7 +577,7 @@ margin_top = 28.0
 margin_right = 748.0
 margin_bottom = 328.0
 rect_scale = Vector2( 0.350127, 0.350127 )
-texture_normal = SubResource( 9 )
+texture_normal = SubResource( 13 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -636,7 +636,7 @@ margin_left = 1730.0
 margin_top = 30.0
 margin_right = 1874.0
 margin_bottom = 130.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -698,7 +698,7 @@ margin_left = 1730.0
 margin_top = 30.0
 margin_right = 1874.0
 margin_bottom = 130.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -738,7 +738,7 @@ margin_left = 1592.0
 margin_top = -212.0
 margin_right = 1910.01
 margin_bottom = -112.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -778,7 +778,7 @@ margin_left = 1264.0
 margin_top = -212.0
 margin_right = 1582.01
 margin_bottom = -112.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -819,7 +819,7 @@ margin_left = 1592.0
 margin_top = -108.0
 margin_right = 1910.01
 margin_bottom = -7.99999
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -860,7 +860,7 @@ margin_left = 1264.0
 margin_top = -108.0
 margin_right = 1582.01
 margin_bottom = -8.0
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
