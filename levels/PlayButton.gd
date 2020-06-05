@@ -61,7 +61,3 @@ func _process(delta):
 	else:
 		tick = 0
 		rect_rotation = lerp(rect_rotation, 0, delta * 4)
-	if down:
-		rect_scale = lerp(rect_scale, Vector2(1.1, 1.1), delta * 4)
-	else:
-		rect_scale = lerp(rect_scale, Vector2(1, 1), delta * 4)
