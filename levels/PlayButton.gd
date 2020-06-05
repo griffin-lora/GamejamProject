@@ -10,6 +10,7 @@ export var normal_color : Color
 
 var down = false
 var hovering = false
+onready var original_scale
 
 onready var label = $Label
 
@@ -20,6 +21,7 @@ func _ready():
 	connect("button_up", self, "up")
 	connect("mouse_entered", self, "hover")
 	connect("mouse_exited", self, "unhover")
+	connect("pressed", self, "click")
 	label.add_color_override("font_color", normal_color)
 	label.add_color_override("font_outline_modulate", normal_outline_color)
 	
@@ -40,8 +42,6 @@ func down():
 	down = true
 
 func up():
-	if down:
-		click()
 	down = false
 	
 func click():
@@ -61,3 +61,7 @@ func _process(delta):
 	else:
 		tick = 0
 		rect_rotation = lerp(rect_rotation, 0, delta * 4)
+	if down:
+		rect_scale = lerp(rect_scale, Vector2(1.1, 1.1), delta * 4)
+	else:
+		rect_scale = lerp(rect_scale, Vector2(1, 1), delta * 4)
