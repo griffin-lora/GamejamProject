@@ -22,6 +22,9 @@ func _ready():
 	connect("mouse_exited", self, "unhover")
 	label.add_color_override("font_color", normal_color)
 	label.add_color_override("font_outline_modulate", normal_outline_color)
+	
+	if button_type == 1 and OS.get_name() != "Windows":
+		queue_free()
 
 func hover():
 	hovering = true
