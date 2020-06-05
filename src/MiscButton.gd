@@ -16,3 +16,5 @@ func _pressed():
 	elif type == 2:
 		GlobalVars.level_data.decode(OS.clipboard)
 		get_tree().reload_current_scene()
+	elif type == 3:
+		get_tree().get_current_scene().test_level()

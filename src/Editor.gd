@@ -77,14 +77,17 @@ func get_objects_at_position(test_position):
 	
 func _unhandled_input(event):
 	if event.is_action_pressed("test"):
-		GlobalVars.score = 0
-		GlobalVars.level_data.objects.clear()
-		for object in objects.get_children():
-			var level_object = {
-				"id": object.id,
-				"properties": []
-			}
-			for property in object.editable_properties:
-				level_object.properties.append(object[property])
-			GlobalVars.level_data.objects.append(level_object)
-		get_tree().change_scene("res://levels/level_loader.tscn")
+		test_level()
+
+func test_level():
+	GlobalVars.score = 0
+	GlobalVars.level_data.objects.clear()
+	for object in objects.get_children():
+		var level_object = {
+			"id": object.id,
+			"properties": []
+		}
+		for property in object.editable_properties:
+			level_object.properties.append(object[property])
+		GlobalVars.level_data.objects.append(level_object)
+	get_tree().change_scene("res://levels/level_loader.tscn")
