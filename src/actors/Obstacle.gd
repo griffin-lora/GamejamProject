@@ -19,6 +19,9 @@ export var snow_body : StreamTexture
 export var ghost_top : StreamTexture
 export var ghost_body : StreamTexture
 
+export var castle_top : StreamTexture
+export var castle_body : StreamTexture
+
 var type = "Obstacle"
 
 func collide(col_area):
@@ -42,6 +45,11 @@ func _ready():
 		top_part.texture = ghost_top
 		middle_part.texture = ghost_body
 		bottom_part.texture = ghost_top
+		bottom_part.flip_v = true
+	elif GlobalVars.level_data.theme == 4:
+		top_part.texture = castle_top
+		middle_part.texture = castle_body
+		bottom_part.texture = castle_top
 		bottom_part.flip_v = true
 
 func intersects_pos(test_position):

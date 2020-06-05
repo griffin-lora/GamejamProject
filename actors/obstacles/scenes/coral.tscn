@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/coral_body.png" type="Texture" id=1]
 [ext_resource path="res://src/actors/Pipe.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/alt_themes/snow_coral_body.png" type="Texture" id=6]
 [ext_resource path="res://assets/alt_themes/ghost_coral_top.png" type="Texture" id=7]
 [ext_resource path="res://assets/alt_themes/ghost_coral_body.png" type="Texture" id=8]
+[ext_resource path="res://assets/alt_themes/castle_coral_top.png" type="Texture" id=9]
+[ext_resource path="res://assets/alt_themes/castle_coral_body.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 32 )
@@ -24,6 +26,8 @@ snow_top = ExtResource( 5 )
 snow_body = ExtResource( 6 )
 ghost_top = ExtResource( 7 )
 ghost_body = ExtResource( 8 )
+castle_top = ExtResource( 9 )
+castle_body = ExtResource( 10 )
 tiles_using = Vector2( 1, 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
