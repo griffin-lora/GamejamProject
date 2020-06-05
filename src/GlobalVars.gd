@@ -36,6 +36,7 @@ func _ready():
 func enter_editor_mode():
 	is_title_screen = false
 	is_editor_mode = true
+	get_tree().paused = false
 	level_id = 0
 	switch_level(false)
 	get_tree().change_scene("res://editor.tscn")
@@ -43,12 +44,14 @@ func enter_editor_mode():
 func enter_play_mode():
 	is_title_screen = false
 	is_editor_mode = false
+	get_tree().paused = false
 	level_id = 1
 	switch_level(false)
 	get_tree().change_scene("res://levels/level_loader.tscn")
 	
 func return_to_title():
 	is_title_screen = true
+	get_tree().paused = false
 	get_tree().change_scene("res://levels/title_screen.tscn")
 	
 	
@@ -70,8 +73,13 @@ func _process(delta):
 		level_data.decode(OS.clipboard)
 		get_tree().reload_current_scene()
 		
-	if Input.is_action_just_pressed("pause") and get_tree().get_current_scene().mode == 0:
+	if Input.is_action_just_pressed("pause") and get_tree().get_current_scene().mode == 0 and !is_editor_mode:
+		UI.get_node("CanvasLayer/PauseScreen").visible = !get_tree().paused
 		get_tree().paused = !get_tree().paused
+		if get_tree().paused:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		
 	if Input.is_action_just_pressed("return"):
 		return_to_title()

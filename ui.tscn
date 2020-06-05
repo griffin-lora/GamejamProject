@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/Visibility.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui_itembox_outline.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://src/AbilityUI.gd" type="Script" id=4]
 [ext_resource path="res://assets/ui_timestop.png" type="Texture" id=5]
 [ext_resource path="res://assets/Font.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/button.png" type="Texture" id=7]
+[ext_resource path="res://src/MiscButton.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -13,7 +15,24 @@ outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
 [node name="UI" type="Node2D"]
+pause_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10
@@ -126,3 +145,143 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PauseScreen" type="Control" parent="CanvasLayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="CanvasLayer/PauseScreen"]
+margin_left = 801.0
+margin_top = 617.684
+margin_right = 1119.0
+margin_bottom = 717.684
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Quit"
+flat = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/Quit"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 7 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/Quit"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Quit"
+align = 1
+valign = 1
+
+[node name="Copy" type="Button" parent="CanvasLayer/PauseScreen"]
+margin_left = 801.0
+margin_top = 504.112
+margin_right = 1120.67
+margin_bottom = 604.112
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Quit"
+flat = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = 1
+
+[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/Copy"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 7 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/Copy"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Copy"
+align = 1
+valign = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer/PauseScreen"]
+margin_left = 801.0
+margin_top = 390.54
+margin_right = 1115.66
+margin_bottom = 490.54
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Quit"
+flat = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = 4
+
+[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/Resume"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 7 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/Resume"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Resume"
+align = 1
+valign = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseScreen"]
+modulate = Color( 1, 1, 1, 0.301961 )
+show_behind_parent = true
+margin_left = -43.272
+margin_top = -33.9994
+margin_right = -3.27197
+margin_bottom = 6.00061
+rect_scale = Vector2( 51.524, 31.2216 )
+color = Color( 0, 0, 0, 1 )
