@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://src/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_preview.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/question_block_icon.png" type="Texture" id=14]
 [ext_resource path="res://assets/brick_block_icon.png" type="Texture" id=15]
 [ext_resource path="res://src/PathButton.gd" type="Script" id=16]
+[ext_resource path="res://assets/bkg.png" type="Texture" id=17]
 [ext_resource path="res://src/BackButton.gd" type="Script" id=19]
 [ext_resource path="res://assets/Font.ttf" type="DynamicFontData" id=20]
 [ext_resource path="res://src/SubMenuButton.gd" type="Script" id=21]
@@ -51,6 +52,18 @@ size = 40
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 20 )
+
+[sub_resource type="StreamTexture" id=9]
+load_path = "res://.import/bkg_underground.png-446e679f9aca657e99c4ac8c80b0e4fc.stex"
+
+[sub_resource type="StreamTexture" id=10]
+load_path = "res://.import/bkg_snow.png-b6d4212f8b64b833f5562b65a35301bf.stex"
+
+[sub_resource type="StreamTexture" id=11]
+load_path = "res://.import/bkg_ghost.png-f68420d2cfc3650962a2f52b0eec48ef.stex"
+
+[sub_resource type="StreamTexture" id=12]
+load_path = "res://.import/bkg_castle.png-6162e4800040ba2e300e556d8b6bf8ff.stex"
 
 [node name="Editor" type="Node2D"]
 script = ExtResource( 1 )
@@ -545,11 +558,11 @@ margin_bottom = 40.0
 
 [node name="TextureButton" type="TextureButton" parent="UI/Toolbar/ThemesPage"]
 margin_left = 40.0
-margin_top = 40.0
-margin_right = 77.0
-margin_bottom = 88.0
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 15 )
+margin_top = 28.0
+margin_right = 540.0
+margin_bottom = 328.0
+rect_scale = Vector2( 0.350127, 0.350127 )
+texture_normal = ExtResource( 17 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -558,12 +571,12 @@ editor_path = NodePath("../../../..")
 is_theme = true
 
 [node name="TextureButton2" type="TextureButton" parent="UI/Toolbar/ThemesPage"]
-margin_left = 128.0
-margin_top = 40.0
-margin_right = 152.0
-margin_bottom = 88.0
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 14 )
+margin_left = 248.0
+margin_top = 28.0
+margin_right = 748.0
+margin_bottom = 328.0
+rect_scale = Vector2( 0.350127, 0.350127 )
+texture_normal = SubResource( 9 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -573,12 +586,12 @@ editor_path = NodePath("../../../..")
 is_theme = true
 
 [node name="TextureButton3" type="TextureButton" parent="UI/Toolbar/ThemesPage"]
-margin_left = 184.0
-margin_top = 40.0
-margin_right = 248.0
-margin_bottom = 88.0
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 11 )
+margin_left = 456.0
+margin_top = 28.0
+margin_right = 956.0
+margin_bottom = 328.0
+rect_scale = Vector2( 0.350127, 0.350127 )
+texture_normal = SubResource( 10 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -588,12 +601,12 @@ editor_path = NodePath("../../../..")
 is_theme = true
 
 [node name="TextureButton4" type="TextureButton" parent="UI/Toolbar/ThemesPage"]
-margin_left = 312.0
-margin_top = 40.0
-margin_right = 384.0
-margin_bottom = 88.0
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 8 )
+margin_left = 664.0
+margin_top = 28.0
+margin_right = 1164.0
+margin_bottom = 328.0
+rect_scale = Vector2( 0.350127, 0.350127 )
+texture_normal = SubResource( 11 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -603,12 +616,12 @@ editor_path = NodePath("../../../..")
 is_theme = true
 
 [node name="TextureButton5" type="TextureButton" parent="UI/Toolbar/ThemesPage"]
-margin_left = 480.0
-margin_top = 36.0
-margin_right = 552.0
-margin_bottom = 84.0
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 8 )
+margin_left = 872.0
+margin_top = 28.0
+margin_right = 1372.0
+margin_bottom = 328.0
+rect_scale = Vector2( 0.350127, 0.350127 )
+texture_normal = SubResource( 12 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
