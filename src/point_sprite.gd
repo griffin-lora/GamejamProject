@@ -13,4 +13,4 @@ func _ready():
 func _physics_process(delta):
 	if pressed and not removed:
 		removed = true
-		get_tree().get_current_scene().get_node("Path2D").remove_point(point_index)
+		visualizer.remove_point(point_index)
