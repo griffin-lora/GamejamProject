@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://src/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_preview.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/brick_block_icon.png" type="Texture" id=15]
 [ext_resource path="res://src/PathButton.gd" type="Script" id=16]
 [ext_resource path="res://assets/bkg.png" type="Texture" id=17]
+[ext_resource path="res://src/MiscButton.gd" type="Script" id=18]
 [ext_resource path="res://src/BackButton.gd" type="Script" id=19]
 [ext_resource path="res://assets/Font.ttf" type="DynamicFontData" id=20]
 [ext_resource path="res://src/SubMenuButton.gd" type="Script" id=21]
@@ -729,5 +730,127 @@ margin_bottom = 100.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Back"
+align = 1
+valign = 1
+
+[node name="Quit" type="Button" parent="UI/Toolbar"]
+margin_left = 1592.0
+margin_top = -212.0
+margin_right = 1910.01
+margin_bottom = -112.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Quit"
+flat = true
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="NinePatchRect" parent="UI/Toolbar/Quit"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Toolbar/Quit"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Quit"
+align = 1
+valign = 1
+
+[node name="Paste" type="Button" parent="UI/Toolbar"]
+margin_left = 1592.0
+margin_top = -108.0
+margin_right = 1910.01
+margin_bottom = -7.99999
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Copy"
+flat = true
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = 2
+
+[node name="Button" type="NinePatchRect" parent="UI/Toolbar/Paste"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Toolbar/Paste"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Paste"
+align = 1
+valign = 1
+
+[node name="Copy" type="Button" parent="UI/Toolbar"]
+margin_left = 1264.0
+margin_top = -108.0
+margin_right = 1582.01
+margin_bottom = -8.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Copy"
+flat = true
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = 1
+
+[node name="Button" type="NinePatchRect" parent="UI/Toolbar/Copy"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Toolbar/Copy"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Copy"
 align = 1
 valign = 1
