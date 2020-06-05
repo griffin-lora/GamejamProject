@@ -6,6 +6,7 @@
 [node name="TextureButton" type="TextureButton"]
 margin_right = 24.0
 margin_bottom = 24.0
+button_mask = 2
 texture_normal = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {

@@ -14,9 +14,20 @@ func add_point(p, add_to_data = false, v = Vector2(), v2 = Vector2()):
 	var sprite : TextureButton = load("res://src/point_sprite.tscn").instance()
 	sprite.visualizer = self
 	#sprite.data_point = GlobalVars.level_data.path_points[GlobalVars.level_data.path_points.size() - 1]
+	sprite.point_index = sprites.size()
 	sprite.rect_position = p - (sprite.rect_size / 2)
+	sprites.append(sprite)
 	add_child(sprite)
 	update()
+
+func remove_point(index):
+	curve.remove_point(index)
+	GlobalVars.level_data.path_points.remove(index)
+	sprites[index].queue_free()
+	sprites.remove(index)
+	var i = 0
+	for sprite in sprites:
+		sprite.point_index = i
 
 func _ready():
 	yield(get_tree(), "physics_frame")

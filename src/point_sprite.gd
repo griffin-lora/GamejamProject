@@ -4,21 +4,13 @@ var is_down = false
 var data_point
 var visualizer
 var data_id
-
-func down():
-	is_down = false#true
-	
-func up():
-	is_down = false
+var point_index
+var removed = false
 
 func _ready():
-	connect("button_down", self, "down")
-	connect("button_up", self, "up")
-	
-func _physics_process(d):
-	if is_down:
-		rect_position = get_global_mouse_position()
-		data_point = rect_position
-		rect_position = data_point - (rect_size / 2)
-		visualizer.curve.set_point_position(data_id, get_global_mouse_position())
-		visualizer.update()
+	connect("pressed", self, "click")
+
+func _physics_process(delta):
+	if pressed and not removed:
+		removed = true
+		get_tree().get_current_scene().get_node("Path2D").remove_point(point_index)
