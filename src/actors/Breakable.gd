@@ -23,6 +23,9 @@ export var underground_particle_texture : StreamTexture
 export var snow_texture : StreamTexture
 export var snow_particle_texture : StreamTexture
 
+export var castle_texture : StreamTexture
+export var castle_particle_texture : StreamTexture
+
 func set_properties():
 	editable_properties = ["position"]
 
@@ -43,6 +46,9 @@ func _ready():
 	elif GlobalVars.level_data.theme == 2:
 		sprite.texture = snow_texture
 		particles.texture = snow_particle_texture
+	elif GlobalVars.level_data.theme == 4:
+		sprite.texture = castle_texture
+		particles.texture = castle_particle_texture
 
 func intersects_pos(test_position):
 	var min_pos = position

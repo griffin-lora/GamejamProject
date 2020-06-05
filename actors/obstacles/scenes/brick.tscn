@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/brick_particle.png" type="Texture" id=1]
 [ext_resource path="res://assets/brick_block.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/alt_themes/underground_brick_particle.png" type="Texture" id=5]
 [ext_resource path="res://assets/alt_themes/snow_brick_particle.png" type="Texture" id=6]
 [ext_resource path="res://assets/alt_themes/snow_brick_block.png" type="Texture" id=7]
+[ext_resource path="res://assets/alt_themes/castle_brick_particle.png" type="Texture" id=8]
+[ext_resource path="res://assets/alt_themes/castle_brick_block.png" type="Texture" id=9]
 
 [sub_resource type="ParticlesMaterial" id=1]
 flag_disable_z = true
@@ -33,6 +35,8 @@ underground_texture = ExtResource( 4 )
 underground_particle_texture = ExtResource( 5 )
 snow_texture = ExtResource( 7 )
 snow_particle_texture = ExtResource( 6 )
+castle_texture = ExtResource( 9 )
+castle_particle_texture = ExtResource( 8 )
 
 [node name="BreakParticles" type="Particles2D" parent="."]
 position = Vector2( 8, 8 )

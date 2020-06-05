@@ -36,6 +36,8 @@ func _ready():
 	elif GlobalVars.level_data.theme == 3:
 		background.texture = load("res://assets/alt_themes/bkg_ghost.png")
 		background.material.set_shader_param("warp_amount", 0.01)
+	elif GlobalVars.level_data.theme == 4:
+		background.texture = load("res://assets/alt_themes/bkg_castle.png")
 
 func _input(event):
 	if event.is_action_pressed("test") and GlobalVars.is_editor_mode:
