@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/editor_music.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/music.ogg" type="AudioStream" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/win_music.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/alt_themes/underground_music.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/alt_themes/snow_music.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/title_music.ogg" type="AudioStream" id=7]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 pause_mode = 2
@@ -16,3 +17,4 @@ underground_music = ExtResource( 5 )
 snow_music = ExtResource( 6 )
 edit_music = ExtResource( 1 )
 win_music = ExtResource( 4 )
+title_music = ExtResource( 7 )

@@ -2,8 +2,16 @@ extends Button
 
 export var button_type := 0
 
+export var hovered_outline_color : Color
+export var normal_outline_color : Color
+
+export var hovered_color : Color
+export var normal_color : Color
+
 var down = false
 var hovering = false
+
+onready var label = $Label
 
 var tick = 0
 
@@ -12,12 +20,18 @@ func _ready():
 	connect("button_up", self, "up")
 	connect("mouse_entered", self, "hover")
 	connect("mouse_exited", self, "unhover")
+	label.add_color_override("font_color", normal_color)
+	label.add_color_override("font_outline_modulate", normal_outline_color)
 
 func hover():
 	hovering = true
+	label.add_color_override("font_color", hovered_color)
+	label.add_color_override("font_outline_modulate", hovered_outline_color)
 	
 func unhover():
 	hovering = false
+	label.add_color_override("font_color", normal_color)
+	label.add_color_override("font_outline_modulate", normal_outline_color)
 
 func down():
 	down = true
@@ -38,7 +52,7 @@ func click():
 func _process(delta):
 	if hovering:
 		tick += delta
-		rect_rotation = sin(tick * 2) * 20
+		rect_rotation = sin(tick * 2) * 5
 	else:
 		tick = 0
-		rect_rotation = 0
+		rect_rotation = lerp(rect_rotation, 0, delta * 4)

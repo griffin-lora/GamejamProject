@@ -6,9 +6,8 @@
 script = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-rect_scale = Vector2( 48.2385, 78.4952 )
+margin_right = 1920.0
+margin_bottom = 1080.0
 text = "Maker - Programming, Level Design
 Psycosis91 - Music
 Traffic - Fucking around

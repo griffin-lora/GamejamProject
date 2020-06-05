@@ -5,6 +5,7 @@ export var underground_music : AudioStream
 export var snow_music : AudioStream
 export var edit_music : AudioStream
 export var win_music : AudioStream
+export var title_music : AudioStream
 
 var last_mode := -1
 var last_won := false
@@ -41,6 +42,9 @@ func update_music():
 		else:
 			stream = play_music
 		play()
-	else:
+	elif scene.mode == 1:
 		stream = edit_music
+		play()
+	else:
+		stream = title_music
 		play()
