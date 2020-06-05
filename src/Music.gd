@@ -6,6 +6,7 @@ export var snow_music : AudioStream
 export var edit_music : AudioStream
 export var win_music : AudioStream
 export var title_music : AudioStream
+export var credits_music : AudioStream
 
 var last_mode := -1
 var last_won := false
@@ -34,17 +35,21 @@ func _process(delta):
 
 func update_music():
 	var scene = get_tree().get_current_scene()
-	if scene.mode == 0:
-		if GlobalVars.level_data.theme == 2:
-			stream = snow_music
-		elif GlobalVars.level_data.theme == 1:
-			stream = underground_music
+	if !(scene.mode == 3 and GlobalVars.credits_from_title == true and last_mode == 2) and !(scene.mode == 2 and GlobalVars.credits_from_title == true and last_mode == 3):
+		if scene.mode == 0:
+			if GlobalVars.level_data.theme == 2:
+				stream = snow_music
+			elif GlobalVars.level_data.theme == 1:
+				stream = underground_music
+			else:
+				stream = play_music
+			play()
+		elif scene.mode == 1:
+			stream = edit_music
+			play()
+		elif scene.mode == 2:
+			stream = title_music
+			play()
 		else:
-			stream = play_music
-		play()
-	elif scene.mode == 1:
-		stream = edit_music
-		play()
-	else:
-		stream = title_music
-		play()
+			stream = credits_music
+			play()

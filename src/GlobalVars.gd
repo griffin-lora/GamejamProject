@@ -19,6 +19,8 @@ var is_slow := false
 var slow_time : float = 5
 var slow_ticker : float = 0
 
+var credits_from_title = false
+
 var scene_cache = []
 
 func _ready():
@@ -55,7 +57,7 @@ func _process(delta):
 		ability_recharge_ct = ability_recharge_ct + delta
 	if ability_recharge_ct >= ability_recharge_time and Input.is_action_just_pressed("use_ability"):
 		activate_ability()
-	if Input.is_action_just_pressed("copy_level_data"):
+	if Input.is_action_just_pressed("copy_level_data") and get_tree().get_current_scene().mode == 1:
 		OS.clipboard = level_data.encode()
 		
 	if Input.is_action_just_pressed("paste_level_data") and get_tree().get_current_scene().mode == 1:
@@ -86,6 +88,7 @@ func switch_level(reload):
 			get_tree().reload_current_scene()
 	else:
 		return_to_title()
+		GlobalVars.credits_from_title = false
 		get_tree().change_scene("res://levels/credits.tscn")
 
 func activate_ability():

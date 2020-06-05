@@ -1,17 +1,104 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/Credits.gd" type="Script" id=1]
+[ext_resource path="res://assets/Font.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/bkg.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform float warp_amount = 0.005;
+
+void fragment() {
+	vec2 uv = UV.xy;
+	uv.y += cos(uv.x*15.+TIME)*warp_amount;
+	uv.x += cos(uv.y*15.+TIME)*warp_amount;
+	COLOR = texture(TEXTURE, uv);
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/warp_amount = 0.005
 
 [node name="Credits" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Label" type="Label" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
-text = "Maker - Programming, Level Design
-Psycosis91 - Music
-Traffic - Fucking around
-Yoshi - Fucking around"
+[node name="LabelBacking" type="Label" parent="."]
+margin_left = 648.0
+margin_top = 81.0
+margin_right = 1273.0
+margin_bottom = 176.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Thanks for playing!"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 648.0
+margin_top = 73.0
+margin_right = 1273.0
+margin_bottom = 168.0
+custom_fonts/font = SubResource( 1 )
+text = "Thanks for playing!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsBacking" type="Label" parent="."]
+margin_left = 246.0
+margin_top = 368.0
+margin_right = 1675.0
+margin_bottom = 974.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credits
+SuperMakerPlayer - Programming, Level Design
+TrafficConeGod - Programming
+YoshiDev - Existing
+
+Based on Bullet Bill 3 by Psycosis91
+Soundtrack created by Wolfgun"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="."]
+margin_left = 246.0
+margin_top = 360.0
+margin_right = 1675.0
+margin_bottom = 966.0
+custom_fonts/font = SubResource( 1 )
+text = "Credits
+SuperMakerPlayer - Programming, Level Design
+TrafficConeGod - Programming
+YoshiDev - Existing
+
+Based on Bullet Bill 3 by Psycosis91
+Soundtrack created by Wolfgun"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+material = SubResource( 3 )
+position = Vector2( 960, 500 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
 }

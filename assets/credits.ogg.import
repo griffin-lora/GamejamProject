@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/credits.ogg-ddcd4dda553dab342faca28dfe4679ba.oggstr"
+
+[deps]
+
+source_file="res://assets/credits.ogg"
+dest_files=[ "res://.import/credits.ogg-ddcd4dda553dab342faca28dfe4679ba.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=43.694

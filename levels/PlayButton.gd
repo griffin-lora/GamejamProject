@@ -47,6 +47,7 @@ func click():
 	elif button_type == 1:
 		GlobalVars.enter_editor_mode()
 	elif button_type == 2:
+		GlobalVars.credits_from_title = true
 		get_tree().change_scene("res://levels/credits.tscn")
 
 func _process(delta):

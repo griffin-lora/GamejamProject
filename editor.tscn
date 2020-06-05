@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_preview.png" type="Texture" id=2]
+[ext_resource path="res://assets/cheepcheep_icon.png" type="Texture" id=3]
 [ext_resource path="res://assets/stripes.png" type="Texture" id=4]
 [ext_resource path="res://src/Path2DVisualizer.gd" type="Script" id=5]
 [ext_resource path="res://src/EditorCamera.gd" type="Script" id=6]
@@ -507,7 +508,7 @@ margin_top = 40.0
 margin_right = 77.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 3 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
