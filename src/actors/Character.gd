@@ -90,7 +90,6 @@ func kill():
 		else:
 			GlobalVars.is_slow = false
 			GlobalVars.slow_ticker = 0
-			GlobalVars.ability_recharge_ct = GlobalVars.pre_death_ability_recharge_ct
 			dead = true
 			explosion.visible = true
 			sprite.visible = false
@@ -99,8 +98,10 @@ func kill():
 			reload_time = 0.75
 			explosion_sound.play()
 			GlobalVars.score = clamp(GlobalVars.score - 5000, 0, INF)
+			GlobalVars.pre_death_ability_recharge_ct += 3000
 
 func _ready():
+	GlobalVars.ability_recharge_ct = GlobalVars.pre_death_ability_recharge_ct
 	yield(get_tree(), "physics_frame")
 	if path:
 		path_node.curve.set_bake_interval(fly_speed)
