@@ -30,7 +30,7 @@ func set_properties():
 	editable_properties = ["position"]
 
 func collide(col_area):
-	if col_area.name == "CharArea" and mode == 0 and delete_time == 0:
+	if (col_area.name == "CharArea" or col_area.name == "BombArea") and mode == 0 and delete_time == 0:
 		GlobalVars.score += score
 		if !GlobalVars.is_slow:
 			GlobalVars.ability_recharge_ct += score

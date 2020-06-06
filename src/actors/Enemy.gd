@@ -26,7 +26,7 @@ func set_properties():
 	editable_properties = ["position"]
 
 func collide(col_area):
-	if col_area.name == "CharArea" and mode == 0 and delete_time == 0:
+	if (col_area.name == "CharArea" or col_area.name == "BombArea") and mode == 0 and delete_time == 0:
 		col_area.get_parent().play_kill_sound()
 		delete_time = 3.0
 		velocity.x = -10

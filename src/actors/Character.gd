@@ -175,10 +175,11 @@ func _physics_process(delta):
 		if GlobalVars.ability_recharge_ct >= GlobalVars.ability_recharge_time and Input.is_action_just_pressed("use_ability") and !dead and !won:
 			GlobalVars.activate_ability()
 		
-		if GlobalVars.is_slow and GlobalVars.ability_id == 1:
+		if GlobalVars.is_slow and GlobalVars.ability_id == 1 and not has_bombs:
 			has_bombs = true
 			var bomb = load("res://actors/bomb.tscn").instance()
 			bomb.character = self
+			print("CREATE")
 			bombs.append(bomb)
 			add_child(bomb)
 	
