@@ -53,6 +53,10 @@ func enter_play_mode():
 	
 func return_to_title():
 	is_title_screen = true
+	ability_recharge_ct = ability_recharge_time
+	pre_death_ability_recharge_ct = ability_recharge_ct
+	slow_ticker = 0
+	is_slow = false
 	get_tree().paused = false
 	get_tree().change_scene("res://levels/title_screen.tscn")
 	
@@ -75,7 +79,7 @@ func _process(delta):
 		level_data.decode(OS.clipboard)
 		get_tree().reload_current_scene()
 		
-	if Input.is_action_just_pressed("pause") and get_tree().get_current_scene().mode == 0 and !is_editor_mode:
+	if Input.is_action_just_pressed("pause") and get_tree().get_current_scene().mode == 0:
 		UI.get_node("CanvasLayer/PauseScreen").visible = !get_tree().paused
 		get_tree().paused = !get_tree().paused
 		if get_tree().paused:
@@ -86,7 +90,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("return"):
 		return_to_title()
 	
-	if is_slow:
+	if is_slow and get_tree().get_current_scene().mode == 0:
 		slow_ticker += delta
 		if slow_ticker >= slow_time:
 			is_slow = false

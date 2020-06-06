@@ -80,6 +80,10 @@ func _unhandled_input(event):
 		test_level()
 
 func test_level():
+	GlobalVars.ability_recharge_ct = GlobalVars.ability_recharge_time
+	GlobalVars.pre_death_ability_recharge_ct = GlobalVars.ability_recharge_ct
+	GlobalVars.slow_ticker = 0
+	GlobalVars.is_slow = false
 	GlobalVars.score = 0
 	GlobalVars.level_data.objects.clear()
 	for object in objects.get_children():
