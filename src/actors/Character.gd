@@ -166,6 +166,9 @@ func _physics_process(delta):
 			else:
 				arm.rotation = lerp_angle(arm.rotation, PI/2, delta * arm_speed)
 				arm.position = arm.position.linear_interpolate(Vector2(0, -2), delta * arm_speed)
+		
+		if GlobalVars.ability_recharge_ct >= GlobalVars.ability_recharge_time and Input.is_action_just_pressed("use_ability") and !dead and !won:
+			GlobalVars.activate_ability()
 	
 func _input(event):
 	if event.is_action_pressed("reset"):
