@@ -22,6 +22,7 @@ onready var kill_sound = $KillSound
 onready var rewind_sound = $RewindSound
 onready var power_down_sound = $PowerDownSound
 onready var power_up_sound = $PowerUpSound
+onready var time_slow_sound = $TimeSlowSound
 onready var path_node = get_node(path)
 onready var actors = get_node("../")
 
@@ -211,7 +212,9 @@ func _physics_process(delta):
 					sprite.visible = true
 					bubbles.emitting = true
 					rewind_sound.play()
-				rotation_degrees = base_rotation
+				sprite.rotation = 0
+				particles.rotation = 0
+				rotation = base_rotation
 				position = lerp(position, ted_lerp_back_to, delta * 4)
 				center_pos = lerp(center_pos, center_pos_lerp_back_to, delta * 4)
 				to_done_with_this_bs_ticker += delta
@@ -227,6 +230,8 @@ func _physics_process(delta):
 		
 		if GlobalVars.ability_id != 2 and GlobalVars.ability_recharge_ct >= GlobalVars.ability_recharge_time and Input.is_action_just_pressed("use_ability") and !dead and !won:
 			GlobalVars.activate_ability()
+			if GlobalVars.ability_id == 0:
+				time_slow_sound.play()
 		
 		if GlobalVars.is_slow and GlobalVars.ability_id == 1 and not has_bombs:
 			has_bombs = true
@@ -247,10 +252,10 @@ func _physics_process(delta):
 					scale = Vector2(0.333,0.333)
 				else:
 					scale = Vector2(1, 1)
-				if mini_ticker >= 0.1:
+				if mini_ticker >= 0.075:
 					mini_ticker = 0
 					power_state = !power_state
-				if down_ticker >= 1:
+				if down_ticker >= 0.75:
 					scale = Vector2(0.333,0.333)
 			elif is_powered_down:
 				if up_ticker == 0:
@@ -262,10 +267,10 @@ func _physics_process(delta):
 					scale = Vector2(0.333,0.333)
 				else:
 					scale = Vector2(1, 1)
-				if mini_ticker >= 0.1:
+				if mini_ticker >= 0.075:
 					mini_ticker = 0
 					power_state = !power_state
-				if up_ticker >= 1:
+				if up_ticker >= 0.75:
 					scale = Vector2(1, 1)
 					is_powered_down = false
 					down_ticker = 0

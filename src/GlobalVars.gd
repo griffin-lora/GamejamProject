@@ -23,6 +23,8 @@ var ability_id := 0
 
 var is_slow := false # THIS IS NOW THE PARAM FOR ALL ABILITIES
 var slow_time : float = 5
+var slow_time_1 : float = 5
+var slow_time_2 : float = 10
 var slow_ticker : float = 0
 
 var credits_from_title = false
@@ -38,8 +40,8 @@ func _ready():
 		
 	pause_mode = PAUSE_MODE_PROCESS
 	# DEBUG
-	ability_recharge_ct = ability_recharge_time
-	pre_death_ability_recharge_ct = ability_recharge_time
+	# ability_recharge_ct = ability_recharge_time
+	# pre_death_ability_recharge_ct = ability_recharge_time
 
 func enter_editor_mode():
 	is_title_screen = false
@@ -121,3 +123,7 @@ func activate_ability():
 		ability_recharge_ct = 0
 		slow_ticker = 0
 		is_slow = true
+		if ability_id == 0:
+			slow_time = slow_time_1
+		else:
+			slow_time = slow_time_2

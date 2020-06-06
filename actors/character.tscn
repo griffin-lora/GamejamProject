@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/actors/Character.gd" type="Script" id=1]
 [ext_resource path="res://assets/torpedoted.png" type="Texture" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://assets/explosion.png" type="Texture" id=7]
 [ext_resource path="res://assets/explosion.wav" type="AudioStream" id=8]
 [ext_resource path="res://assets/kill_enemy.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/powerdown.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/powerup.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/reverse.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/time_slow.wav" type="AudioStream" id=13]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
@@ -109,6 +113,7 @@ texture = ExtResource( 5 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -119,6 +124,7 @@ flip_h = true
 [node name="HackyRotationSetter" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 9 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -136,28 +142,28 @@ volume_db = 3.0
 stream = ExtResource( 8 )
 volume_db = 3.0
 
-[node name="ShockSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-volume_db = 3.0
+[node name="PowerDownSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = 12.0
+
+[node name="PowerUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = 12.0
 
 [node name="KillSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = 3.0
 
 [node name="RewindSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-volume_db = 3.0
+stream = ExtResource( 12 )
+volume_db = 1.5
+pitch_scale = 1.25
 
-[node name="PowerDownSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-volume_db = 3.0
-
-[node name="PowerUpSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-volume_db = 3.0
+[node name="TimeSlowSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = 12.0
 
 [node name="Explosion" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 15 )
-frame = 3
 playing = true
