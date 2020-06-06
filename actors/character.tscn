@@ -138,6 +138,10 @@ volume_db = 3.0
 stream = ExtResource( 8 )
 volume_db = 3.0
 
+[node name="ShockSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 3.0
+
 [node name="KillSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = 3.0
@@ -149,5 +153,4 @@ volume_db = 3.0
 [node name="Explosion" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 15 )
-frame = 2
 playing = true

@@ -3,6 +3,7 @@ extends TextureButton
 export var obstacle_id := 0
 export var editor_path : NodePath
 export var is_theme := false
+export var is_ability := false
 
 onready var editor = get_node(editor_path)
 
@@ -24,10 +25,14 @@ func _process(delta):
 		rect_position = rect_position.linear_interpolate(start_rect_pos, delta * 8)
 
 func _pressed():
-	if !is_theme:
+	if is_theme:
+		GlobalVars.level_data.theme = obstacle_id
+		get_tree().reload_current_scene()
+	elif is_ability:
+		GlobalVars.ability_id = obstacle_id
+		GlobalVars.slow_ticker = 0
+		GlobalVars.is_slow = false
+	else:
 		editor.selected_obstacle = obstacle_id
 		editor.update_selected_obstacle()
 		editor.placing_obstacles = true
-	else:
-		GlobalVars.level_data.theme = obstacle_id
-		get_tree().reload_current_scene()

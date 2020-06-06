@@ -38,3 +38,9 @@ func _pressed():
 	elif type == 4:
 		get_tree().paused = !get_tree().paused
 		get_parent().visible = get_tree().paused
+	elif type == 5:
+		get_parent().visible = false
+		get_parent().get_parent().get_node("AbilityScreen").visible = true
+	elif type == 6:
+		get_parent().visible = false
+		get_parent().get_parent().get_node("MainScreen").visible = true
