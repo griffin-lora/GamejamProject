@@ -1,10 +1,10 @@
 extends TextureRect
 
 var ability_textures = [
-	"res://.import/ui_timestop.png-faf79de89573691e4253601788b09e93.stex",
+	"res://assets/ui_timestop.png",
 	"res://icon.png",
-	"res://icon.png",
-	"res://icon.png",
+	"res://assets/potion.png",
+	"res://assets/lightning.png",
 	"res://icon.png",
 	"res://icon.png"
 ]
