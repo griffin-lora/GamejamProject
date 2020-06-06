@@ -20,7 +20,8 @@ func _process(delta):
 func _pressed():
 	if type == 0:
 		get_tree().paused = !get_tree().paused
-		get_parent().visible = get_tree().paused
+		if get_parent().get_parent().name == "PauseScreen":
+			get_parent().get_parent().visible = get_tree().paused
 		GlobalVars.return_to_title()
 	elif type == 1:
 		if get_tree().get_current_scene().mode == 1:
