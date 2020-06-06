@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-levels = PoolStringArray( "editor", "level1", "level2", "level3", "level4" )
+levels = PoolStringArray( "editor", "level1", "level2", "level3", "level4", "level5" )

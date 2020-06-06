@@ -164,5 +164,5 @@ volume_db = 12.0
 [node name="Explosion" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 15 )
-frame = 3
+frame = 1
 playing = true

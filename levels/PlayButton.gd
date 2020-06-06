@@ -46,8 +46,10 @@ func up():
 	
 func click():
 	if button_type == 0:
-		GlobalVars.enter_play_mode()
 		GlobalVars.score = 0
+		GlobalVars.ability_recharge_ct = 0
+		GlobalVars.pre_death_ability_recharge_ct = 0
+		GlobalVars.enter_play_mode()
 	elif button_type == 1:
 		GlobalVars.enter_editor_mode()
 	elif button_type == 2:
