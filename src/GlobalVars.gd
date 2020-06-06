@@ -37,8 +37,6 @@ func _ready():
 		scene_cache.append(object_scene)
 		
 	pause_mode = PAUSE_MODE_PROCESS
-	ability_recharge_ct = ability_recharge_time
-	pre_death_ability_recharge_ct = ability_recharge_ct
 
 func enter_editor_mode():
 	is_title_screen = false
