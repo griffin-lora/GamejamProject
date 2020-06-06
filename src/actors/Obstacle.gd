@@ -27,7 +27,8 @@ var type = "Obstacle"
 func collide(col_area):
 	if col_area.name == "CharArea" and mode == 0:
 		var character = col_area.get_node("../")
-		character.kill()
+		if !character.is_sorta_dead:
+			character.kill()
 
 func _ready():
 	area.connect("area_entered", self, "collide")
