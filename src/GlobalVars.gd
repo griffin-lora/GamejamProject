@@ -14,7 +14,7 @@ var ability_recharge_time : float = 20000
 var ability_recharge_ct : float = 0
 var pre_death_ability_recharge_ct : float = 0
 
-var ability_id := 0
+var ability_id := 1
 
 var is_slow := false # THIS IS NOW THE PARAM FOR ALL ABILITIES
 var slow_time : float = 10
@@ -86,7 +86,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("return"):
 		return_to_title()
 	
-	if is_slow and get_tree().get_current_scene().mode == 0:
+	if is_slow and get_tree().get_current_scene().mode == 0 and not get_tree().paused:
 		slow_ticker += delta
 		if slow_ticker >= slow_time:
 			is_slow = false
