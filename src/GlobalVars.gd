@@ -82,6 +82,8 @@ func _process(delta):
 		get_tree().reload_current_scene()
 		
 	if Input.is_action_just_pressed("pause") and get_tree().get_current_scene().mode == 0:
+		UI.get_node("CanvasLayer/PauseScreen/AbilityScreen").visible = false
+		UI.get_node("CanvasLayer/PauseScreen/MainScreen").visible = true
 		UI.get_node("CanvasLayer/PauseScreen").visible = !get_tree().paused
 		get_tree().paused = !get_tree().paused
 		if get_tree().paused:
