@@ -26,4 +26,4 @@ func _pressed():
 		get_tree().get_current_scene().test_level()
 	elif type == 4:
 		get_tree().paused = !get_tree().paused
-		get_parent().visible = !get_tree().paused
+		get_parent().visible = get_tree().paused

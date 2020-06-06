@@ -47,7 +47,6 @@ __meta__ = {
 }
 
 [node name="Ability" type="TextureProgress" parent="CanvasLayer/Control"]
-visible = false
 margin_left = 904.0
 margin_top = 24.0
 margin_right = 932.0

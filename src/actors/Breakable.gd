@@ -32,6 +32,8 @@ func set_properties():
 func collide(col_area):
 	if col_area.name == "CharArea" and mode == 0 and delete_time == 0:
 		GlobalVars.score += score
+		if !GlobalVars.is_slow:
+			GlobalVars.ability_recharge_ct += score
 		sprite.visible = false
 		col_area.get_parent().play_break_anim()
 		delete_time = 3.0

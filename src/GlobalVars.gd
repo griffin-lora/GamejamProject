@@ -7,16 +7,17 @@ var score := 0
 var is_editor_mode = false
 var is_title_screen = false
 
-# RECHARGE TIME
-var ability_recharge_time : float = 5
+# RECHARGE POINTS
+var ability_recharge_time : float = 20000
 
 # Internal
 var ability_recharge_ct : float = 0
+var pre_death_ability_recharge_ct : float = 0
 
 var ability_id := 0
 
-var is_slow := false
-var slow_time : float = 5
+var is_slow := false # THIS IS NOW THE PARAM FOR ALL ABILITIES
+var slow_time : float = 10
 var slow_ticker : float = 0
 
 var credits_from_title = false
@@ -32,6 +33,7 @@ func _ready():
 		
 	pause_mode = PAUSE_MODE_PROCESS
 	ability_recharge_ct = ability_recharge_time
+	pre_death_ability_recharge_ct = ability_recharge_ct
 
 func enter_editor_mode():
 	is_title_screen = false
@@ -106,12 +108,8 @@ func switch_level(reload):
 		get_tree().change_scene("res://levels/credits.tscn")
 
 func activate_ability():
-	if get_tree().get_current_scene().mode == 0 and false:
+	if get_tree().get_current_scene().mode == 0:
 		ability_recharge_ct = 0
 		print("ability activate")
-		if ability_id == 0: #goodcode
-			time_slow()
-
-func time_slow():
-	slow_ticker = 0
-	is_slow = true
+		slow_ticker = 0
+		is_slow = true

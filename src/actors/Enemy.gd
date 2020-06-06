@@ -33,6 +33,8 @@ func collide(col_area):
 		velocity.y = -90
 		sprite.flip_v = true
 		GlobalVars.score += 600
+		if !GlobalVars.is_slow:
+			GlobalVars.ability_recharge_ct += 600
 
 func _ready():
 	original_pos = position

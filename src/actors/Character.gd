@@ -57,9 +57,15 @@ func win():
 	if !won:
 		won = true
 		level_node.won = true
+		GlobalVars.is_slow = false
+		GlobalVars.slow_ticker = 0
+		GlobalVars.pre_death_ability_recharge_ct = GlobalVars.ability_recharge_ct
 
 func kill():
 	if !dead and !won:
+		GlobalVars.is_slow = false
+		GlobalVars.slow_ticker = 0
+		GlobalVars.ability_recharge_ct = GlobalVars.pre_death_ability_recharge_ct
 		dead = true
 		explosion.visible = true
 		sprite.visible = false
@@ -131,7 +137,7 @@ func _physics_process(delta):
 				var y_normal = Vector2(dy, -dx)
 				base_rotation = y_normal.angle() + PI/2
 				
-			if !GlobalVars.is_slow:
+			if !GlobalVars.is_slow and GlobalVars.ability_id == 0:
 				center_pos += move_normal * fly_speed
 			else:
 				center_pos += move_normal * slow_fly_speed
@@ -144,7 +150,7 @@ func _physics_process(delta):
 			var move_angle = 0
 			rotation_setter.rotation_degrees = lerp(rotation_setter.rotation_degrees, clamp(mouse_screen_pos.y - rotation_setter.offset.y, -35, 35), delta * mouse_rotation_speed)
 			move_angle = rotation_setter.rotation
-			if GlobalVars.is_slow:
+			if GlobalVars.is_slow and GlobalVars.ability_id == 0:
 				move_angle = 0
 				afterimage.emitting = true
 			else:
@@ -154,7 +160,7 @@ func _physics_process(delta):
 			particles.rotation = sprite.rotation
 			rotation = lerp_angle(rotation, base_rotation, delta * rotation_speed)
 		
-			if mouse_screen_pos.y - rotation_setter.offset.y < 5 or GlobalVars.is_slow:
+			if mouse_screen_pos.y - rotation_setter.offset.y < 5 or (GlobalVars.is_slow and GlobalVars.ability_id == 0):
 				arm.rotation = lerp_angle(arm.rotation, 0, delta * arm_speed)
 				arm.position = arm.position.linear_interpolate(Vector2(), delta * arm_speed)
 			else:
