@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/Visibility.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui_itembox_outline.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://assets/button.png" type="Texture" id=7]
 [ext_resource path="res://src/MiscButton.gd" type="Script" id=8]
 [ext_resource path="res://AbilityDisplay.gd" type="Script" id=9]
+[ext_resource path="res://src/ObstacleButton.gd" type="Script" id=10]
+[ext_resource path="res://assets/brick_block_icon.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -165,11 +167,18 @@ margin_bottom = 6.00061
 rect_scale = Vector2( 51.524, 31.2216 )
 color = Color( 0, 0, 0, 1 )
 
-[node name="Quit" type="Button" parent="CanvasLayer/PauseScreen"]
+[node name="MainScreen" type="Control" parent="CanvasLayer/PauseScreen"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="CanvasLayer/PauseScreen/MainScreen"]
 margin_left = 801.0
-margin_top = 617.684
-margin_right = 1119.0
-margin_bottom = 717.684
+margin_top = 719.051
+margin_right = 1117.33
+margin_bottom = 819.051
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
@@ -182,7 +191,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/Quit"]
+[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/MainScreen/Quit"]
 margin_right = 318.0
 margin_bottom = 100.0
 texture = ExtResource( 7 )
@@ -196,7 +205,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/Quit"]
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/MainScreen/Quit"]
 margin_right = 318.0
 margin_bottom = 100.0
 custom_fonts/font = SubResource( 7 )
@@ -205,11 +214,11 @@ text = "Quit"
 align = 1
 valign = 1
 
-[node name="Copy" type="Button" parent="CanvasLayer/PauseScreen"]
+[node name="Copy" type="Button" parent="CanvasLayer/PauseScreen/MainScreen"]
 margin_left = 801.0
-margin_top = 504.112
-margin_right = 1120.67
-margin_bottom = 604.112
+margin_top = 605.479
+margin_right = 1119.0
+margin_bottom = 705.479
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
@@ -223,7 +232,7 @@ __meta__ = {
 }
 type = 1
 
-[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/Copy"]
+[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/MainScreen/Copy"]
 margin_right = 318.0
 margin_bottom = 100.0
 texture = ExtResource( 7 )
@@ -237,7 +246,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/Copy"]
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/MainScreen/Copy"]
 margin_right = 318.0
 margin_bottom = 100.0
 custom_fonts/font = SubResource( 7 )
@@ -246,7 +255,7 @@ text = "Copy Level Data"
 align = 1
 valign = 1
 
-[node name="Resume" type="Button" parent="CanvasLayer/PauseScreen"]
+[node name="Resume" type="Button" parent="CanvasLayer/PauseScreen/MainScreen"]
 margin_left = 801.0
 margin_top = 390.54
 margin_right = 1115.66
@@ -264,7 +273,7 @@ __meta__ = {
 }
 type = 4
 
-[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/Resume"]
+[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/MainScreen/Resume"]
 margin_right = 318.0
 margin_bottom = 100.0
 texture = ExtResource( 7 )
@@ -278,11 +287,145 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/Resume"]
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/MainScreen/Resume"]
 margin_right = 318.0
 margin_bottom = 100.0
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Resume"
+align = 1
+valign = 1
+
+[node name="Abil" type="Button" parent="CanvasLayer/PauseScreen/MainScreen"]
+margin_left = 801.0
+margin_top = 496.339
+margin_right = 1115.1
+margin_bottom = 596.339
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Quit"
+flat = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = 5
+
+[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/MainScreen/Abil"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 7 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/MainScreen/Abil"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Change Ability"
+align = 1
+valign = 1
+
+[node name="AbilityScreen" type="Control" parent="CanvasLayer/PauseScreen"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/PauseScreen/AbilityScreen"]
+margin_left = 688.0
+margin_top = 512.0
+margin_right = 736.0
+margin_bottom = 560.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 11 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+editor_path = NodePath("../../../..")
+is_ability = true
+
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/PauseScreen/AbilityScreen"]
+margin_left = 792.0
+margin_top = 520.0
+margin_right = 840.0
+margin_bottom = 568.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 11 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+obstacle_id = 2
+editor_path = NodePath("../../../..")
+is_ability = true
+
+[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/PauseScreen/AbilityScreen"]
+margin_left = 920.0
+margin_top = 512.0
+margin_right = 968.0
+margin_bottom = 560.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 11 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+obstacle_id = 3
+editor_path = NodePath("../../../..")
+is_ability = true
+
+[node name="Abil2" type="Button" parent="CanvasLayer/PauseScreen/AbilityScreen"]
+margin_left = 800.0
+margin_top = 656.0
+margin_right = 1114.1
+margin_bottom = 756.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Quit"
+flat = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = 6
+
+[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/AbilityScreen/Abil2"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 7 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/AbilityScreen/Abil2"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Change"
 align = 1
 valign = 1
