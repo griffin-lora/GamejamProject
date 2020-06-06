@@ -44,6 +44,9 @@ var dead = false
 var ready = false
 var won = false
 
+var bombs = []
+var has_bombs = false
+
 func play_kill_sound():
 	if !won:
 		kill_sound.play()
@@ -137,9 +140,9 @@ func _physics_process(delta):
 				var y_normal = Vector2(dy, -dx)
 				base_rotation = y_normal.angle() + PI/2
 				
-			if !GlobalVars.is_slow and GlobalVars.ability_id == 0:
+			if !GlobalVars.is_slow:
 				center_pos += move_normal * fly_speed
-			else:
+			elif GlobalVars.ability_id == 0:
 				center_pos += move_normal * slow_fly_speed
 				
 			var mouse_pos = get_global_mouse_position()
@@ -169,6 +172,13 @@ func _physics_process(delta):
 		
 		if GlobalVars.ability_recharge_ct >= GlobalVars.ability_recharge_time and Input.is_action_just_pressed("use_ability") and !dead and !won:
 			GlobalVars.activate_ability()
+		
+		if GlobalVars.is_slow and GlobalVars.ability_id == 1:
+			has_bombs = true
+			var bomb = load("res://actors/bomb.tscn").instance()
+			bomb.character = self
+			bombs.append(bomb)
+			add_child(bomb)
 	
 func _input(event):
 	if event.is_action_pressed("reset"):
