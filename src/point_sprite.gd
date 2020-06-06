@@ -11,6 +11,6 @@ func _ready():
 	connect("pressed", self, "click")
 
 func _physics_process(delta):
-	if pressed and not removed:
+	if pressed and not removed and GlobalVars.level_data.path_points.size() > 2:
 		removed = true
 		visualizer.remove_point(point_index)

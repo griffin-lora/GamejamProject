@@ -49,3 +49,12 @@ func _pressed():
 		get_tree().paused = !get_tree().paused
 		get_parent().get_parent().visible = get_tree().paused
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	elif type == 7:
+		get_parent().get_parent().visible = false
+		
+		yield(VisualServer, 'frame_post_draw')
+		var img = get_viewport().get_texture().get_data()
+		img.flip_y()
+		img.save_png(OS.get_executable_path().get_base_dir() + "/" + str(OS.get_ticks_msec()) + ".png")
+		
+		get_parent().get_parent().visible = true

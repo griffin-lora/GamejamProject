@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/Visibility.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui_itembox_outline.png" type="Texture" id=2]
@@ -9,8 +9,9 @@
 [ext_resource path="res://assets/button.png" type="Texture" id=7]
 [ext_resource path="res://src/MiscButton.gd" type="Script" id=8]
 [ext_resource path="res://AbilityDisplay.gd" type="Script" id=9]
-[ext_resource path="res://src/ObstacleButton.gd" type="Script" id=10]
-[ext_resource path="res://assets/brick_block_icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/arrow_button_hover.png" type="Texture" id=10]
+[ext_resource path="res://assets/arrow_button.png" type="Texture" id=11]
+[ext_resource path="res://src/AbilityChanger.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -31,6 +32,12 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=7]
 size = 40
 outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 32
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
@@ -67,6 +74,9 @@ margin_right = 28.0
 margin_bottom = 28.0
 texture = ExtResource( 5 )
 script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LabelBacking" type="Label" parent="CanvasLayer/Control"]
 margin_left = 30.0
@@ -166,6 +176,9 @@ margin_right = -3.27197
 margin_bottom = 6.00061
 rect_scale = Vector2( 51.524, 31.2216 )
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MainScreen" type="Control" parent="CanvasLayer/PauseScreen"]
 margin_right = 40.0
@@ -176,9 +189,9 @@ __meta__ = {
 
 [node name="Quit" type="Button" parent="CanvasLayer/PauseScreen/MainScreen"]
 margin_left = 801.0
-margin_top = 719.051
+margin_top = 729.161
 margin_right = 1117.33
-margin_bottom = 819.051
+margin_bottom = 829.161
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
@@ -216,9 +229,9 @@ valign = 1
 
 [node name="Copy" type="Button" parent="CanvasLayer/PauseScreen/MainScreen"]
 margin_left = 801.0
-margin_top = 605.479
+margin_top = 505.161
 margin_right = 1119.0
-margin_bottom = 705.479
+margin_bottom = 605.161
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
@@ -257,9 +270,9 @@ valign = 1
 
 [node name="Resume" type="Button" parent="CanvasLayer/PauseScreen/MainScreen"]
 margin_left = 801.0
-margin_top = 390.54
+margin_top = 281.161
 margin_right = 1115.66
-margin_bottom = 490.54
+margin_bottom = 381.161
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
@@ -295,12 +308,59 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Resume"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Screenshot" type="Button" parent="CanvasLayer/PauseScreen/MainScreen"]
+margin_left = 800.0
+margin_top = 617.161
+margin_right = 1114.66
+margin_bottom = 717.161
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Quit"
+flat = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = 7
+
+[node name="Button" type="NinePatchRect" parent="CanvasLayer/PauseScreen/MainScreen/Screenshot"]
+margin_right = 318.0
+margin_bottom = 100.0
+texture = ExtResource( 7 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/MainScreen/Screenshot"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Screenshot"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Abil" type="Button" parent="CanvasLayer/PauseScreen/MainScreen"]
 margin_left = 801.0
-margin_top = 496.339
+margin_top = 393.161
 margin_right = 1115.1
-margin_bottom = 596.339
+margin_bottom = 493.161
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
@@ -345,50 +405,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/PauseScreen/AbilityScreen"]
-margin_left = 688.0
-margin_top = 512.0
-margin_right = 736.0
-margin_bottom = 560.0
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 11 )
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-editor_path = NodePath("../../../..")
-is_ability = true
-
-[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/PauseScreen/AbilityScreen"]
-margin_left = 792.0
-margin_top = 520.0
-margin_right = 840.0
-margin_bottom = 568.0
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 11 )
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-obstacle_id = 2
-editor_path = NodePath("../../../..")
-is_ability = true
-
-[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/PauseScreen/AbilityScreen"]
-margin_left = 920.0
-margin_top = 512.0
-margin_right = 968.0
-margin_bottom = 560.0
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 11 )
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-obstacle_id = 3
-editor_path = NodePath("../../../..")
-is_ability = true
-
 [node name="Abil2" type="Button" parent="CanvasLayer/PauseScreen/AbilityScreen"]
 margin_left = 800.0
 margin_top = 656.0
@@ -426,6 +442,98 @@ margin_right = 318.0
 margin_bottom = 100.0
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Change"
+text = "Confirm"
 align = 1
 valign = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/PauseScreen/AbilityScreen"]
+margin_left = 904.0
+margin_top = 390.0
+margin_right = 944.0
+margin_bottom = 430.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbilitySprite" type="TextureRect" parent="CanvasLayer/PauseScreen/AbilityScreen/Control"]
+margin_right = 28.0
+margin_bottom = 28.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbilityBorder1" type="TextureRect" parent="CanvasLayer/PauseScreen/AbilityScreen/Control"]
+margin_right = 28.0
+margin_bottom = 28.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbilityBorder2" type="TextureRect" parent="CanvasLayer/PauseScreen/AbilityScreen/Control"]
+margin_right = 28.0
+margin_bottom = 28.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="TextureButton" parent="CanvasLayer/PauseScreen/AbilityScreen/Control"]
+margin_left = 128.0
+margin_top = 40.0
+margin_right = 135.0
+margin_bottom = 47.0
+rect_scale = Vector2( 4, 4 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureButton" parent="CanvasLayer/PauseScreen/AbilityScreen/Control"]
+margin_left = -16.0
+margin_top = 40.0
+margin_right = -9.0
+margin_bottom = 47.0
+rect_scale = Vector2( -4, 4 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Backing" type="Label" parent="CanvasLayer/PauseScreen/AbilityScreen"]
+margin_left = 701.0
+margin_top = 531.0
+margin_right = 1214.0
+margin_bottom = 635.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Slows down time to half speed"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="Label" parent="CanvasLayer/PauseScreen/AbilityScreen"]
+margin_left = 701.0
+margin_top = 527.0
+margin_right = 1214.0
+margin_bottom = 631.0
+custom_fonts/font = SubResource( 8 )
+text = "Slows down time to half speed"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
