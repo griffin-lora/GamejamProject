@@ -144,6 +144,8 @@ func _physics_process(delta):
 				center_pos += move_normal * fly_speed
 			elif GlobalVars.ability_id == 0:
 				center_pos += move_normal * slow_fly_speed
+			else:
+				center_pos += move_normal * fly_speed
 				
 			var mouse_pos = get_global_mouse_position()
 			var mouse_screen_pos = get_viewport().get_mouse_position()
