@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/pipe_preview.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://src/BackButton.gd" type="Script" id=19]
 [ext_resource path="res://assets/Font.ttf" type="DynamicFontData" id=20]
 [ext_resource path="res://src/SubMenuButton.gd" type="Script" id=21]
+[ext_resource path="res://assets/alt_themes/bkg_sky.png" type="Texture" id=22]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends TextureRect
@@ -556,6 +557,9 @@ valign = 1
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureButton" type="TextureButton" parent="UI/Toolbar/ThemesPage"]
 margin_left = 40.0
@@ -601,10 +605,25 @@ obstacle_id = 2
 editor_path = NodePath("../../../..")
 is_theme = true
 
-[node name="TextureButton4" type="TextureButton" parent="UI/Toolbar/ThemesPage"]
-margin_left = 664.0
+[node name="TextureButton6" type="TextureButton" parent="UI/Toolbar/ThemesPage"]
+margin_left = 663.0
 margin_top = 28.0
-margin_right = 1164.0
+margin_right = 1163.0
+margin_bottom = 328.0
+rect_scale = Vector2( 0.350127, 0.350127 )
+texture_normal = ExtResource( 22 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+obstacle_id = 5
+editor_path = NodePath("../../../..")
+is_theme = true
+
+[node name="TextureButton4" type="TextureButton" parent="UI/Toolbar/ThemesPage"]
+margin_left = 872.0
+margin_top = 28.0
+margin_right = 1372.0
 margin_bottom = 328.0
 rect_scale = Vector2( 0.350127, 0.350127 )
 texture_normal = SubResource( 11 )
@@ -617,9 +636,9 @@ editor_path = NodePath("../../../..")
 is_theme = true
 
 [node name="TextureButton5" type="TextureButton" parent="UI/Toolbar/ThemesPage"]
-margin_left = 872.0
+margin_left = 1079.0
 margin_top = 28.0
-margin_right = 1372.0
+margin_right = 1579.0
 margin_bottom = 328.0
 rect_scale = Vector2( 0.350127, 0.350127 )
 texture_normal = SubResource( 12 )

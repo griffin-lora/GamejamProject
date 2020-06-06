@@ -73,6 +73,7 @@ __meta__ = {
 }
 
 [node name="SlowScreen" type="Sprite" parent="CanvasLayer"]
+visible = false
 modulate = Color( 0, 0, 0, 0.501961 )
 scale = Vector2( -47.9553, 28.1925 )
 z_index = -1

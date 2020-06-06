@@ -23,6 +23,8 @@ ghost_top = ExtResource( 7 )
 ghost_body = ExtResource( 6 )
 castle_top = ExtResource( 9 )
 castle_body = ExtResource( 8 )
+sky_top = ExtResource( 4 )
+sky_body = ExtResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

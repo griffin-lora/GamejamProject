@@ -5,6 +5,7 @@ export var underground_music : AudioStream
 export var snow_music : AudioStream
 export var ghost_music : AudioStream
 export var castle_music : AudioStream
+export var sky_music : AudioStream
 export var edit_music : AudioStream
 export var win_music : AudioStream
 export var title_music : AudioStream
@@ -39,7 +40,9 @@ func update_music():
 	var scene = get_tree().get_current_scene()
 	if !(scene.mode == 3 and GlobalVars.credits_from_title == true and last_mode == 2) and !(scene.mode == 2 and GlobalVars.credits_from_title == true and last_mode == 3):
 		if scene.mode == 0:
-			if GlobalVars.level_data.theme == 4:
+			if GlobalVars.level_data.theme == 5:
+				stream = sky_music
+			elif GlobalVars.level_data.theme == 4:
 				stream = castle_music
 			elif GlobalVars.level_data.theme == 3:
 				stream = ghost_music

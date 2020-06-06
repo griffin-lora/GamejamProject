@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sky_music.ogg-4e170867e080a177ad079f408db3a1e7.oggstr"
+
+[deps]
+
+source_file="res://assets/alt_themes/sky_music.ogg"
+dest_files=[ "res://.import/sky_music.ogg-4e170867e080a177ad079f408db3a1e7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=1.34

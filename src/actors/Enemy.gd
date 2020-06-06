@@ -47,6 +47,8 @@ func _ready():
 		sprite.frames = ghost_frames
 	elif GlobalVars.level_data.theme == 4:
 		sprite.frames = ghost_frames
+	elif GlobalVars.level_data.theme == 5:
+		sprite.frames = snow_frames
 
 func intersects_pos(test_position):
 	var min_pos = position
