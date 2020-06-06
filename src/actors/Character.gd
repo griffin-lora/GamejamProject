@@ -43,9 +43,17 @@ var reload_time = 0.0
 var dead = false
 var ready = false
 var won = false
+var is_sorta_dead = false
+var to_rewind_ticker = 0
+var is_rewinding = false
+var to_done_with_this_bs_ticker = 0
+var ted_lerp_back_to
+var center_pos_lerp_back_to
 
 var bombs = []
 var has_bombs = false
+
+var last_move_vector = Vector2()
 
 func play_kill_sound():
 	if !won:
@@ -66,17 +74,30 @@ func win():
 
 func kill():
 	if !dead and !won:
-		GlobalVars.is_slow = false
-		GlobalVars.slow_ticker = 0
-		GlobalVars.ability_recharge_ct = GlobalVars.pre_death_ability_recharge_ct
-		dead = true
-		explosion.visible = true
-		sprite.visible = false
-		bubbles.emitting = false
-		afterimage.emitting = false
-		reload_time = 0.75
-		explosion_sound.play()
-		GlobalVars.score = clamp(GlobalVars.score - 5000, 0, INF)
+		if GlobalVars.ability_id == 2 and GlobalVars.ability_recharge_ct >= GlobalVars.ability_recharge_time:
+			GlobalVars.ability_recharge_ct = 0
+			# rewind poggers
+			is_sorta_dead = true
+			explosion.visible = true
+			sprite.visible = false
+			bubbles.emitting = false
+			afterimage.emitting = false
+			var f = 20
+			ted_lerp_back_to = position - (last_move_vector * f)
+			center_pos_lerp_back_to = center_pos - (last_move_vector *f)
+			explosion_sound.play()
+		else:
+			GlobalVars.is_slow = false
+			GlobalVars.slow_ticker = 0
+			GlobalVars.ability_recharge_ct = GlobalVars.pre_death_ability_recharge_ct
+			dead = true
+			explosion.visible = true
+			sprite.visible = false
+			bubbles.emitting = false
+			afterimage.emitting = false
+			reload_time = 0.75
+			explosion_sound.play()
+			GlobalVars.score = clamp(GlobalVars.score - 5000, 0, INF)
 
 func _ready():
 	yield(get_tree(), "physics_frame")
@@ -124,7 +145,7 @@ func _physics_process(delta):
 					GlobalVars.switch_level(true)
 					Music.update_music()
 		
-		if !dead:
+		if !dead and !is_sorta_dead:
 			if center_pos.distance_to(target) < (fly_speed * 1.5) and path_index + 1 < path_points.size():
 				path_index += 1
 				target = path_points[path_index]
@@ -139,6 +160,8 @@ func _physics_process(delta):
 				var x_normal = Vector2(-dy, dx)
 				var y_normal = Vector2(dy, -dx)
 				base_rotation = y_normal.angle() + PI/2
+			
+			var old_center_pos = Vector2(center_pos.x, center_pos.y) # probably wouldve worked the easier way but im worried about mutability at 3 am
 				
 			if !GlobalVars.is_slow:
 				center_pos += move_normal * fly_speed
@@ -146,6 +169,8 @@ func _physics_process(delta):
 				center_pos += move_normal * slow_fly_speed
 			else:
 				center_pos += move_normal * fly_speed
+				
+			last_move_vector = center_pos - old_center_pos
 				
 			var mouse_pos = get_global_mouse_position()
 			var mouse_screen_pos = get_viewport().get_mouse_position()
@@ -171,8 +196,24 @@ func _physics_process(delta):
 			else:
 				arm.rotation = lerp_angle(arm.rotation, PI/2, delta * arm_speed)
 				arm.position = arm.position.linear_interpolate(Vector2(0, -2), delta * arm_speed)
+		else:
+			if is_rewinding:
+				explosion.visible = false
+				sprite.visible = true
+				bubbles.emitting = true
+				rotation_degrees = base_rotation
+				position = lerp(position, ted_lerp_back_to, delta * 4)
+				center_pos = lerp(center_pos, center_pos_lerp_back_to, delta * 4)
+				to_done_with_this_bs_ticker += delta
+				if to_done_with_this_bs_ticker >= 1:
+					is_rewinding = false
+					is_sorta_dead = false
+			elif is_sorta_dead:
+				to_rewind_ticker += delta
+				if to_rewind_ticker >= 1:
+					is_rewinding = true
 		
-		if GlobalVars.ability_recharge_ct >= GlobalVars.ability_recharge_time and Input.is_action_just_pressed("use_ability") and !dead and !won:
+		if GlobalVars.ability_id != 2 and GlobalVars.ability_recharge_ct >= GlobalVars.ability_recharge_time and Input.is_action_just_pressed("use_ability") and !dead and !won:
 			GlobalVars.activate_ability()
 		
 		if GlobalVars.is_slow and GlobalVars.ability_id == 1 and not has_bombs:
