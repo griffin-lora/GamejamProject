@@ -20,7 +20,8 @@ func _process(delta):
 func _pressed():
 	if type == 0:
 		get_tree().paused = !get_tree().paused
-		get_parent().visible = get_tree().paused
+		if get_parent().get_parent().name == "PauseScreen":
+			get_parent().get_parent().visible = get_tree().paused
 		GlobalVars.return_to_title()
 	elif type == 1:
 		if get_tree().get_current_scene().mode == 1:
@@ -38,6 +39,7 @@ func _pressed():
 	elif type == 4:
 		get_tree().paused = !get_tree().paused
 		get_parent().get_parent().visible = get_tree().paused
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	elif type == 5:
 		get_parent().visible = false
 		get_parent().get_parent().get_node("AbilityScreen").visible = true
@@ -46,3 +48,4 @@ func _pressed():
 		get_parent().get_parent().get_node("MainScreen").visible = true
 		get_tree().paused = !get_tree().paused
 		get_parent().get_parent().visible = get_tree().paused
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

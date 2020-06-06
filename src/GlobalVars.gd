@@ -14,7 +14,7 @@ var ability_recharge_time : float = 50000
 var ability_recharge_ct : float = 0
 var pre_death_ability_recharge_ct : float = 0
 
-var ability_id := 2
+var ability_id := 0
 #id 0 stopwatch
 #id 1 bombs (unused and broken)
 #id 2 potion
