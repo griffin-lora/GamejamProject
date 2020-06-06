@@ -14,7 +14,12 @@ var ability_recharge_time : float = 20000
 var ability_recharge_ct : float = 0
 var pre_death_ability_recharge_ct : float = 0
 
-var ability_id := 0
+var ability_id := 2
+#id 0 stopwatch
+#id 1 bombs (unused and broken)
+#id 2 potion
+#id 3 lightning
+#id 4 its 3 am but im still working on this 
 
 var is_slow := false # THIS IS NOW THE PARAM FOR ALL ABILITIES
 var slow_time : float = 10
