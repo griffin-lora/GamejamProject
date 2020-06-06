@@ -12,4 +12,4 @@ dest_files=[ "res://.import/editor_music.ogg-daaf3fd512723203cb842f8433799cba.og
 [params]
 
 loop=true
-loop_offset=0
+loop_offset=2.3
