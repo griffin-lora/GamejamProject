@@ -61,8 +61,8 @@ __meta__ = {
 }
 
 [node name="AbilityDisplay" type="TextureRect" parent="CanvasLayer/Control/Ability"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 28.0
+margin_bottom = 28.0
 texture = ExtResource( 5 )
 script = ExtResource( 9 )
 

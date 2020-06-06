@@ -18,7 +18,6 @@ func _process(delta):
 		rect_position = rect_position.linear_interpolate(start_rect_pos, delta * 8)
 
 func _pressed():
-	print("A")
 	if type == 0:
 		get_tree().paused = !get_tree().paused
 		get_parent().visible = get_tree().paused

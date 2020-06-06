@@ -18,5 +18,4 @@ func _process(delta):
 func change_ability():
 	# i dont fucking know how to do this
 	last_ability_id = GlobalVars.ability_id
-	texture = ImageTexture.new()
-	texture.resource_path = ability_textures[GlobalVars.ability_id]
+	texture = load(ability_textures[GlobalVars.ability_id])
