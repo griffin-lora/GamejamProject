@@ -8,7 +8,7 @@ var is_editor_mode = false
 var is_title_screen = false
 
 # RECHARGE POINTS
-var ability_recharge_time : float = 20000
+var ability_recharge_time : float = 50000
 
 # Internal
 var ability_recharge_ct : float = 0
@@ -62,6 +62,7 @@ func return_to_title():
 	
 	
 func _process(delta):
+	ability_recharge_ct = clamp(ability_recharge_ct, 0, ability_recharge_time)
 	if Input.is_action_just_pressed("copy_level_data"):
 		if get_tree().get_current_scene().mode == 1:
 			OS.clipboard = level_data.encode()
