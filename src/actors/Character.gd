@@ -165,12 +165,10 @@ func _physics_process(delta):
 			
 			var old_center_pos = Vector2(center_pos.x, center_pos.y) # probably wouldve worked the easier way but im worried about mutability at 3 am
 				
-			if !GlobalVars.is_slow:
+			if !(GlobalVars.is_slow and GlobalVars.ability_id == 0):
 				center_pos += move_normal * fly_speed
-			elif GlobalVars.ability_id == 0:
-				center_pos += move_normal * slow_fly_speed
 			else:
-				center_pos += move_normal * fly_speed
+				center_pos += move_normal * slow_fly_speed
 				
 			last_move_vector = center_pos - old_center_pos
 				

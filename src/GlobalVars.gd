@@ -22,7 +22,7 @@ var ability_id := 0
 #id 4 its 3 am but im still working on this 
 
 var is_slow := false # THIS IS NOW THE PARAM FOR ALL ABILITIES
-var slow_time : float = 10
+var slow_time : float = 5
 var slow_ticker : float = 0
 
 var credits_from_title = false

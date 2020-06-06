@@ -33,7 +33,8 @@ func collide(col_area):
 		velocity.y = -90
 		sprite.flip_v = true
 		GlobalVars.score += 600
-		GlobalVars.ability_recharge_ct += 600
+		if !GlobalVars.is_slow:
+			GlobalVars.ability_recharge_ct += 600
 		
 func _ready():
 	original_pos = position
@@ -62,12 +63,21 @@ func intersects_pos(test_position):
 func _physics_process(delta):
 	if mode == 0:
 		if delete_time == 0:
-			time_alive += delta
-			position.y = original_pos.y + (sin(time_alive * 3) * 8)
-			position.x -= 0.25
+			if !(GlobalVars.is_slow and GlobalVars.ability_id == 0):
+				time_alive += delta
+				position.y = original_pos.y + (sin(time_alive * 3) * 8)
+				position.x -= 0.25
+			else:
+				time_alive += delta/2
+				position.y = original_pos.y + (sin(time_alive * 3) * 4)
+				position.x -= 0.125
 		else:
-			velocity.y += 7
-			position += velocity * delta
+			if !(GlobalVars.is_slow and GlobalVars.ability_id == 0):
+				velocity.y += 7
+				position += velocity * delta
+			else:
+				velocity.y += 3.5
+				position += velocity * delta
 	
 	if delete_time > 0:
 		delete_time -= delta

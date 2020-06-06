@@ -5,8 +5,8 @@ var ability_textures = [
 	"res://icon.png",
 	"res://assets/potion.png",
 	"res://assets/lightning.png",
-	"res://icon.png",
-	"res://icon.png"
+	"res://assets/lightning.png",
+	"res://assets/lightning.png"
 ]
 
 var last_ability_id = 0
