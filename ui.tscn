@@ -426,6 +426,6 @@ margin_right = 318.0
 margin_bottom = 100.0
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Back"
+text = "Change"
 align = 1
 valign = 1
