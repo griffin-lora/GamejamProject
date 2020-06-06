@@ -19,6 +19,7 @@ onready var explosion = $Explosion
 onready var break_sound = $BreakSound
 onready var explosion_sound = $ExplosionSound
 onready var kill_sound = $KillSound
+onready var rewind_sound = $RewindSound
 onready var path_node = get_node(path)
 onready var actors = get_node("../")
 
@@ -198,14 +199,18 @@ func _physics_process(delta):
 				arm.position = arm.position.linear_interpolate(Vector2(0, -2), delta * arm_speed)
 		else:
 			if is_rewinding:
-				explosion.visible = false
-				sprite.visible = true
-				bubbles.emitting = true
+				if to_done_with_this_bs_ticker == 0:
+					explosion.visible = false
+					sprite.visible = true
+					bubbles.emitting = true
+					rewind_sound.play()
 				rotation_degrees = base_rotation
 				position = lerp(position, ted_lerp_back_to, delta * 4)
 				center_pos = lerp(center_pos, center_pos_lerp_back_to, delta * 4)
 				to_done_with_this_bs_ticker += delta
 				if to_done_with_this_bs_ticker >= 1:
+					to_done_with_this_bs_ticker = 0
+					to_rewind_ticker = 0
 					is_rewinding = false
 					is_sorta_dead = false
 			elif is_sorta_dead:
