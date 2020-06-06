@@ -20,6 +20,8 @@ onready var break_sound = $BreakSound
 onready var explosion_sound = $ExplosionSound
 onready var kill_sound = $KillSound
 onready var rewind_sound = $RewindSound
+onready var power_down_sound = $PowerDownSound
+onready var power_up_sound = $PowerUpSound
 onready var path_node = get_node(path)
 onready var actors = get_node("../")
 
@@ -50,6 +52,12 @@ var is_rewinding = false
 var to_done_with_this_bs_ticker = 0
 var ted_lerp_back_to
 var center_pos_lerp_back_to
+
+var power_state = true
+var is_powered_down = false
+var down_ticker = 0
+var up_ticker = 0
+var mini_ticker = 0
 
 var bombs = []
 var has_bombs = false
@@ -227,6 +235,43 @@ func _physics_process(delta):
 			print("CREATE")
 			bombs.append(bomb)
 			add_child(bomb)
+		
+		if GlobalVars.ability_id == 3:
+			if GlobalVars.is_slow:
+				if down_ticker == 0:
+					is_powered_down = true
+					power_down_sound.play()
+				down_ticker += delta
+				mini_ticker += delta
+				if power_state:
+					scale = Vector2(0.333,0.333)
+				else:
+					scale = Vector2(1, 1)
+				if mini_ticker >= 0.1:
+					mini_ticker = 0
+					power_state = !power_state
+				if down_ticker >= 1:
+					scale = Vector2(0.333,0.333)
+			elif is_powered_down:
+				if up_ticker == 0:
+					mini_ticker = 0
+					power_up_sound.play()
+				up_ticker += delta
+				mini_ticker += delta
+				if power_state:
+					scale = Vector2(0.333,0.333)
+				else:
+					scale = Vector2(1, 1)
+				if mini_ticker >= 0.1:
+					mini_ticker = 0
+					power_state = !power_state
+				if up_ticker >= 1:
+					scale = Vector2(1, 1)
+					is_powered_down = false
+					down_ticker = 0
+					up_ticker = 0
+					mini_ticker = 0
+					power_state = true
 	
 func _input(event):
 	if event.is_action_pressed("reset"):

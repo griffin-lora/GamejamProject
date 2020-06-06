@@ -37,6 +37,9 @@ func _ready():
 		scene_cache.append(object_scene)
 		
 	pause_mode = PAUSE_MODE_PROCESS
+	# DEBUG
+	ability_recharge_ct = ability_recharge_time
+	pre_death_ability_recharge_ct = ability_recharge_time
 
 func enter_editor_mode():
 	is_title_screen = false
@@ -116,6 +119,5 @@ func switch_level(reload):
 func activate_ability():
 	if get_tree().get_current_scene().mode == 0:
 		ability_recharge_ct = 0
-		print("ability activate")
 		slow_ticker = 0
 		is_slow = true
