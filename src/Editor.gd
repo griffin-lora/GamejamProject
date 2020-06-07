@@ -10,6 +10,9 @@ var id_mapper
 
 export var placing_obstacles = true
 
+export var placing := false
+export var erasing := false
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	id_mapper = load("res://actors/obstacles/ids.tres")
@@ -27,14 +30,14 @@ func _ready():
 func update_selected_obstacle():
 	var object_resource = load("res://actors/obstacles/" + id_mapper.ids[selected_obstacle] + ".tres")
 	preview.texture = object_resource.preview
-
+	
 func _process(delta):
 	var mouse_pos = get_global_mouse_position()
 	var mouse_screen_pos = get_viewport().get_mouse_position()
 	preview.position = Vector2(stepify(mouse_pos.x, 16), stepify(mouse_pos.y, 16))
 	preview.visible = placing_obstacles
 	
-	if Input.is_action_pressed("place") and placing_obstacles and mouse_screen_pos.y < 932:
+	if placing and placing_obstacles and mouse_screen_pos.y < 932:
 		var object_resource = load("res://actors/obstacles/" + id_mapper.ids[selected_obstacle] + ".tres")
 		var object_scene = load(object_resource.scene_path).instance()
 		object_scene.set_properties()
@@ -63,7 +66,7 @@ func _process(delta):
 					level_object.properties.append(object[property])
 				GlobalVars.level_data.objects.append(level_object)
 
-	elif Input.is_action_pressed("erase") and placing_obstacles and mouse_screen_pos.y < 932:
+	elif erasing and placing_obstacles and mouse_screen_pos.y < 932:
 		var objects_found = get_objects_at_position(preview.position)
 		for object in objects_found:
 			object.queue_free()
@@ -76,6 +79,17 @@ func get_objects_at_position(test_position):
 	return objects_found
 	
 func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == 1 and event.pressed:
+			placing = true
+		elif event.button_index == 1 and !event.pressed:
+			placing = false
+		
+		if event.button_index == 2 and event.pressed:
+			erasing = true
+		elif event.button_index == 2 and !event.pressed:
+			erasing = false
+
 	if event.is_action_pressed("test"):
 		test_level()
 

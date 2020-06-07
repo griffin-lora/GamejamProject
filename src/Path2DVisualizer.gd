@@ -58,9 +58,9 @@ func _draw():
 		mouse_pos = Vector2(stepify(mouse_pos.x, 64), stepify(mouse_pos.y, 64))
 		draw_line(GlobalVars.level_data.path_points[GlobalVars.level_data.path_points.size() - 1], mouse_pos, Color(1, 0.5, 0.5), 3)
 
-func _input(event):		
+func _unhandled_input(event):
 	var mouse_screen_pos = get_viewport().get_mouse_position()
-	if event.is_action_pressed("place") and !editor_node.placing_obstacles and mouse_screen_pos.y < 932:
+	if event is InputEventMouseButton and event.pressed and !editor_node.placing_obstacles and mouse_screen_pos.y < 932:
 		var path_points = GlobalVars.level_data.path_points
 		var mouse_pos = Vector2(stepify(get_global_mouse_position().x, 64), stepify(get_global_mouse_position().y, 64))
 		

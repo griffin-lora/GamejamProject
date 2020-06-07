@@ -85,6 +85,7 @@ margin_left = -1920.0
 margin_top = -1080.0
 margin_right = 1920.0
 margin_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource( 4 )
 stretch_mode = 2
 script = SubResource( 1 )
