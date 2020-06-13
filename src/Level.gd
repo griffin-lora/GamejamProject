@@ -14,9 +14,27 @@ func _ready():
 	path_node.curve.clear_points()
 	path_node.curve.set_bake_interval(15)
 	
+	var arrow_scene = load("res://actors/arrow.tscn")
+	
 	var path_points = path_node.curve.get_baked_points()
+	var path_index = 0
+	var last_rot = 0
 	for point in GlobalVars.level_data.path_points:
 		path_node.curve.add_point(point)
+		if path_index > 0:
+			var target = point
+			var last_target = GlobalVars.level_data.path_points[path_index - 1]
+			var dx = target.x - last_target.x
+			var dy = target.y - last_target.y
+			var x_normal = Vector2(-dy, dx)
+			var y_normal = Vector2(dy, -dx)
+			if last_rot != y_normal.angle() + PI/2:
+				var arrow_node = arrow_scene.instance()
+				arrow_node.rotation = y_normal.angle() + PI/2
+				arrow_node.position = last_target
+				add_child(arrow_node)
+			last_rot = y_normal.angle() + PI/2
+		path_index += 1
 
 	var objects_node = get_node(objects)
 	for object in GlobalVars.level_data.objects:
