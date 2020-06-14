@@ -12,7 +12,7 @@ func _ready():
 	
 	var path_node = get_node(path)
 	path_node.curve.clear_points()
-	path_node.curve.set_bake_interval(15)
+	path_node.curve.set_bake_interval(5)
 	
 	var arrow_scene = load("res://actors/arrow.tscn")
 	

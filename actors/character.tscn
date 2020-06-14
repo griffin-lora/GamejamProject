@@ -105,7 +105,6 @@ texture = ExtResource( 3 )
 
 [node name="Afterimage" type="Particles2D" parent="Particles"]
 z_index = -1
-emitting = false
 amount = 16
 local_coords = false
 process_material = SubResource( 6 )

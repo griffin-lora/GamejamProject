@@ -27,9 +27,9 @@ onready var path_node = get_node(path)
 onready var actors = get_node("../")
 
 export var reaction_speed = 12.5
-export var fly_speed = 6.25
+export var fly_speed = 7.25
 export var slow_fly_speed = 3.125
-export var rotation_speed = 7.5
+export var rotation_speed = 5.0
 export var mouse_rotation_speed = 12.5
 export var arm_speed = 7.5
 
@@ -128,6 +128,10 @@ func _ready():
 	target = path_points[path_index]
 	move_normal = (target - center_pos).normalized()
 	ready = true
+	
+func angle_difference(angle1, angle2):
+	var diff = angle2 - angle1
+	return diff if abs(diff) < 180 else diff + (360 * -sign(diff))
 		
 func _physics_process(delta):
 	if ready:
@@ -175,9 +179,15 @@ func _physics_process(delta):
 			var old_center_pos = Vector2(center_pos.x, center_pos.y) # probably wouldve worked the easier way but im worried about mutability at 3 am
 				
 			if !(GlobalVars.is_slow and GlobalVars.ability_id == 0):
-				center_pos += move_normal * fly_speed
+				if abs(angle_difference(wrapf(rotation_degrees, -180, 180), rad2deg(base_rotation))) < 5:
+					center_pos += move_normal * fly_speed
+				else:
+					center_pos += move_normal * (fly_speed/1.5)
 			else:
-				center_pos += move_normal * slow_fly_speed
+				if abs(angle_difference(wrapf(rotation_degrees, -180, 180), rad2deg(base_rotation))) < 5:
+					center_pos += move_normal * slow_fly_speed
+				else:
+					center_pos += move_normal * (slow_fly_speed/1.5)
 				
 			last_move_vector = center_pos - old_center_pos
 				
@@ -192,6 +202,7 @@ func _physics_process(delta):
 			if GlobalVars.is_slow and GlobalVars.ability_id == 0:
 				move_angle = 0
 				afterimage.emitting = true
+				afterimage.process_material.set("angle", -rotation_degrees)
 			else:
 				afterimage.emitting = false
 			
