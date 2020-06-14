@@ -27,8 +27,8 @@ onready var path_node = get_node(path)
 onready var actors = get_node("../")
 
 export var reaction_speed = 12.5
-export var fly_speed = 7.25
-export var slow_fly_speed = 3.125
+export var fly_speed = 8.25
+export var slow_fly_speed = 4.125
 export var rotation_speed = 5.0
 export var mouse_rotation_speed = 12.5
 export var arm_speed = 7.5
@@ -182,12 +182,12 @@ func _physics_process(delta):
 				if abs(angle_difference(wrapf(rotation_degrees, -180, 180), rad2deg(base_rotation))) < 5:
 					center_pos += move_normal * fly_speed
 				else:
-					center_pos += move_normal * (fly_speed/1.5)
+					center_pos += move_normal * (fly_speed/1.35)
 			else:
 				if abs(angle_difference(wrapf(rotation_degrees, -180, 180), rad2deg(base_rotation))) < 5:
 					center_pos += move_normal * slow_fly_speed
 				else:
-					center_pos += move_normal * (slow_fly_speed/1.5)
+					center_pos += move_normal * (slow_fly_speed/1.35)
 				
 			last_move_vector = center_pos - old_center_pos
 				
