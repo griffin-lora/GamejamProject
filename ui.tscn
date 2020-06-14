@@ -13,29 +13,29 @@
 [ext_resource path="res://assets/arrow_button.png" type="Texture" id=11]
 [ext_resource path="res://src/AbilityChanger.gd" type="Script" id=12]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=12]
 size = 48
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=13]
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=14]
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id=15]
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxEmpty" id=16]
 
-[sub_resource type="StyleBoxEmpty" id=6]
+[sub_resource type="StyleBoxEmpty" id=17]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=11]
 size = 40
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=5]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -47,6 +47,7 @@ font_data = ExtResource( 6 )
 layer = 10
 
 [node name="Control" type="Control" parent="CanvasLayer"]
+pause_mode = 2
 margin_right = 40.0
 margin_bottom = 40.0
 mouse_filter = 2
@@ -83,7 +84,7 @@ margin_left = 30.0
 margin_top = 38.0
 margin_right = 246.0
 margin_bottom = 169.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "SCORE
 00000000"
@@ -97,7 +98,7 @@ margin_left = 32.0
 margin_top = 32.0
 margin_right = 176.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 12 )
 text = "SCORE
 00000000"
 align = 1
@@ -123,7 +124,7 @@ __meta__ = {
 margin_top = 813.0
 margin_right = 1920.0
 margin_bottom = 990.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 12 )
 text = "Click to continue"
 align = 1
 valign = 1
@@ -136,7 +137,7 @@ margin_left = 852.0
 margin_top = 128.0
 margin_right = 1068.0
 margin_bottom = 259.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "COURSE
 CLEAR!"
@@ -150,7 +151,7 @@ margin_left = 852.0
 margin_top = 120.0
 margin_right = 1068.0
 margin_bottom = 251.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 12 )
 text = "COURSE
 CLEAR!"
 align = 1
@@ -192,11 +193,11 @@ margin_left = 801.0
 margin_top = 729.161
 margin_right = 1117.33
 margin_bottom = 829.161
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
 text = "Quit"
 flat = true
 script = ExtResource( 8 )
@@ -221,7 +222,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/PauseScreen/MainScreen/Quit"]
 margin_right = 318.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Quit"
 align = 1
@@ -232,11 +233,11 @@ margin_left = 801.0
 margin_top = 505.161
 margin_right = 1119.0
 margin_bottom = 605.161
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
 text = "Quit"
 flat = true
 script = ExtResource( 8 )
@@ -262,7 +263,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/PauseScreen/MainScreen/Copy"]
 margin_right = 318.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Copy Level Data"
 align = 1
@@ -273,11 +274,11 @@ margin_left = 801.0
 margin_top = 281.161
 margin_right = 1115.66
 margin_bottom = 381.161
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
 text = "Quit"
 flat = true
 script = ExtResource( 8 )
@@ -303,7 +304,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/PauseScreen/MainScreen/Resume"]
 margin_right = 318.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Resume"
 align = 1
@@ -317,11 +318,11 @@ margin_left = 800.0
 margin_top = 617.161
 margin_right = 1114.66
 margin_bottom = 717.161
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
 text = "Quit"
 flat = true
 script = ExtResource( 8 )
@@ -347,7 +348,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/PauseScreen/MainScreen/Screenshot"]
 margin_right = 318.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Screenshot"
 align = 1
@@ -361,11 +362,11 @@ margin_left = 801.0
 margin_top = 393.161
 margin_right = 1115.1
 margin_bottom = 493.161
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
 text = "Quit"
 flat = true
 script = ExtResource( 8 )
@@ -391,7 +392,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/PauseScreen/MainScreen/Abil"]
 margin_right = 318.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Change Ability"
 align = 1
@@ -410,11 +411,11 @@ margin_left = 800.0
 margin_top = 656.0
 margin_right = 1114.1
 margin_bottom = 756.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
 text = "Quit"
 flat = true
 script = ExtResource( 8 )
@@ -440,7 +441,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/PauseScreen/AbilityScreen/Abil2"]
 margin_right = 318.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Confirm"
 align = 1
@@ -514,7 +515,7 @@ margin_left = 701.0
 margin_top = 531.0
 margin_right = 1214.0
 margin_bottom = 635.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Slows down time to half speed"
 align = 1
@@ -529,7 +530,7 @@ margin_left = 701.0
 margin_top = 527.0
 margin_right = 1214.0
 margin_bottom = 631.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
 text = "Slows down time to half speed"
 align = 1
 valign = 1

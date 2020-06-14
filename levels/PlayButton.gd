@@ -49,6 +49,7 @@ func click():
 		GlobalVars.score = 0
 		GlobalVars.ability_recharge_ct = 0
 		GlobalVars.pre_death_ability_recharge_ct = 0
+		GlobalVars.just_started = true
 		GlobalVars.enter_play_mode()
 	elif button_type == 1:
 		GlobalVars.enter_editor_mode()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/Level.gd" type="Script" id=1]
 [ext_resource path="res://actors/character.tscn" type="PackedScene" id=2]
@@ -6,6 +6,15 @@
 [ext_resource path="res://assets/bkg.png" type="Texture" id=4]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=5]
 [ext_resource path="res://levels/SlowScreen.gd" type="Script" id=6]
+[ext_resource path="res://assets/button.png" type="Texture" id=7]
+[ext_resource path="res://assets/arrow_button.png" type="Texture" id=8]
+[ext_resource path="res://assets/arrow_button_hover.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui_timestop.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui_itembox_fill.png" type="Texture" id=11]
+[ext_resource path="res://assets/Font.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://assets/ui_itembox_outline.png" type="Texture" id=13]
+[ext_resource path="res://src/MiscButton.gd" type="Script" id=14]
+[ext_resource path="res://src/AbilityChanger.gd" type="Script" id=15]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -27,6 +36,40 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
 shader_param/warp_amount = 0.005
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 48
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="DynamicFont" id=11]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -79,3 +122,207 @@ scale = Vector2( -47.9553, 28.1925 )
 z_index = -1
 texture = ExtResource( 3 )
 script = ExtResource( 6 )
+
+[node name="Abilities" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Control" type="Control" parent="Abilities"]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Abilities/Control"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LabelBacking" type="Label" parent="Abilities/Control"]
+margin_left = 643.0
+margin_top = 29.0
+margin_right = 1277.0
+margin_bottom = 155.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Pick an ability!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Abilities/Control"]
+margin_left = 643.0
+margin_top = 25.0
+margin_right = 1277.0
+margin_bottom = 151.0
+custom_fonts/font = SubResource( 4 )
+text = "Pick an ability!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelBacking2" type="Label" parent="Abilities/Control"]
+margin_top = 929.0
+margin_right = 1920.0
+margin_bottom = 1055.0
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You can change abilities later through the pause menu."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Abilities/Control"]
+margin_top = 925.0
+margin_right = 1920.0
+margin_bottom = 1051.0
+custom_fonts/font = SubResource( 12 )
+text = "You can change abilities later through the pause menu."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Abilities/Control"]
+margin_left = 904.0
+margin_top = 354.849
+margin_right = 932.0
+margin_bottom = 382.849
+rect_scale = Vector2( 4, 4 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbilitySprite" type="TextureRect" parent="Abilities/Control/Control"]
+margin_right = 28.0
+margin_bottom = 28.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AbilityBorder1" type="TextureRect" parent="Abilities/Control/Control"]
+margin_right = 28.0
+margin_bottom = 28.0
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AbilityBorder2" type="TextureRect" parent="Abilities/Control/Control"]
+margin_right = 28.0
+margin_bottom = 28.0
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="TextureButton" parent="Abilities/Control/Control"]
+margin_left = 32.0
+margin_top = 10.0
+margin_right = 39.0
+margin_bottom = 17.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureButton" parent="Abilities/Control/Control"]
+margin_left = -4.0
+margin_top = 10.0
+margin_right = 3.0
+margin_bottom = 17.0
+rect_scale = Vector2( -1, 1 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Backing" type="Label" parent="Abilities/Control"]
+margin_left = 643.0
+margin_top = 479.0
+margin_right = 1277.0
+margin_bottom = 605.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Slows down time to half speed"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="Label" parent="Abilities/Control"]
+margin_left = 643.0
+margin_top = 475.0
+margin_right = 1277.0
+margin_bottom = 601.0
+custom_fonts/font = SubResource( 5 )
+text = "Slows down time to half speed"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confirm" type="Button" parent="Abilities/Control"]
+margin_left = 800.0
+margin_top = 600.849
+margin_right = 1114.0
+margin_bottom = 700.849
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Abilities/Control/Confirm"]
+margin_right = 314.0
+margin_bottom = 100.0
+texture = ExtResource( 7 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Abilities/Control/Confirm"]
+margin_right = 318.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 11 )
+text = "Confirm"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}

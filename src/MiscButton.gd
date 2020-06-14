@@ -43,6 +43,7 @@ func _pressed():
 	elif type == 5:
 		get_parent().visible = false
 		get_parent().get_parent().get_node("AbilityScreen").visible = true
+		get_node("../../AbilityScreen/Control").change_ability()
 	elif type == 6:
 		get_parent().visible = false
 		get_parent().get_parent().get_node("MainScreen").visible = true
@@ -58,3 +59,9 @@ func _pressed():
 		img.save_png(OS.get_executable_path().get_base_dir() + "/" + str(OS.get_ticks_msec()) + ".png")
 		
 		get_parent().get_parent().visible = true
+	elif type == 8:
+		get_parent().visible = false
+		get_tree().paused = false
+		GlobalVars.picking_ability = false
+		get_node("../../../Actors").visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

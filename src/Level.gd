@@ -6,10 +6,9 @@ export var path : NodePath # haha funny coindicnddencdedcwd
 export var objects : NodePath
 
 onready var background = $CanvasLayer/Sprite
+onready var actors = $Actors
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
 	var path_node = get_node(path)
 	path_node.curve.clear_points()
 	path_node.curve.set_bake_interval(5)
@@ -32,7 +31,7 @@ func _ready():
 				var arrow_node = arrow_scene.instance()
 				arrow_node.rotation = y_normal.angle() + PI/2
 				arrow_node.position = last_target
-				add_child(arrow_node)
+				actors.add_child(arrow_node)
 			last_rot = y_normal.angle() + PI/2
 		path_index += 1
 
@@ -58,6 +57,16 @@ func _ready():
 		background.texture = load("res://assets/alt_themes/bkg_castle.png")
 	elif GlobalVars.level_data.theme == 5:
 		background.texture = load("res://assets/alt_themes/bkg_sky.png")
+
+	if GlobalVars.just_started:
+		actors.visible = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		GlobalVars.picking_ability = true
+		get_tree().paused = true
+	else:
+		$Abilities/Control.visible = false
+	
+	GlobalVars.just_started = false
 
 func _input(event):
 	if event.is_action_pressed("test") and GlobalVars.is_editor_mode:

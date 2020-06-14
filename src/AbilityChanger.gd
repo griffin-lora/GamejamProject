@@ -27,6 +27,7 @@ var ability_descriptions = [
 func _ready():
 	arrow_left.connect("pressed", self, "press")
 	arrow_right.connect("pressed", self, "press")
+	change_ability()
 	
 func press():
 	if arrow_left.pressed:

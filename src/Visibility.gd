@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	var current_scene = get_tree().get_current_scene()
 	if ready and is_instance_valid(current_scene):
-		visible = current_scene.mode == 0
+		visible = current_scene.mode == 0 and !GlobalVars.picking_ability
 	label.text = "SCORE\n" + str(GlobalVars.score).pad_zeros(8)
 	label_backing.text = label.text
 	

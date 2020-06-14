@@ -6,6 +6,8 @@ var level_data := LevelData.new()
 var score := 0
 var is_editor_mode = false
 var is_title_screen = false
+var picking_ability = false
+var just_started = false
 
 # RECHARGE POINTS
 var ability_recharge_time : float = 50000
@@ -84,7 +86,7 @@ func _process(delta):
 		level_data.decode(OS.clipboard)
 		get_tree().reload_current_scene()
 		
-	if Input.is_action_just_pressed("pause") and get_tree().get_current_scene().mode == 0:
+	if Input.is_action_just_pressed("pause") and !picking_ability and get_tree().get_current_scene().mode == 0:
 		UI.get_node("CanvasLayer/PauseScreen/AbilityScreen").visible = false
 		UI.get_node("CanvasLayer/PauseScreen/MainScreen").visible = true
 		UI.get_node("CanvasLayer/PauseScreen").visible = !get_tree().paused
