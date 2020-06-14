@@ -27,8 +27,8 @@ onready var path_node = get_node(path)
 onready var actors = get_node("../")
 
 export var reaction_speed = 12.5
-export var fly_speed = 8.25
-export var slow_fly_speed = 4.125
+export var fly_speed = 7.75
+export var slow_fly_speed = 3.725
 export var rotation_speed = 5.0
 export var mouse_rotation_speed = 12.5
 export var arm_speed = 7.5
