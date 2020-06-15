@@ -43,19 +43,17 @@ outline_size = 8
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=5]
 size = 48
 outline_size = 6
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 12 )
-
-[sub_resource type="StyleBoxEmpty" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=7]
 
@@ -65,7 +63,9 @@ font_data = ExtResource( 12 )
 
 [sub_resource type="StyleBoxEmpty" id=10]
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="DynamicFont" id=12]
 size = 40
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
@@ -174,7 +174,7 @@ __meta__ = {
 margin_top = 929.0
 margin_right = 1920.0
 margin_bottom = 1055.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "You can change abilities later through the pause menu."
 align = 1
@@ -187,7 +187,7 @@ __meta__ = {
 margin_top = 925.0
 margin_right = 1920.0
 margin_bottom = 1051.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 5 )
 text = "You can change abilities later through the pause menu."
 align = 1
 valign = 1
@@ -263,7 +263,7 @@ margin_left = 643.0
 margin_top = 479.0
 margin_right = 1277.0
 margin_bottom = 605.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Slows down time to half speed"
 align = 1
@@ -277,7 +277,7 @@ margin_left = 643.0
 margin_top = 475.0
 margin_right = 1277.0
 margin_bottom = 601.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Slows down time to half speed"
 align = 1
 valign = 1
@@ -290,11 +290,11 @@ margin_left = 800.0
 margin_top = 600.849
 margin_right = 1114.0
 margin_bottom = 700.849
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -319,7 +319,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Abilities/Control/Confirm"]
 margin_right = 318.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Confirm"
 align = 1
 valign = 1

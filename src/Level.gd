@@ -64,6 +64,7 @@ func _ready():
 		GlobalVars.picking_ability = true
 		get_tree().paused = true
 	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		$Abilities/Control.visible = false
 	
 	GlobalVars.just_started = false
